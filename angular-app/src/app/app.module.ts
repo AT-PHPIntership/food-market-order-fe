@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TEMPLATECOMPONENTS } from './component/template';
+import { CATEGORYCOMPONENTS } from './component/category';
 @NgModule({
   declarations: [
     AppComponent,
-    TEMPLATECOMPONENTS
+    TEMPLATECOMPONENTS,
+    CATEGORYCOMPONENTS
   ],
   imports: [
     BrowserModule
