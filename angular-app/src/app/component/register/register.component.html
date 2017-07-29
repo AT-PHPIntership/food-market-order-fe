@@ -1,0 +1,84 @@
+<section class="main-container col1-layout">
+  <div id="register-page" class="container">
+    <div class="account-login">
+      <div class="register-box">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 registered-users">
+            <div class="page-title">
+              <h1>Đăng ký</h1>
+            </div>
+            <form accept-charset='UTF-8' action='/account/register' id='customer_register' method='post'>
+              <input name='FormType' type='hidden' value='customer_register'/>
+              <input name='utf8' type='hidden' value='true'/>
+              <h3 class="page-subheading">Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng ký.</h3>
+
+              <ul class="form-list">
+                <li>
+                  <div class="customer-name">
+                    <div class="input-box name-firstname">
+                      <label for="firstname"> Tên <span class="required">*</span></label>
+                      <br>
+                      <input type="text" name="FirstName" title="Tên" class="form-control" placeholder="Tên"
+                             id="firstname">
+                    </div>
+                    <div class="input-box name-lastname">
+                      <label for="lastname"> Họ <span class="required">*</span> </label>
+                      <br>
+                      <input type="text" class="form-control" value="" id="lastname" title="email" name="LastName"
+                             placeholder="Họ">
+                    </div>
+                    <div class="input-box name-lastname">
+                      <label>Date of Birth</label>
+                      <br>
+                      <input type="date" class="form-control" placeholder="Date of Birth">
+
+                    </div>
+                  </div>
+
+                </li>
+
+
+                <li>
+                  <div class="gender">
+                    <label class="editGender bor">Gender</label>
+                    <br>
+                    <label class="radio-inline">
+                      <input type="radio" id="femaleRadio" value="Female">Female
+                    </label>
+
+                    <label class="radio-inline">
+                      <input type="radio" id="maleRadio" value="Male">Male
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" id="uncknownRadio" value="Unknown">Unknown
+                    </label>
+                  </div>
+                </li>
+
+                <li>
+                  <label for="email">Email<span class="required">*</span></label>
+                  <br>
+                  <input type="email" value="" class="form-control" title="Email" name="email" id="email"
+                         placeholder="Email">
+                </li>
+
+                <li>
+                  <label for="pass">Mật khẩu<span class="required">*</span></label>
+                  <br>
+                  <input type="password" value="" class="form-control" title="Mật khẩu" name="password" id="pass"
+                         placeholder="Mật khẩu">
+                </li>
+              </ul>
+
+              <p class="required">* Bắt buộc</p>
+              <div class="buttons-set">
+                <button id="send2" type="submit" class="btn btn-outline"><span>Đăng ký</span></button>
+                hoặc <a href="/account/login">Đăng nhập</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
