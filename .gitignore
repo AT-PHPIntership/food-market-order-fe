@@ -7,9 +7,9 @@
 
 # dependencies
 /node_modules
-/src/index.html
-/src/app/app.module.ts
-/src/app/app.route.ts
+#/src/index.html
+#/src/app/app.module.ts
+#/src/app/app.route.ts
 # IDEs and editors
 /.idea
 .project
