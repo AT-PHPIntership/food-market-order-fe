@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app-name
+    docker:
+      - image: circleci/node:6-browsers
+    steps:
+      - checkout
+      - run:
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+      - run:
+          name: angular-build
+          command: yarn ng -- build --prod
+      - run:
+          name: angular-test
+          command: yarn test -- --single-run
+      - run:
+          name: angular-lint
+          command: yarn lint
