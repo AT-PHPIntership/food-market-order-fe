@@ -16,10 +16,10 @@ jobs:
             - ./node_modules
       - run:
           name: angular-build
-          command: yarn ng -- build --prod --no-progress
+          command: yarn ng -- build --prod
       - run:
           name: angular-test
-          command: yarn test -- --single-run --no-progress
+          command: yarn test -- --single-run
       - run:
           name: angular-lint
           command: yarn lint
