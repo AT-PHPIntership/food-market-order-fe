@@ -1,10 +1,25 @@
-machine:
-  node:
-    version: 6.8.0
-dependencies:
-  pre:
-    - npm install npm@latest -g
-    - npm install angular-cli@latest -g
-test:
-  override:
-    - npm run test
+version: 2
+jobs:
+  build:
+    working_directory: ~/app-name
+    docker:
+      - image: circleci/node:6-browsers
+    steps:
+      - checkout
+      - run:
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+      - run:
+          name: angular-build
+          command: yarn ng -- build --prod --aot --no-progress
+      - run:
+          name: angular-test
+          command: yarn test -- --single-run --no-progress
+      - run:
+          name: angular-lint
+          command: yarn lint
