@@ -1065,7 +1065,7 @@ li.mm-vertical.mm-opened>.mm-panel {
     padding-top: 25px
 }
 .mm-menu {
-    background: #fffff;
+    background: #fff;
     color: #828282;
     display: block;
     overflow: hidden;
@@ -1290,7 +1290,7 @@ html.mm-opening .mm-slideout {
 }
 .mm-footer .mm-buttonbar {
     border: none;
-    border-radius: none;
+    border-radius: 0px;
     line-height: 40px;
     margin: -10px -10px 0 -20px
 }
