@@ -1,19 +1,19 @@
 # AngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
-##Set up the Development Environment
+## Set up the Development Environment
 You need to set up your development environment before you can do anything.
 * Install [Node.js? and npm](https://nodejs.org/en/download/) if they are not already on your machine.
 * Then install the Angular CLI globally
 ```
 npm  install -g @angular/cli
 ```
-##Clone Application
+## Clone Application
 ```bash
 git clone https://github.com/AT-PHPIntership/food-market-order-fe.git
 ```
 
-##Import Node Module
+## Import Node Module
 
 ```bash
 cd food-market-order-fe
