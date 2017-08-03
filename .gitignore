@@ -10,6 +10,9 @@
 #/src/index.html
 #/src/app/app.module.ts
 #/src/app/app.route.ts
+/src/assets/images/upload
+/src/assets/images/banner
+/src/assets/images/slide
 # IDEs and editors
 /.idea
 .project
