@@ -7,7 +7,7 @@ import {QuickviewComponent} from './quickview/quickview.component';
 import {ProductItemComponent} from './products-list/product-item/product-item.component';
 import {ProductBlockComponent} from './products-list/product-item/product-block/product-block.component';
 
-export const CATEGORYCOMPONENTS = [
+export const CategoryComponents = [
   CategoryComponent,
   CategoryBlockComponent,
   CategoryHeaderComponent,
@@ -16,4 +16,4 @@ export const CATEGORYCOMPONENTS = [
   QuickviewComponent,
   ProductItemComponent,
   ProductBlockComponent
-]
+];

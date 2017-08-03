@@ -1,17 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { TEMPLATECOMPONENTS } from './component/template';
-import { CATEGORYCOMPONENTS } from './component/category';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {TemplateComponents} from './component/template';
+import {CategoryComponents} from './component/category';
 @NgModule({
-  declarations: [
-    AppComponent, TEMPLATECOMPONENTS, CATEGORYCOMPONENTS
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TemplateComponents,
+        CategoryComponents
+    ],
+    imports: [
+        BrowserModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
