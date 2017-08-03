@@ -11,4 +11,4 @@ export const TemplateComponents = [
   HeaderComponent,
   PaginationComponent,
   NotFoundComponent
-]
+];
