@@ -20,7 +20,7 @@ body {
     overflow-wrap: break-word;
     overflow-x: hidden;
     word-wrap: break-word;
-    word-break: break-word;
+    word-break: break-all;
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -214,7 +214,7 @@ button.close {
 
 .btn-delete {
     background-color: #bbbbbb;
-    background-image: url(clear.svg), none;
+    /*background-image: url(clear.svg), none;*/
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 50%;
@@ -367,8 +367,8 @@ button.close {
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
     -webkit-font-smoothing: antialiased;
     backface-visibility: hidden;
     position: absolute;
@@ -481,7 +481,7 @@ button.close {
 }
 
 .icheckbox_square, .iradio_square {
-    background: url(square.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    /*background: url(square.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);*/
     border: medium none;
     cursor: pointer;
     display: inline-block;
