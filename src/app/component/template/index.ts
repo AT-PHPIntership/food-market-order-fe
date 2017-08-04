@@ -5,7 +5,7 @@ import {HeaderComponent} from './header/header.component';
 import {PaginationComponent} from './pagination/pagination.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 
-export const TemplateComponents = [
+export const TemplateComponent = [
   BreadcrumbsComponent,
   FooterComponent,
   HeaderComponent,
