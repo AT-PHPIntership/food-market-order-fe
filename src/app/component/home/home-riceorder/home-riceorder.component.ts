@@ -8,7 +8,7 @@ import { APIService } from '../../../services/api.service';
 })
 export class HomeRiceorderComponent implements OnInit {
 	foods: any;
-  constructor(private getDataService: GetDataServiceService) { }
+  constructor(private apiService: APIService) { }
 
   ngOnInit() {
     let today = new Date();
@@ -16,9 +16,11 @@ export class HomeRiceorderComponent implements OnInit {
     let mm = (today.getMonth()+1).toString();
     let yyyy = today.getFullYear().toString();
     let current_date = yyyy + '/' + mm + '/' + dd;
-  	this.getDataService.getApiDataByGetMethod('http://mysite.hub/api/daily-menus/show', 'date', current_date).subscribe(
+    console.log(current_date);
+  	this.apiService.getApiDataByGetMethod('http://mysite.hub/api/daily-menus/show', 'date', current_date).subscribe(
   			(data: any) => {
           this.foods=data;
+          console.log(this.foods);
         },
         err => {
           console.log("can't get food.");
