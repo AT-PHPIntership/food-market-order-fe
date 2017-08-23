@@ -2,8 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-quickview',
-  templateUrl: './quickview.component.html',
-  styleUrls: ['./quickview.component.css']
+  templateUrl: './quickview.component.html'
 })
 export class QuickviewComponent implements OnInit {
   display: string;
