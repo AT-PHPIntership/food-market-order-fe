@@ -1,11 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {TemplateComponent} from './component/template';
+import { HomeComponents } from './component/home';
+import {TemplateComponent} from "./component/template/index";
 @NgModule({
     declarations: [
         AppComponent,
-        TemplateComponent,
+        HomeComponents,
+        TemplateComponent
     ],
     imports: [
         BrowserModule
