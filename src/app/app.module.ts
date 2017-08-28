@@ -8,6 +8,8 @@ import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenService} from './service/token.service';
 import {ShareService} from './service/share.service';
+import LoggedGuard from './security/logged-guard';
+import NoLoggedGuard from './security/no-logged-guard';
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,7 +24,7 @@ import {ShareService} from './service/share.service';
         ReactiveFormsModule,
         HttpModule
     ],
-    providers: [TokenService, ShareService],
+    providers: [TokenService, ShareService, LoggedGuard, NoLoggedGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

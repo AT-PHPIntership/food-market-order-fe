@@ -19,6 +19,12 @@ export class TokenService {
       scope: ''
     };
   }
+  isLogged() {
+    if (this.getAccessToken() != null) {
+      return true;
+    }
+    return false;
+  }
   getAccessToken() {
     return localStorage.getItem(TokenService.TOKEN_KEY);
   }
@@ -35,6 +41,7 @@ export class TokenService {
     }).map(res => res.json());
   }
   refreshToken() {
+      this.removeAccessToken();
       let headers, data, options;
       headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -51,6 +58,9 @@ export class TokenService {
     localStorage.setItem(TokenService.TOKEN_EXPIRES, expireDate);
     localStorage.setItem(TokenService.TOKEN_REFRESH, token.refresh_token);
     this.dataRefresh.refresh_token = token.refresh_token;
+  }
+  removeAccessToken() {
+    localStorage.removeItem(TokenService.TOKEN_KEY);
   }
   removeToken() {
     localStorage.removeItem(TokenService.TOKEN_KEY);
