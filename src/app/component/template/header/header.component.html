@@ -13,12 +13,12 @@
           <nav>
             <div class="header_user_info e-scale 1">
               <ul class="links">
-                <li>
-                  <a href="" title="Đăng nhập" id="customer_login_link">Đăng nhập</a>
-                </li>
-                <li>
-                  <a href="" title="Đăng ký" id="customer_register_link">Đăng ký</a>
-                </li>
+                <li *ngIf="currentUser == null"><a id="customer_login_link" [routerLink]="['/login']" title="Đăng nhập">Đăng
+                  nhập</a></li>
+                <li *ngIf="currentUser != null"><a (click)="logout()" title="Đăng xuất">Đăng xuât</a></li>
+                <li *ngIf="currentUser != null"><a [routerLink]="['/account']" title="Cá nhân">Cá
+                  Nhân</a></li>
+                <li *ngIf="currentUser == null"><a [routerLink]="['/register']" title="Đăng ký">Đăng ký</a></li>
               </ul>
             </div>
           </nav>
