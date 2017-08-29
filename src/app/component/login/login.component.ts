@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private translate: TranslateService) {
     this.loginForm = this.formBuilder.group({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
   }
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     options = new RequestOptions({headers: headers});
-    this.http.post(environment.hostname + '/users/login', data, options).map(res => res.json()).subscribe((a: any) => {
+    this.http.post(environment.hostname + '/api/users/login', data, options).map(res => res.json()).subscribe((a: any) => {
       this.tokenService.setToken(a);
       this.service.loginToken(a.access_token);
       this.translate.get('success_login').subscribe((res: string) => {

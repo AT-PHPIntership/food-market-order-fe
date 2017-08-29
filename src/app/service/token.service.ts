@@ -37,14 +37,11 @@ export class TokenService {
       headers.append('Accept', 'application/json');
       data = JSON.parse(this.dataRefresh);
       options = new RequestOptions({headers: headers});
-      return this.http.post(environment.hostname + '/users/refresh', data, options).map(res => res.json());
+      return this.http.post(environment.hostname + '/api/users/refresh', data, options).map(res => res.json());
   }
   setToken(token) {
-    let expireDate;
-    expireDate = new Date();
-    expireDate.setSeconds(expireDate.getSeconds() + token.expires_in);
-    Cookie.set(TokenService.TOKEN_KEY, token.access_token, token.expires_in);
-    Cookie.set(TokenService.TOKEN_REFRESH, token.refresh_token);
+    Cookie.set(TokenService.TOKEN_KEY, token.access_token, (token.expires_in / 3600));
+    Cookie.set(TokenService.TOKEN_REFRESH, token.refresh_token, 1995);
     this.dataRefresh.refresh_token = token.refresh_token;
   }
   removeToken() {
