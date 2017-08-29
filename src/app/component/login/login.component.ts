@@ -1,29 +1,31 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Http, RequestOptions} from '@angular/http';
-import {TokenService} from '../../service/token.service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Http, RequestOptions } from '@angular/http';
+import { TokenService } from '../../service/token.service';
+import { Router } from '@angular/router';
 import 'rxjs/Rx';
-import {ShareService} from '../../service/share.service';
+import { ShareService } from '../../service/share.service';
 import swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [TokenService]
 })
 export class LoginComponent implements OnInit {
   email: string;
   data: any;
+  notify: any;
   loginForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
               private http: Http,
               private tokenService: TokenService,
               private service: ShareService,
-              private router: Router) {
+              private router: Router,
+              private translate: TranslateService) {
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -50,13 +52,22 @@ export class LoginComponent implements OnInit {
     this.http.post(environment.hostname + '/oauth/token', data, options).map(res => res.json()).subscribe((a: any) => {
       this.tokenService.setToken(a);
       this.service.loginToken(a.access_token);
-      swal('Thông báo', 'Đăng nhập thành công!', 'success');
+      this.translate.get('success_login').subscribe((res: string) => {
+        this.notify = res;
+      });
+      swal(this.notify.title, this.notify.message, 'success');
       this.router.navigate(['/home']);
     }, (err: any) => {
       if (err.status === 401) {
-        swal('Thông báo', 'Email hoặc mật khẩu không tồn tại!', 'error');
+        this.translate.get('error_unauthorized').subscribe((res: string) => {
+          this.notify = res;
+        });
+        swal(this.notify.title, this.notify.message, 'error');
       } else {
-        swal('Thông báo', 'Đăng nhập thất bại!', 'error');
+        this.translate.get('error_bad_request').subscribe((res: string) => {
+          this.notify = res;
+        });
+        swal(this.notify.title, this.notify.message, 'error');
       }
     });
   }

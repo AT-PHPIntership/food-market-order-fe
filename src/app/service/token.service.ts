@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 @Injectable()
