@@ -37,19 +37,15 @@ export class LoginComponent implements OnInit {
   login(model: any) {
     let data;
     data = {
-      'grant_type': 'password',
-      'client_id': environment.client_id,
-      'client_secret': environment.client_secret,
-      'username': model.email,
+      'email': model.email,
       'password': model.password,
-      'scope': ''
     };
     let headers, options;
     headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     options = new RequestOptions({headers: headers});
-    this.http.post(environment.hostname + '/oauth/token', data, options).map(res => res.json()).subscribe((a: any) => {
+    this.http.post(environment.hostname + '/users/login', data, options).map(res => res.json()).subscribe((a: any) => {
       this.tokenService.setToken(a);
       this.service.loginToken(a.access_token);
       this.translate.get('success_login').subscribe((res: string) => {
