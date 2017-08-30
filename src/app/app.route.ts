@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './component/template/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
-import NoLoggedGuard from './security/no-logged-guard';
-import LoggedGuard from './security/logged-guard';
+import { LoggedGuard } from './security/logged.guard';
+import { NoLoggedGuard } from './security/no-logged.guard';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent},

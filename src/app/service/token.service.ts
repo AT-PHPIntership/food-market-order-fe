@@ -52,7 +52,7 @@ export class TokenService {
     this.dataRefresh.refresh_token = token.refresh_token;
   }
   removeAccessToken() {
-    localStorage.removeItem(TokenService.TOKEN_KEY);
+    Cookie.delete(TokenService.TOKEN_KEY);
   }
   removeToken() {
     Cookie.delete(TokenService.TOKEN_KEY);
