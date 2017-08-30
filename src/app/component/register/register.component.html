@@ -5,48 +5,47 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 registered-users">
                         <div class="page-title">
-                            <h1>Đăng ký</h1>
+                            <h1>{{ 'register' | translate }}</h1>
                         </div>
                         <form accept-charset="UTF-8" [formGroup]="registerForm"
                               (ngSubmit)="register(registerForm.value)" id="customer_register" method="post">
                         <input name="FormType" type="hidden" value="customer_register">
                         <input name="utf8" type="hidden" value="true">
-                        <h3 class="page-subheading">Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng
-                            ký.</h3>
+                        <h3 class="page-subheading">{{ 'register_form' | translate }}</h3>
 
                         <ul class="form-list">
                             <li>
-                                <label for="full_name"> Tên <span class="required">*</span></label>
+                                <label for="full_name"> {{ 'full_name' | translate }} <span class="required">*</span></label>
                                 <br>
-                                <input type="text" formControlName="full_name" title="Họ Tên" class="form-control" id="full_name"
-                                       placeholder="Họ Tên">
+                                <input type="text" formControlName="full_name" title="{{ 'full_name' | translate }}" class="form-control" id="full_name"
+                                       placeholder="{{ 'full_name' | translate }}">
                             </li>
                             <li>
-                                <label for="email">Email<span class="required">*</span></label>
+                                <label for="email">{{ 'email' | translate }}<span class="required">*</span></label>
                                 <br>
-                                <input type="email" value="" class="form-control" id="email" title="Email" formControlName="email"
-                                       placeholder="Email">
+                                <input type="email" value="" class="form-control" id="email" title="{{ 'email' | translate }}" formControlName="email"
+                                       placeholder="{{ 'email' | translate }}">
                             </li>
                             <li>
-                                <label for="password">Mật khẩu<span class="required">*</span></label>
+                                <label for="password">{{ 'password' | translate }}<span class="required">*</span></label>
                                 <br>
-                                <input type="password" value="" id="password" class="form-control" title="Mật khẩu"
-                                       formControlName="password" placeholder="Mật khẩu">
+                                <input type="password" value="" id="password" class="form-control" title="{{ 'password' | translate }}"
+                                       formControlName="password" placeholder="{{ 'password' | translate }}">
                             </li>
                             <li>
-                                <label for="password_confirmation">Nhập Lại Mật khẩu<span
+                                <label for="password_confirmation">{{ 'confirm_password' | translate }}<span
                                         class="required">*</span></label>
                                 <br>
                                 <input type="password" value="" id="password_confirmation" class="form-control"
-                                       title="Mật khẩu" formControlName="password_confirmation" placeholder="Nhập Lại Mật khẩu">
+                                       title="{{ 'confirm_password' | translate }}" formControlName="password_confirmation" placeholder="{{ 'confirm_password' | translate }}">
                             </li>
                         </ul>
-                        <p class="required">* Bắt buộc</p>
+                        <p class="required">* {{ 'required' | translate }}</p>
                         <div class="buttons-set">
                             <button [disabled]="!registerForm.valid" id="send2" type="submit" class="btn btn-outline">
-                                <span>Đăng ký</span>
+                                <span>{{ 'register' | translate }}</span>
                             </button>
-                            hoặc <a href="/account/login">Đăng nhập</a>
+                            hoặc <a [routerLink]="['/login']">{{ 'login' | translate }}</a>
                         </div>
                         </form>
                     </div>

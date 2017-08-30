@@ -44,5 +44,8 @@
   "login_again": {
     "title": "Thông báo",
     "message": "Mời bạn đăng nhập lại!"
-  }
+  },
+  "register_form": "Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng ký.",
+  "full_name": "Họ Tên",
+  "confirm_password": "Nhập lại mật khẩu"
 }
