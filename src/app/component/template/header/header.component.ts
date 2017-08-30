@@ -6,6 +6,7 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import {CartService} from '../../../service/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -15,16 +16,19 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   currentUser: any;
   notify: any;
+  cart: CartService;
   constructor(private router: Router,
               private http: Http,
               private tokenService: TokenService,
               private shareService: ShareService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private cartService: CartService) {
     if (this.tokenService.getAccessToken() != null) {
       this.getInfo();
     } else {
       this.currentUser = null;
     }
+    this.cart = this.cartService;
   }
   ngOnInit() {
   }
