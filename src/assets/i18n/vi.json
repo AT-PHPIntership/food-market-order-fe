@@ -1,0 +1,48 @@
+{
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "register": "Đăng ký",
+  "account": "Xin chào {{full_name}}",
+  "home": "Trang chủ",
+  "product": "Sản Phẩm",
+  "material": "Nguyên liệu",
+  "order": "Đặt cơm",
+  "news": "Tin tức",
+  "about": "Giới thiệu",
+  "all_category": "Tất cả danh mục",
+  "search": "Tìm kiếm",
+  "cart": "Giỏ hàng",
+  "unit": "đ",
+  "login_title": "Nếu bạn có tài khoản, hãy đăng nhập dưới đây.",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "forget_password": "Quên mật khẩu",
+  "required": "Bắt buộc",
+  "submit": "Gửi",
+  "cancel": "Hủy",
+  "register_title": "Tạo tài khoản để quản lý đơn hàng, và các thông tin thanh toán, gửi hàng một cách đơn giản hơn",
+  "register_action": "Tạo tài khoản",
+  "reset_password": "Đặt lại mật khẩu",
+  "confirm_reset_password": "Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.",
+  "or": "hoặc",
+  "error_unauthorized": {
+    "title": "Thông báo",
+    "message": "Email hoặc mật khẩu không tồn tại!"
+  },
+  "error_bad_request": {
+    "title": "Thông báo",
+    "message": "Yêu cầu không hợp lê!"
+  },
+  "success_login": {
+    "title": "Thông báo",
+    "message": "Đăng nhập thành công!"
+  },
+  "success_logout": {
+    "title": "Thông báo",
+    "message": "Đăng xuất thành công!"
+  },
+  "login_again": {
+    "title": "Thông báo",
+    "message": "Mời bạn đăng nhập lại!"
+  }
+}

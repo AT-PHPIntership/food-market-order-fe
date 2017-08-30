@@ -19,9 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "../node_modules/sweetalert2/dist/sweetalert2.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/js/jquery-3.2.1.js",
+        "assets/js/bootstrap.js",
+        "../node_modules/sweetalert2/dist/sweetalert2.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
