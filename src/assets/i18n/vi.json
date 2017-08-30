@@ -44,5 +44,9 @@
   "login_again": {
     "title": "Thông báo",
     "message": "Mời bạn đăng nhập lại!"
+  },
+  "invite_login": {
+    "title": "Thông báo",
+    "message": "Mời bạn đăng nhập rồi quay lại!"
   }
 }
