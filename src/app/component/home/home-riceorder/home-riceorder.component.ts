@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-home-riceorder',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-riceorder.component.css']
 })
 export class HomeRiceorderComponent implements OnInit {
-
-  constructor() { }
+	foods: any;
+  constructor(private apiService: APIService) { }
 
   ngOnInit() {
+    let today = new Date();
+    let dd = today.getDate().toString();
+    let mm = (today.getMonth()+1).toString();
+    let yyyy = today.getFullYear().toString();
+    let current_date = yyyy + '/' + mm + '/' + dd;
+    console.log(current_date);
+  	this.apiService.getApiDataByGetMethod('http://mysite.hub/api/daily-menus/show', 'date', current_date).subscribe(
+  			(data: any) => {
+          this.foods=data;
+          console.log(this.foods);
+        },
+        err => {
+          console.log("can't get food.");
+        }
+      	);
   }
 
 }

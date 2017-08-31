@@ -1,0 +1,74 @@
+{
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "register": "Đăng ký",
+  "account": "Xin chào {{full_name}}",
+  "home": "Trang chủ",
+  "product": "Sản Phẩm",
+  "material": "Nguyên liệu",
+  "order": "Đặt cơm",
+  "news": "Tin tức",
+  "about": "Giới thiệu",
+  "all_category": "Tất cả danh mục",
+  "search": "Tìm kiếm",
+  "cart": "Giỏ hàng",
+  "unit": "đ",
+  "login_title": "Nếu bạn có tài khoản, hãy đăng nhập dưới đây.",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "forget_password": "Quên mật khẩu",
+  "required": "Bắt buộc",
+  "submit": "Gửi",
+  "cancel": "Hủy",
+  "register_title": "Tạo tài khoản để quản lý đơn hàng, và các thông tin thanh toán, gửi hàng một cách đơn giản hơn",
+  "register_action": "Tạo tài khoản",
+  "reset_password": "Đặt lại mật khẩu",
+  "confirm_reset_password": "Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.",
+  "or": "hoặc",
+  "error_unauthorized": {
+    "title": "Thông báo",
+    "message": "Email hoặc mật khẩu không tồn tại!"
+  },
+  "error_bad_request": {
+    "title": "Thông báo",
+    "message": "Yêu cầu không hợp lê!"
+  },
+  "success_login": {
+    "title": "Thông báo",
+    "message": "Đăng nhập thành công!"
+  },
+  "success_logout": {
+    "title": "Thông báo",
+    "message": "Đăng xuất thành công!"
+  },
+  "login_again": {
+    "title": "Thông báo",
+    "message": "Mời bạn đăng nhập lại!"
+  },
+  "register_form": "Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng ký.",
+  "full_name": "Họ Tên",
+  "confirm_password": "Nhập lại mật khẩu",
+  "or": "hoặc",
+  "success_register": {
+    "title" : "Thông báo",
+    "message": "Đăng ký thành công!"
+  },
+  "error_register": {
+    "title": "Thông báo",
+    "message": "Đăng ký thật bại, vui lòng thử lại!"
+  },
+  "error_validation_register": {
+    "title": "Thông báo",
+    "message": "Đăng ký thất bại!"
+  },
+  "invite_login": {
+    "title": "Thông báo",
+    "message": "Mời bạn đăng nhập rồi quay lại!"
+  },
+  "The email field is required.": "Trường email là bắt buộc.",
+  "The full name field is required.": "Trường Họ tên là bắt buộc.",
+  "The password field is required.": "Trường mật khẩu là bắt buộc.",
+  "The password confirmation does not match.": "Xác nhận mật khẩu không khớp.",
+  "The password must be at least 6 characters.": "Mật khẩu phải có ít nhất 6 ký tự.",
+  "The email must be a valid email address.": "Địa chỉ email không hợp lệ."
+}
