@@ -15,6 +15,12 @@ export class TokenService {
       refresh_token: this.getRefreshToken(),
     };
   }
+  isLogged() {
+    if (this.getAccessToken() != null) {
+      return true;
+    }
+    return false;
+  }
   getAccessToken() {
     return Cookie.get(TokenService.TOKEN_KEY);
   }
@@ -31,6 +37,7 @@ export class TokenService {
     }).map(res => res.json());
   }
   refreshToken() {
+      this.removeAccessToken();
       let headers, data, options;
       headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -43,6 +50,9 @@ export class TokenService {
     Cookie.set(TokenService.TOKEN_KEY, token.access_token, (token.expires_in / 3600));
     Cookie.set(TokenService.TOKEN_REFRESH, token.refresh_token, 1995);
     this.dataRefresh.refresh_token = token.refresh_token;
+  }
+  removeAccessToken() {
+    Cookie.delete(TokenService.TOKEN_KEY);
   }
   removeToken() {
     Cookie.delete(TokenService.TOKEN_KEY);
