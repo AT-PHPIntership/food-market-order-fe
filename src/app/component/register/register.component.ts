@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     data: any;
     registerForm: FormGroup;
     responseData: any;
+    notify: any;
 
     constructor(private formBuilder: FormBuilder,
                 private http: Http,
@@ -55,13 +56,28 @@ export class RegisterComponent implements OnInit {
         options = new RequestOptions({headers: headers});
         this.http.post(environment.hostname + '/api/users', data, options).map(res => res.json()).subscribe((resJson: any) => {
             this.responseData = resJson;
-            swal(this.responseData.message, this.responseData.success, 'success');
+            this.translate.get('success_register').subscribe((res: string) => {
+                this.notify = res;
+            });
+            swal(this.notify.title, this.notify.message, 'success');
             this.router.navigate(['/login']);
         }, (err: any) => {
-            if (err.status === 422) {
-                swal(this.responseData.message, this.responseData.success, 'error');
+            if (err.status !== 422) {
+                this.translate.get('error_register').subscribe((res: string) => {
+                    this.notify = res;
+                });
+                swal(this.notify.title, this.notify.message, 'error');
             } else {
-                swal(this.responseData.message, this.responseData.success, 'error');
+                this.translate.get('error_validation_register').subscribe((res: string) => {
+                    this.notify = res;
+                });
+                swal({
+                    title: this.notify.title,
+                    type: 'error',
+                    html:
+                    '<b class="text-danger">' + this.notify.message + ' </b> </br>' +
+                    '<ul>' + '</ul>'
+                });
             }
         });
     }

@@ -45,7 +45,7 @@
                             <button [disabled]="!registerForm.valid" id="send2" type="submit" class="btn btn-outline">
                                 <span>{{ 'register' | translate }}</span>
                             </button>
-                            hoặc <a [routerLink]="['/login']">{{ 'login' | translate }}</a>
+                            {{ 'or' | translate }} <a [routerLink]="['/login']">{{ 'login' | translate }}</a>
                         </div>
                         </form>
                     </div>

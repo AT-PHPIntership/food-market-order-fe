@@ -47,5 +47,19 @@
   },
   "register_form": "Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng ký.",
   "full_name": "Họ Tên",
-  "confirm_password": "Nhập lại mật khẩu"
+  "confirm_password": "Nhập lại mật khẩu",
+  "or": "hoặc",
+  "success_register": {
+    "title" : "Thông báo",
+    "message": "Đăng ký thành công!"
+  },
+  "error_register": {
+    "title": "Thông báo",
+    "message": "Đăng ký thật bại, vui lòng thử lại!"
+  },
+  "error_validation_register": {
+    "title": "Thông báo",
+    "message": "Đăng ký thất bại!"
+  }
+
 }
