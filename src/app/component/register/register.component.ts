@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     email: string;
     data: any;
     registerForm: FormGroup;
-    responseData: any;
+    responseData: any = [];
     notify: any;
 
     constructor(private formBuilder: FormBuilder,
@@ -71,13 +71,7 @@ export class RegisterComponent implements OnInit {
                 this.translate.get('error_validation_register').subscribe((res: string) => {
                     this.notify = res;
                 });
-                swal({
-                    title: this.notify.title,
-                    type: 'error',
-                    html:
-                    '<b class="text-danger">' + this.notify.message + ' </b> </br>' +
-                    '<ul>' + '</ul>'
-                });
+                this.responseData = err.json();
             }
         });
     }

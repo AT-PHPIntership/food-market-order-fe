@@ -7,46 +7,49 @@
                         <div class="page-title">
                             <h1>{{ 'register' | translate }}</h1>
                         </div>
-                        <form accept-charset="UTF-8" [formGroup]="registerForm"
+                        <form class="row" accept-charset="UTF-8" [formGroup]="registerForm"
                               (ngSubmit)="register(registerForm.value)" id="customer_register" method="post">
                         <input name="FormType" type="hidden" value="customer_register">
                         <input name="utf8" type="hidden" value="true">
                         <h3 class="page-subheading">{{ 'register_form' | translate }}</h3>
-
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 text-center">
                         <ul class="form-list">
-                            <li>
+                            <li [ngClass]="{'has-error': responseData.full_name}" class="form-group">
                                 <label for="full_name"> {{ 'full_name' | translate }} <span class="required">*</span></label>
-                                <br>
                                 <input type="text" formControlName="full_name" title="{{ 'full_name' | translate }}" class="form-control" id="full_name"
                                        placeholder="{{ 'full_name' | translate }}">
+                                       <span *ngIf="responseData.full_name" class="error">{{ responseData.full_name.toString() | translate }}</span>
                             </li>
-                            <li>
+                            <li [ngClass]="{'has-error': responseData.email}" class="form-group">
                                 <label for="email">{{ 'email' | translate }}<span class="required">*</span></label>
-                                <br>
                                 <input type="email" value="" class="form-control" id="email" title="{{ 'email' | translate }}" formControlName="email"
                                        placeholder="{{ 'email' | translate }}">
+                                       <span *ngIf="responseData.email" class="error">{{ responseData.email.toString() | translate }}</span>
                             </li>
-                            <li>
+                            <li [ngClass]="{'has-error': responseData.password}" class="form-group">
                                 <label for="password">{{ 'password' | translate }}<span class="required">*</span></label>
-                                <br>
                                 <input type="password" value="" id="password" class="form-control" title="{{ 'password' | translate }}"
                                        formControlName="password" placeholder="{{ 'password' | translate }}">
+                                       <span *ngIf="responseData.password" class="error">{{ responseData.password.toString() | translate }}</span>
                             </li>
-                            <li>
+                            <li [ngClass]="{'has-error': responseData.password}" class="form-group">
                                 <label for="password_confirmation">{{ 'confirm_password' | translate }}<span
                                         class="required">*</span></label>
-                                <br>
                                 <input type="password" value="" id="password_confirmation" class="form-control"
                                        title="{{ 'confirm_password' | translate }}" formControlName="password_confirmation" placeholder="{{ 'confirm_password' | translate }}">
+                                       <span *ngIf="responseData.password" class="error">{{ responseData.password.toString() | translate }}</span>
                             </li>
                         </ul>
                         <p class="required">* {{ 'required' | translate }}</p>
-                        <div class="buttons-set">
-                            <button [disabled]="!registerForm.valid" id="send2" type="submit" class="btn btn-outline">
+                        <div class="buttons-set form-group">
+                            <button id="send2" type="submit" class="btn btn-outline">
                                 <span>{{ 'register' | translate }}</span>
                             </button>
                             {{ 'or' | translate }} <a [routerLink]="['/login']">{{ 'login' | translate }}</a>
                         </div>
+                        </div>
+                        <div class="col-md-3"></div>
                         </form>
                     </div>
                 </div>
@@ -54,3 +57,4 @@
         </div>
     </div>
 </section>
+<!-- [disabled]="!registerForm.valid" -->
