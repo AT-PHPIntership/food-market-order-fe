@@ -5,11 +5,13 @@ import { TemplateComponent } from './component/template';
 import { routing } from './app.route';
 import { LoginComponent } from './component/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { UserProfileComponent} from './component/userprofile/userprofile.component';
 @NgModule({
     declarations: [
         AppComponent,
         TemplateComponent,
-        LoginComponent
+        LoginComponent,
+        UserProfileComponent,
     ],
     imports: [
         routing,

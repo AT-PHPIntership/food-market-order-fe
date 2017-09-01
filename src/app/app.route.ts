@@ -5,9 +5,11 @@ import { LoginComponent } from './component/login/login.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { UserProfileComponent} from './component/userprofile/userprofile.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
+  { path: 'user', component: UserProfileComponent},
   { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard] },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   { path: '**', component: NotFoundComponent }

@@ -1,0 +1,85 @@
+<section class="main-container col1-layout">
+
+    <!-- Your Page Content Here -->
+    <div class="row">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="has-file text-center">
+                    <img src="/images/users/default.jpg" class="avatar img-circle img-thumbnail" alt=" avatar">
+                    <h6 class="">Upload Image</h6>
+                    <input type="file" name="image" class="text-center center-block well well-sm">
+                </div>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Password</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Password Confirm</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="password" name="password_confirmation">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 personal-info">
+                <h3>User Information</h3>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Full Name</label>
+                    <div class="col-md-8">
+                        <input class="col-md-6 form-control" value="DungVan" type="text" name="full_name">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email</label>
+                    <div class="col-md-8">
+                        <input class="form-control" disabled="" value="admin@gmail.com" type="text" name="email">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Address</label>
+                    <div class="col-md-8">
+                        <input class="form-control" value="ad" type="text" name="address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Gender</label>
+                    <div class="col-md-8">
+                        <div class="ui-select">
+                            <select class="form-control select2-hidden-accessible" name="gender"
+                                    tabindex="-1" aria-hidden="true">
+                                <option value="1">Male</option>
+                                <option selected="" value="0">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Birthday</label>
+                    <div class="col-md-8">
+                            <input type="date" class="form-control" id="date-picker" value="2014-11-30"
+                                   name="birthday">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-md-3 control-label">Phone Number</label>
+                    <div class="col-md-8">
+                        <input class="form-control" autocomplete="off" value="123456789" type="text"
+                               name="phone_number">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <button class="btn btn-danger" type="reset">Reset</button>
+                        <button class="btn btn-primary" type="submit">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
