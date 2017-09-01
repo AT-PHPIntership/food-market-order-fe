@@ -1,13 +1,13 @@
-import {AfterContentChecked, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators, AbstractControl} from '@angular/forms';
-import {Http, RequestOptions} from '@angular/http';
-import {TokenService} from '../../service/token.service';
-import {Router} from '@angular/router';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Http, RequestOptions } from '@angular/http';
+import { TokenService } from '../../service/token.service';
+import { Router } from '@angular/router';
 import 'rxjs/Rx';
-import {ShareService} from '../../service/share.service';
+import { ShareService } from '../../service/share.service';
 import swal from 'sweetalert2';
-import {environment} from '../../../environments/environment';
-import {TranslateService} from '@ngx-translate/core';
+import { environment } from '../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     moduleId: module.id,
