@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ShareService } from '../service/share.service';
+import { APIService } from '../service/api.service';
 import { TokenService } from '../service/token.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +37,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [ShareService, TokenService, LoggedGuard, NoLoggedGuard]
+      providers: [ShareService, APIService, TokenService, LoggedGuard, NoLoggedGuard]
     };
   }
 }
