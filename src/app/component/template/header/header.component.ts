@@ -6,7 +6,7 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-import {CartService} from '../../../service/cart.service';
+import { CartService } from '../../../service/cart.service';
 
 @Component({
   selector: 'app-header',
