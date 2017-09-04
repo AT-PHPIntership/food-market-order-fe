@@ -2,70 +2,70 @@
 
     <!-- Your Page Content Here -->
     <div class="row">
-        <form class="form-horizontal" enctype="multipart/form-data" method="POST">
+        <form class="form-horizontal" enctype="multipart/form-data" [formGroup]="updateForm" (ngSubmit)="update()">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="has-file text-center">
-                    <img src="/images/users/default.jpg" class="avatar img-circle img-thumbnail" alt=" avatar">
-                    <h6 class="">Upload Image</h6>
+                    <img src="{{ responseData.data.image }}" class="avatar img-circle img-thumbnail" alt=" avatar">
+                    <h6 class="">{{ 'upload_image' | translate}}</h6>
                     <input type="file" name="image" class="text-center center-block well well-sm">
                 </div>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Password</label>
+                    <label class="col-md-3 control-label">{{ 'password' | translate }}</label>
                     <div class="col-md-8">
                         <input class="form-control" type="password" name="password">
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Password Confirm</label>
+                    <label class="col-md-3 control-label">{{ 'confirm_password' | translate }}</label>
                     <div class="col-md-8">
                         <input class="form-control" type="password" name="password_confirmation">
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 personal-info">
-                <h3>User Information</h3>
+                <h3>{{ 'user_infomation' | translate }}</h3>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Full Name</label>
+                    <label class="col-md-3 control-label">{{ 'full_name' | translate }}</label>
                     <div class="col-md-8">
-                        <input class="col-md-6 form-control" value="DungVan" type="text" name="full_name">
+                        <input class="col-md-6 form-control" value="{{ responseData.data.full_name }}" type="text" name="full_name">
 
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Email</label>
+                    <label class="col-md-3 control-label">{{ 'email' | translate }}</label>
                     <div class="col-md-8">
-                        <input class="form-control" disabled="" value="admin@gmail.com" type="text" name="email">
+                        <input class="form-control" disabled="" value="{{ responseData.data.email }}" type="text" name="email">
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Address</label>
+                    <label class="col-md-3 control-label">{{ 'address' | translate }}</label>
                     <div class="col-md-8">
-                        <input class="form-control" value="ad" type="text" name="address">
+                        <input class="form-control" value="{{ responseData.data.address }}" type="text" name="address">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Gender</label>
+                    <label class="col-md-3 control-label">{{ 'gender' | translate }}</label>
                     <div class="col-md-8">
                         <div class="ui-select">
                             <select class="form-control select2-hidden-accessible" name="gender"
                                     tabindex="-1" aria-hidden="true">
-                                <option value="1">Male</option>
-                                <option selected="" value="0">Female</option>
+                                <option [selected]="{ 'true': responseData.data.gender === 1 }" value="1">{{ 'male' | translate }}</option>
+                                <option [selected]="{ 'true': responseData.data.gender === 0 }" value="0">{{ 'female' | translate }}</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Birthday</label>
+                    <label class="col-md-3 control-label">{{ 'birthday' | translate }}</label>
                     <div class="col-md-8">
-                            <input type="date" class="form-control" id="date-picker" value="2014-11-30"
+                            <input type="date" class="form-control" id="date-picker" value="{{ responseData.data.birthday }}"
                                    name="birthday">
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label class="col-md-3 control-label">Phone Number</label>
+                    <label class="col-md-3 control-label">{{ 'phone_number' | translate }}</label>
                     <div class="col-md-8">
-                        <input class="form-control" autocomplete="off" value="123456789" type="text"
+                        <input class="form-control" autocomplete="off" value="{{ responseData.data.phone_number }}" type="text"
                                name="phone_number">
 
                     </div>
@@ -73,9 +73,9 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
-                        <button class="btn btn-danger" type="reset">Reset</button>
+                        <button class="btn btn-danger" type="reset">{{ 'reset' | translate }}</button>
                         <button class="btn btn-primary" type="submit">
-                            Save Changes
+                            {{ 'save_changes' | translate }}
                         </button>
                     </div>
                 </div>

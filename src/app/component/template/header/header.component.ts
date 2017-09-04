@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
   /** Get information basic of user */
   getInfo() {
-    this.tokenService.requestWithToken(environment.hostname + '/api/user', 'GET').subscribe((data: any) => {
+    this.tokenService.requestWithToken(environment.hostname + '/api/users/me', 'GET').subscribe((data: any) => {
       this.currentUser = data;
       return data;
     }, (err: any) => {

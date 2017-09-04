@@ -50,7 +50,7 @@ export class TokenService {
   requestWithToken(url, method: string, data: any = null, content_type = true, accept = true) {
     let headers;
     headers = new Headers({
-      'Authorization':  this.getTokenType() + ' ' + this.getAccessToken(),
+      'Authorization': this.getTokenType() + ' ' + this.getAccessToken(),
     });
     if (content_type) {
       headers.append('Content-Type', 'application/json');
@@ -63,6 +63,9 @@ export class TokenService {
         headers: headers
       }).map(res => res.json());
     } else if (method === 'PUT') {
+
+            console.log(data);
+            console.log({headers});
       return this.http.put(url, data, {
         headers: headers
       }).map(res => res.json());

@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { TemplateComponent } from './component/template';
 import { routing } from './app.route';
 import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent} from './component/userprofile/userprofile.component';
 @NgModule({
@@ -12,6 +13,7 @@ import { UserProfileComponent} from './component/userprofile/userprofile.compone
         TemplateComponent,
         LoginComponent,
         UserProfileComponent,
+        RegisterComponent
     ],
     imports: [
         routing,

@@ -40,20 +40,29 @@ export class UserProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.tokenService.requestWithToken(environment.hostname + 'api/users/me', 'GET').subscribe((resJson: any) => {
+            this.responseData = resJson;
+        }, (err: any) => {
+            this.translate.get('error_show').subscribe((res: string) => {
+                this.notify = res;
+            });
+            swal(this.notify.title, this.notify.message, 'error');
+        });
+        this.router.navigate(['/home']);
     }
 
     /** Registered system */
-    register(model: any) {
-        let data;
-        data = {
-            'full_name': model.full_name,
-            'birthday': model.birthday,
-            'address': model.address,
-            'gender': model.gender,
-            'phone_number': model.phone_number,
-            'password': model.password,
-            'password_confirmation': model.password_confirmation
-        };
+    update(model: any) {
+        // let data;
+        // data = {
+        //     'full_name': model.full_name,
+        //     'birthday': model.birthday,
+        //     'address': model.address,
+        //     'gender': model.gender,
+        //     'phone_number': model.phone_number,
+        //     'password': model.password,
+        //     'password_confirmation': model.password_confirmation
+        // };
 
         let data1;
         data1 = {
@@ -63,13 +72,14 @@ export class UserProfileComponent implements OnInit {
             'gender': '1',
             'phone_number': '123456123'
         };
-        this.tokenService.requestWithToken(environment.hostname + '/api/users/me', data1).subscribe((resJson: any) => {
+        this.tokenService.requestWithToken(environment.hostname + '/api/users/me', 'PUT', data1).subscribe((resJson: any) => {
             this.responseData = resJson;
             this.translate.get('success_register').subscribe((res: string) => {
                 this.notify = res;
             });
+            console.log(this.responseData);
             swal(this.notify.title, this.notify.message, 'success');
-            this.router.navigate(['/login']);
+            // this.router.navigate(['/login']);
         }, (err: any) => {
             if (err.status !== 422) {
                 this.translate.get('error_register').subscribe((res: string) => {
@@ -80,13 +90,7 @@ export class UserProfileComponent implements OnInit {
                 this.translate.get('error_validation_register').subscribe((res: string) => {
                     this.notify = res;
                 });
-                swal({
-                    title: this.notify.title,
-                    type: 'error',
-                    html:
-                    '<b class="text-danger">' + this.notify.message + ' </b> </br>' +
-                    '<ul>' + '</ul>'
-                });
+                swal(this.notify.title, this.notify.message, 'error');
             }
         });
     }
