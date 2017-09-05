@@ -12,9 +12,9 @@ import { ShoppingCartComponent } from './component/cart/index';
     declarations: [
         AppComponent,
         TemplateComponent,
-        ShoppingCartComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+         ShoppingCartComponent,
     ],
     imports: [
         routing,

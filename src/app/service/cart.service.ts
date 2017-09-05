@@ -3,7 +3,7 @@ import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 import swal from 'sweetalert2';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class CartService {

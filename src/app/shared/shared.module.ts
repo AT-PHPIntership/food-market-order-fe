@@ -11,6 +11,7 @@ import { LoggedGuard } from '../security/logged.guard';
 import { NoLoggedGuard } from '../security/no-logged.guard';
 import { CartService } from '../service/cart.service';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
