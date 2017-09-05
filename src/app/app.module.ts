@@ -24,7 +24,6 @@ import { ProductsFoodListComponent } from './component/listfood/products-food-li
         HomeComponents,
         ListfoodComponent,
         ProductsFoodListComponent,
-        LoginComponent,
         RegisterComponent
     ],
     imports: [
