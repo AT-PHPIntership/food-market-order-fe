@@ -9,8 +9,14 @@ import { NoLoggedGuard } from './security/no-logged.guard';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
-  { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard] },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard], data: {
+      breadcrumb: 'login'
+    }
+  },
+  { path: 'register', component: RegisterComponent, data: {
+       breadcrumb: 'register'
+    }
+  },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   { path: '**', component: NotFoundComponent }
 ];
