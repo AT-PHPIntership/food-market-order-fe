@@ -6,7 +6,7 @@ import { routing } from './app.route';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SharedModule } from './shared/shared.module';
-import {RangePipe} from './pipe/range.pipe';
+import { RangePipe } from './pipe/range.pipe';
 
 @NgModule({
     declarations: [

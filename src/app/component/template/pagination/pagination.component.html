@@ -8,9 +8,9 @@
       <li  [ngClass]="{'active': page + 1 == pagination.pages.current_page}"
            *ngFor="let page of [] | range:pagination.pages.last_page">
         <a *ngIf="page == 0 || page == pagination.pages.last_page - 1
-        ||(page <=  pagination.pages.current_page + 1 && page >=  pagination.pages.current_page - 1)"
+        ||(page <=  pagination.pages.current_page && page >=  pagination.pages.current_page - 2)"
            [routerLink]="[urlBase]" [queryParams]="{ page: page +1 }">{{page + 1}}</a>
-        <span *ngIf=" (page ==  pagination.pages.current_page + 2 || page ==  pagination.pages.current_page - 2)">...</span>
+        <span *ngIf="!(page == 0 || page == pagination.pages.last_page - 1) && (page == pagination.pages.current_page + 1 || page ==  pagination.pages.current_page - 3)">...</span>
       </li>
       <li class="pagination_next">
         <a [ngClass]="{'disabled': pagination.pages.current_page == pagination.pages.last_page }" [routerLink]="[urlBase]" [queryParams]="{ page: pagination.pages.current_page + 1 }"><i class="fa fa-chevron-right"></i></a></li>
