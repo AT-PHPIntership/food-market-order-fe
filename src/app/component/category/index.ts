@@ -4,16 +4,11 @@ import {CategoryHeaderComponent} from './category-header/category-header.compone
 import {FilterProductComponent} from './filter-product/filter-product.component';
 import {ProductsListComponent} from './products-list/products-list.component';
 import {QuickviewComponent} from './quickview/quickview.component';
-import {ProductItemComponent} from './products-list/product-item/product-item.component';
-import {ProductBlockComponent} from './products-list/product-item/product-block/product-block.component';
-
 export const CategoryComponents = [
   CategoryComponent,
   CategoryBlockComponent,
   CategoryHeaderComponent,
   FilterProductComponent,
   ProductsListComponent,
-  QuickviewComponent,
-  ProductItemComponent,
-  ProductBlockComponent
+  QuickviewComponent
 ];
