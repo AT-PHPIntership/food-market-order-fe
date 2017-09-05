@@ -12,7 +12,7 @@ import { ProductsFoodListComponent } from './component/listfood/products-food-li
 import { RangePipe } from './pipe/range.pipe';
 import { PaginationService } from "./service/pagination.service";
 import { TemplateComponent } from "./component/template/index";
-import {APIService} from "./service/api.service";
+import { APIService } from "./service/api.service";
 
 @NgModule({
     declarations: [
