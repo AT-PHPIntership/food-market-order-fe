@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { PaginationService } from "../../service/pagination.service";
-import { ActivatedRoute } from "@angular/router";
-import { APIService } from "../../service/api.service";
-import { environment } from "../../../environments/environment";
-import { ProductsFoodListComponent } from "./products-food-list/products-food-list.component";
+import { PaginationService } from '../../service/pagination.service';
+import { ActivatedRoute } from '@angular/router';
+import { APIService } from '../../service/api.service';
+import { environment } from '../../../environments/environment';
+import { ProductsFoodListComponent } from './products-food-list/products-food-list.component';
 
 @Component({
   selector: 'app-listfood',

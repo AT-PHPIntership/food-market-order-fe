@@ -10,9 +10,9 @@ import { HttpModule } from '@angular/http';
 import { ListfoodComponent } from './component/listfood/listfood.component';
 import { ProductsFoodListComponent } from './component/listfood/products-food-list/products-food-list.component';
 import { RangePipe } from './pipe/range.pipe';
-import { PaginationService } from "./service/pagination.service";
-import { TemplateComponent } from "./component/template/index";
-import { APIService } from "./service/api.service";
+import { PaginationService } from './service/pagination.service';
+import { TemplateComponent } from './component/template/index';
+import { APIService } from './service/api.service';
 
 @NgModule({
     declarations: [
