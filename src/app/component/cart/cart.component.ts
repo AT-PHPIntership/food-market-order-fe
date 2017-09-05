@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {CartService} from '../../service/cart.service';
+import { CartService } from '../../service/cart.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +9,11 @@ import {CartService} from '../../service/cart.service';
 })
 export class CartComponent {
   cart: any;
-  constructor(private cartService: CartService) {
+  title = 'app';
+  constructor(private cartService: CartService, private _location: Location) {
     this.cart = this.cartService;
   }
-  title = 'app';
+  back() {
+    this._location.back();
+  }
 }

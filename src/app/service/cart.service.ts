@@ -7,8 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class CartService {
-  public login = new Subject<any>();
+  public cart = new Subject<any>();
   carts: any;
+  cartFoods: any;
+  cartMaterials: any;
   notify: any;
   constructor(private http: Http, private translate: TranslateService) {
     let carts;
@@ -21,7 +23,7 @@ export class CartService {
   addItem(product: any) {
     let existItem: any;
     this.carts.forEach(function (item) {
-      if (item.id === product.id) {
+      if (item.id === product.id && item.type === product.type) {
         existItem = item;
         item.quantity++;
         return false;
@@ -31,6 +33,12 @@ export class CartService {
       let cartItem;
       cartItem = Object.assign({}, product);
       cartItem.quantity = 1;
+      if (cartItem.type === 'App\\Food') {
+        this.cartFoods.push(cartItem);
+      }
+      if (cartItem.type === 'App\\Material') {
+        this.cartMaterials.push(cartItem);
+      }
       this.carts.push(cartItem);
     }
     this.saveCartToLocalStorage();

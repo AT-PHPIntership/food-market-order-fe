@@ -6,4 +6,4 @@ export const ShoppingCartComponent = [
   CartComponent,
   ButtonCartComponent,
   ProductCartComponent,
-]
+];

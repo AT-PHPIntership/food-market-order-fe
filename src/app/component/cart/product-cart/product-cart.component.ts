@@ -12,9 +12,7 @@ export class ProductCartComponent implements OnInit {
   ngOnInit() {
   }
   changeQuantity(val) {
-    console.log(val);
     this.product.quantity = val;
-    this.cartService.saveCartToLocalStorage();
   }
   removeItem(item) {
     this.cartService.removeItem(item);
