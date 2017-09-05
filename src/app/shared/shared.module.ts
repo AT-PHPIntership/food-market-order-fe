@@ -1,11 +1,14 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ShareService } from '../service/share.service';
+import { APIService } from '../service/api.service';
 import { TokenService } from '../service/token.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoggedGuard } from '../security/logged.guard';
+import { NoLoggedGuard } from '../security/no-logged.guard';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,7 +37,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [ShareService, TokenService]
+      providers: [ShareService, APIService, TokenService, LoggedGuard, NoLoggedGuard]
     };
   }
 }
