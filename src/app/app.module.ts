@@ -11,9 +11,10 @@ import { SharedModule } from './shared/shared.module';
 import { CategoryComponents } from './component/category';
 import { HttpModule } from '@angular/http';
 import { APIService } from "./services/api.service";
-import { NgxPaginationModule } from "ngx-pagination";
 import { ListfoodComponent } from './component/listfood/listfood.component';
 import { ProductsFoodListComponent } from './component/listfood/products-food-list/products-food-list.component';
+import {RangePipe} from './pipe/range.pipe';
+import {PaginationService} from "./service/pagination.service";
 @NgModule({
     declarations: [
         AppComponent,
@@ -24,16 +25,16 @@ import { ProductsFoodListComponent } from './component/listfood/products-food-li
         HomeComponents,
         ListfoodComponent,
         ProductsFoodListComponent,
-        RegisterComponent
+        RegisterComponent,
+        RangePipe
     ],
     imports: [
         routing,
         BrowserModule,
         SharedModule.forRoot(),
         HttpModule,
-        NgxPaginationModule
     ],
-    providers: [APIService],
+    providers: [APIService, PaginationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

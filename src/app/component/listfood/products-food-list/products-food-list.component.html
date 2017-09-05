@@ -1,6 +1,6 @@
 <div class="product-items">
   <div class="row">
-    <ng-container *ngFor="let items of data.data | paginate: { itemsPerPage: 10, currentPage: p }" >
+    <ng-container *ngFor="let items of data.data" >
     <div class="product_block col-md-3 col-xs-6 col-sp-12">
       <div class="item-variant clearfix product-block">
         <div class="product-meta">
@@ -70,8 +70,11 @@
       </div>
     </div>
     </ng-container>
-    <div class="col-md-8 col-sm-8 text-center">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+    <!--<div class="col-md-8 col-sm-8 text-center">-->
+      <!--&lt;!&ndash;<pagination-controls (pageChange)="p = $event"></pagination-controls>&ndash;&gt;-->
+      <!--<p>Page {{items.current_page}} of {{items.last_page}}</p>-->
+      <!--<button (click)="prevPage()" [disabled]="!items.sprev_page_url" >Prev</button>-->
+      <!--<button (click)="nextPage()" [disabled]="!items.next_page_url">Next</button>-->
+    <!--</div>-->
   </div>
 </div>

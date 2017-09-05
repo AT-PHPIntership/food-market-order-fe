@@ -1,56 +1,56 @@
-<div class="col-xs-12 col-sm-12 col-lg-9 col-md-12">
-  <div class="category_sub">
-    <h3 class="title_block pull-left">Nguyên Liệu</h3>
-  </div>
-  <div class="row">
-    <div class="category_content">
-      <div class="category_product_tab">
-        <div class="tab-content owl-row">
-          <div class="tab-pane active" id="productTabs01_1">
-            <div class="carousel slide" id="home_producttabs01_collection_1">
-              <div class="carousel-inner">
-                <div class="item active">
-                  <div class="product_list">
-                    <ng-container *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p }" >
-                    <div class="product_block col-md-3 col-sm-3 col-xs-12 col-sp-12">
-                      <div class="item-variant clearfix product-block">
-                        <div class="product-meta">
-                          <h3 class="name">
-                            <a class="product-name" href="#" title="{{item.name}}">{{item.name}}</a>
-                          </h3>
-                          <div class="review clearfix">
-                            <span class="shopify-product-reviews-badge"></span>
-                          </div>
-                          <div class="content_price">
-                            <span class="price product-price sale-price">
-                              <span>{{item.price}} VND</span>
-                            </span>
-                          </div>
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="product-image-container image">
-                          <div class="layout-img">
-                            <a class="product_img_link" href="" title="{{item.name}}">
-                              <img class="img-responsive" src="{{item.image}}" alt=""/>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </ng-container>
-                  </div>
-                  <div class="col-md-8 col-sm-8">
-                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!--<div class="col-xs-12 col-sm-12 col-lg-9 col-md-12">-->
+  <!--<div class="category_sub">-->
+    <!--<h3 class="title_block pull-left">Nguyên Liệu</h3>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="category_content">-->
+      <!--<div class="category_product_tab">-->
+        <!--<div class="tab-content owl-row">-->
+          <!--<div class="tab-pane active" id="productTabs01_1">-->
+            <!--<div class="carousel slide" id="home_producttabs01_collection_1">-->
+              <!--<div class="carousel-inner">-->
+                <!--<div class="item active">-->
+                  <!--<div class="product_list">-->
+                    <!--<ng-container *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p }" >-->
+                    <!--<div class="product_block col-md-3 col-sm-3 col-xs-12 col-sp-12">-->
+                      <!--<div class="item-variant clearfix product-block">-->
+                        <!--<div class="product-meta">-->
+                          <!--<h3 class="name">-->
+                            <!--<a class="product-name" href="#" title="{{item.name}}">{{item.name}}</a>-->
+                          <!--</h3>-->
+                          <!--<div class="review clearfix">-->
+                            <!--<span class="shopify-product-reviews-badge"></span>-->
+                          <!--</div>-->
+                          <!--<div class="content_price">-->
+                            <!--<span class="price product-price sale-price">-->
+                              <!--<span>{{item.price}} VND</span>-->
+                            <!--</span>-->
+                          <!--</div>-->
+                          <!--<div class="clearfix"></div>-->
+                        <!--</div>-->
+                        <!--<div class="product-image-container image">-->
+                          <!--<div class="layout-img">-->
+                            <!--<a class="product_img_link" href="" title="{{item.name}}">-->
+                              <!--<img class="img-responsive" src="{{item.image}}" alt=""/>-->
+                            <!--</a>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--</ng-container>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-8 col-sm-8">-->
+                  <!--<pagination-controls (pageChange)="p = $event"></pagination-controls>-->
 
 
-                </div>
+                <!--</div>-->
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

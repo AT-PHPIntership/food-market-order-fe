@@ -4,7 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ProductBlockComponent } from './product-block/product-block.component';
+//import { ProductBlockComponent } from './product-block/product-block.component';
 
 export const TemplateComponents = [
   BreadcrumbsComponent,
@@ -12,5 +12,5 @@ export const TemplateComponents = [
   HeaderComponent,
   PaginationComponent,
   NotFoundComponent,
-  ProductBlockComponent
+  //ProductBlockComponent
 ];

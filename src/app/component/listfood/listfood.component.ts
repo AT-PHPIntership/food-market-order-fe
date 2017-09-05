@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PaginationService} from "../../service/pagination.service";
 
 @Component({
   selector: 'app-listfood',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListfoodComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pagination: PaginationService) { }
 
   ngOnInit() {
   }
