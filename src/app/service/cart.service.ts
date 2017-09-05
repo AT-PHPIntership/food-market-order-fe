@@ -3,12 +3,14 @@ import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 import swal from 'sweetalert2';
+import {TranslateService} from '@ngx-translate/core';
 
 @Injectable()
 export class CartService {
   public login = new Subject<any>();
   carts: any;
-  constructor(private http: Http) {
+  notify: any;
+  constructor(private http: Http, private translate: TranslateService) {
     let carts;
     carts = localStorage.getItem('cart');
     this.carts = carts !== null ? JSON.parse(carts) : [];
@@ -75,7 +77,10 @@ export class CartService {
           item.price = data.find(trai => trai.id === item.id).price;
         });
         this.saveCartToLocalStorage();
-        swal('Thông báo', 'Đã cập nhật giỏ hàng', 'success');
+        this.translate.get('success_update_cart').subscribe((res: string) => {
+          this.notify = res;
+        });
+        swal(this.notify.title, this.notify.message, 'success');
       });
   }
 }
