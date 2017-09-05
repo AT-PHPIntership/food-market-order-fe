@@ -2,15 +2,18 @@
   <div id="pagination" class="clearfix">
     <ul class="pagination">
 
-      <li class="pagination_previous disabled">
-        <span><i class="fa fa-chevron-left"></i></span>
+      <li class="pagination_previous">
+        <a  [ngClass]="{'disabled': pagination.pages.current_page == 1}" [routerLink]="['/category',id]" [queryParams]="{ page: pagination.pages.number }"><i class="fa fa-chevron-left"></i></a>
       </li>
-      <li class="active"><span>1</span></li>
-      <li>
-        <a href="/collections/all?page=2" title="">2</a>
+      <li  [ngClass]="{'active': page + 1 == pagination.pages.current_page}"
+           *ngFor="let page of [] | range: pagination.pages.current_page">
+        <a *ngIf="page == 0 || page == pagination.pages.last_page - 1
+        ||(page <=  pagination.pages.current_page + 1 && page >=  pagination.pages.current_page - 1)"
+           [routerLink]="['/category',id]" [queryParams]="{ page: page +1 }">{{page + 1}}</a>
+        <span *ngIf=" (page ==  pagination.pages.current_page + 2 || page ==  pagination.pages.current_page - 2)">...</span>
       </li>
-      <li class="pagination_next"><a href="/collections/all?page=2" title="2"><i class="fa fa-chevron-right"></i></a></li>
-
+      <li class="pagination_next">
+        <a [ngClass]="{'disabled': pagination.pages.current_page == pagination.pages.last_page }" [routerLink]="['/category',id]" [queryParams]="{ page: pagination.pages.current_page + 1 }"><i class="fa fa-chevron-right"></i></a></li>
     </ul>
   </div>
 </div>
