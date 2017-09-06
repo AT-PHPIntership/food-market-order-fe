@@ -3,7 +3,7 @@ import { PaginationService } from '../../service/pagination.service';
 import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../../service/api.service';
 import { environment } from '../../../environments/environment';
-import { ProductsFoodListComponent } from './products-food-list/products-food-list.component';
+import { ItemFoodComponent } from './item-food/item-food.component';
 
 @Component({
   selector: 'app-listfood',
@@ -13,7 +13,7 @@ import { ProductsFoodListComponent } from './products-food-list/products-food-li
 export class ListfoodComponent implements OnInit, OnDestroy {
   page: number;
   sub: any;
-  @ViewChild(ProductsFoodListComponent) productListComponent: ProductsFoodListComponent;
+  @ViewChild(ItemFoodComponent) productListComponent: ItemFoodComponent;
   constructor(private pagination: PaginationService,
               private route: ActivatedRoute,
               private apiService: APIService) {

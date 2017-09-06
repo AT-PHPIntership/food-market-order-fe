@@ -4,11 +4,11 @@ import 'rxjs/add/operator/map';
 import { PaginationService } from '../../../service/pagination.service';
 
 @Component({
-  selector: 'app-products-food-list',
-  templateUrl: './products-food-list.component.html',
-  styleUrls: ['./products-food-list.component.css']
+  selector: 'app-item-food',
+  templateUrl: './item-food.component.html',
+  styleUrls: ['./item-food.component.css']
 })
-export class ProductsFoodListComponent {
+export class ItemFoodComponent {
 
   data: any = [];
 

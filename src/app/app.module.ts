@@ -8,11 +8,11 @@ import { SharedModule } from './shared/shared.module';
 import { CategoryComponents } from './component/category';
 import { HttpModule } from '@angular/http';
 import { ListfoodComponent } from './component/listfood/listfood.component';
-import { ProductsFoodListComponent } from './component/listfood/products-food-list/products-food-list.component';
 import { RangePipe } from './pipe/range.pipe';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
+import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +21,7 @@ import { APIService } from './service/api.service';
         LoginComponent,
         CategoryComponents,
         ListfoodComponent,
-        ProductsFoodListComponent,
+        ItemFoodComponent,
         RegisterComponent,
         RangePipe
     ],
