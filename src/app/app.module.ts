@@ -10,11 +10,12 @@ import { HttpModule } from '@angular/http';
 import { ListfoodComponent } from './component/listfood/listfood.component';
 import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
-import { ProductsFoodListComponent } from './component/listfood/products-food-list/products-food-list.component';
+import { ItemFoodComponent } from './component/listfood/products-food-list/products-food-list.component';
 import { RangePipe } from './pipe/range.pipe';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
+import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
 
 @NgModule({
     declarations: [
@@ -24,8 +25,9 @@ import { APIService } from './service/api.service';
         CategoryComponents,
         ListfoodComponent,
         DailyMenuComponent,
-        ProductsFoodListComponent,
+        ItemFoodComponent,
         ProductsDailyMenuComponent,
+        ItemFoodComponent,
         RegisterComponent,
         RangePipe
     ],
