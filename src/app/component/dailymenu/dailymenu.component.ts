@@ -21,21 +21,22 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.queryParams.subscribe(params => {
-      this.page = +params['page'];
-      if (!this.page) {
-        this.page = 1;
-      }
-    let today = new Date();
-	let dd = today.getDate().toString();
-	let mm = (today.getMonth()+1).toString();
-	let yyyy = today.getFullYear().toString();
-	let current_date = yyyy + '-' + mm + '-' + dd;
-	let url;
-    url = environment.hostname + '/api/daily-menus/' + current_date + '?page=' + this.page;
-      this.apiService.apiGet(url).subscribe(data => {
-        this.listProductsComponent.data = data.data;
-        this.pagination.init(data);
-      });
+        this.page = + params['page'];
+        if (!this.page) {
+            this.page = 1;
+        }
+        let today, dd, mm, yyyy, current_date;
+        today = new Date();
+        dd = today.getDate().toString();
+        mm = (today.getMonth() + 1).toString();
+        yyyy = today.getFullYear().toString();
+        current_date = yyyy + '-' + mm + '-' + dd;
+        let url;
+        url = environment.hostname + '/api/daily-menus/' + current_date + '?page=' + this.page;
+        this.apiService.apiGet(url).subscribe(data => {
+            this.listProductsComponent.data = data.data;
+            this.pagination.init(data);
+        });
     });
   }
 

@@ -7,8 +7,6 @@ import { PaginationService } from '../../../service/pagination.service';
   templateUrl: './list-products.component.html'
 })
 export class ProductsDailyMenuComponent {
-	data: any;
-
-	constructor() {
-	}
+    data: any;
+    constructor () {}
 }
