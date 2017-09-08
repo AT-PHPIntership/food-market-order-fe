@@ -2,9 +2,44 @@
   <h4 class="title_block">Danh Mục Sản Phẩm <i class="fa fa-plus-circle"></i></h4>
   <div class="block_content" style="">
     <ul class="list-block list-group list-unstyled listSidebar">
-      <li><a href="" title="BST">
-        Đồ uống<span id="leo-cat-939408" class="leo-qty pull-right">1</span>
-      </a></li>
+      	<li>
+	      	<a routerLink="/daily-menu" routerLinkActive="active" title="BST">
+		        {{ "daily-menu" | translate }}
+		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+	      	</a>
+      	</li>
+      	<li>
+	      	<a routerLink="/foods" routerLinkActive="active" title="BST">
+		        {{ "food" | translate }}
+		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+	      	</a>
+      	</li>
+      	<li>
+	      	<a routerLink="/materials" routerLinkActive="active" title="BST">
+		        {{ "material" | translate }}
+		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+	      	</a>
+      	</li>
+      	<li data-toggle="collapse" data-target="#foods" class="collapsed">
+          	<a>
+          		{{ "category" | translate }}
+          		<span id="leo-cat-939408" class="leo-qty pull-right">{{ category_total }}</span>
+          	</a>
+          	<ul class="sub-menu collapse" id="foods">
+          		<li *ngFor="let item of categories">
+          			<a [routerLink]="['/category', item.id]">{{ item.name }}</a>
+          		</li>
+	            <li>
+	            	<a routerLink="/categories">{{ "more" | translate }}</a>
+	            </li>
+        	</ul>
+        </li>
+      	<li>
+			<a routerLink="/suppliers" routerLinkActive="active" title="BST">
+				{{ "supplier" | translate }}
+				<span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+			</a>
+		</li>
     </ul>
   </div>
 </div>
