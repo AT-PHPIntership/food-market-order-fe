@@ -10,10 +10,17 @@ import { UserProfileComponent} from './component/userprofile/userprofile.compone
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
-  { path: 'user', component: UserProfileComponent},
+  { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
   { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard], data: {
+      breadcrumb: 'login'
+    }
+  },
+  { path: 'register', component: RegisterComponent, data: {
+       breadcrumb: 'register'
+    }
+  },
   { path: '**', component: NotFoundComponent }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

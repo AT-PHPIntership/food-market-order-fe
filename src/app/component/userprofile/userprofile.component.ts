@@ -11,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'app-register',
+    selector: 'app-user',
     templateUrl: './userprofile.component.html',
     styleUrls: ['./userprofile.component.css'],
 })
@@ -21,17 +21,18 @@ export class UserProfileComponent implements OnInit {
     responseData: any;
     notify: any;
 
-    constructor(private tokenService: TokenService,
+    constructor(protected tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
                 private service: ShareService,
                 private router: Router,
                 private translate: TranslateService) {
         this.updateForm = this.formBuilder.group({
-            full_name: new FormControl('', [Validators.required]),
-            birthday: new FormControl('', [Validators.required]),
-            address: new FormControl('', [Validators.required]),
-            phone_number: new FormControl('', []),
+            full_name: new FormControl(tokenService.currentUser.full_name, [Validators.required]),
+            email: new FormControl(tokenService.currentUser.email, []),
+            birthday: new FormControl(tokenService.currentUser.birthday, [Validators.required]),
+            address: new FormControl(tokenService.currentUser.address, [Validators.required]),
+            phone_number: new FormControl(tokenService.currentUser.phone_number, []),
             password: new FormControl('', []),
             password_confirmation: new FormControl('', [])
         }, {
@@ -40,15 +41,6 @@ export class UserProfileComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.tokenService.requestWithToken(environment.hostname + 'api/users/me', 'GET').subscribe((resJson: any) => {
-            this.responseData = resJson;
-        }, (err: any) => {
-            this.translate.get('error_show').subscribe((res: string) => {
-                this.notify = res;
-            });
-            swal(this.notify.title, this.notify.message, 'error');
-        });
-        this.router.navigate(['/home']);
     }
 
     /** Registered system */
