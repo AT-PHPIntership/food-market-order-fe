@@ -32,7 +32,6 @@ export class CategoryBlockComponent implements OnInit {
         this.material_total = data.Material ? data.Material : 0;
         this.supplier_total = data.Supplier ? data.Supplier : 0;
     });
-    //get categories
     this.getListCategory();
     }
 

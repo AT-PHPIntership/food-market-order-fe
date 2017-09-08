@@ -37,22 +37,22 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
   getPagination(type: string) {
     this.sub = this.route.params.subscribe(params => {
       this.category_id = +params['id'];
-      this.sub = this.route.queryParams.subscribe(params => {
-      this.page = +params['page'];
-      if (!this.page) {
-        this.page = 1;
-      }
-      let url;
-      url = environment.hostname + '/api/categories/' + this.category_id + '/' + type + '?page=' + this.page;
-      this.apiService.apiGet(url).subscribe(data => {
-        if (type === 'foods') {
-          this.foodListComponent.data = data.data;  
-        } else {
-          this.materialListComponent.data = data.data;
+      this.sub = this.route.queryParams.subscribe(paramOthers => {
+        this.page = +paramsOthers['page'];
+        if (!this.page) {
+          this.page = 1;
         }
-        this.pagination.init(data);
+        let url;
+        url = environment.hostname + '/api/categories/' + this.category_id + '/' + type + '?page=' + this.page;
+        this.apiService.apiGet(url).subscribe(data => {
+          if (type === 'foods') {
+            this.foodListComponent.data = data.data;
+          } else {
+            this.materialListComponent.data = data.data;
+          }
+          this.pagination.init(data);
+        });
       });
-    });
     });
   }
 
