@@ -38,7 +38,7 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.category_id = +params['id'];
       this.sub = this.route.queryParams.subscribe(paramOthers => {
-        this.page = +paramsOthers['page'];
+        this.page = +paramOthers['page'];
         if (!this.page) {
           this.page = 1;
         }
