@@ -1,3 +1,4 @@
+///<reference path="../../../service/token.service.ts"/>
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../../../service/token.service';
 import { ShareService } from '../../../service/share.service';
@@ -40,7 +41,7 @@ export class HeaderComponent implements OnInit {
   }
   /** Get information basic of user */
   getInfo() {
-    this.tokenService.getDataWithToken(environment.hostname + '/api/user').subscribe((data: any) => {
+    this.tokenService.requestWithToken(environment.hostname + '/api/users/me', 'GET').subscribe((data: any) => {
       this.currentUser = data;
       return data;
     }, (err: any) => {
