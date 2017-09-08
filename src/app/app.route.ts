@@ -2,7 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './component/template/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
-import { CategoryComponent } from './component/category/category.component';
 import { ListfoodComponent } from './component/listfood/listfood.component';
 import { CategoryComponent } from './component/category/category.component';
 import { ListCategoryComponent } from './component/category/list-category/listcategory.component';
