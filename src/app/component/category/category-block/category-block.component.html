@@ -1,23 +1,23 @@
 <div id="categories_block" class="block sidebar_block_custom">
-  <h4 class="title_block">Danh Mục Sản Phẩm <i class="fa fa-plus-circle"></i></h4>
+  <h4 class="title_block"> {{ "list-products" | translate }} <i class="fa fa-plus-circle"></i></h4>
   <div class="block_content" style="">
     <ul class="list-block list-group list-unstyled listSidebar">
       	<li>
 	      	<a routerLink="/daily-menu" routerLinkActive="active" title="BST">
 		        {{ "daily-menu" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ dailymenu_total }}</span>
 	      	</a>
       	</li>
       	<li>
 	      	<a routerLink="/foods" routerLinkActive="active" title="BST">
 		        {{ "food" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ food_total }}</span>
 	      	</a>
       	</li>
       	<li>
 	      	<a routerLink="/materials" routerLinkActive="active" title="BST">
 		        {{ "material" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ material_total }}</span>
 	      	</a>
       	</li>
       	<li data-toggle="collapse" data-target="#foods" class="collapsed">
@@ -37,7 +37,7 @@
       	<li>
 			<a routerLink="/suppliers" routerLinkActive="active" title="BST">
 				{{ "supplier" | translate }}
-				<span id="leo-cat-939408" class="leo-qty pull-right">1</span>
+				<span id="leo-cat-939408" class="leo-qty pull-right">{{ supplier_total }}</span>
 			</a>
 		</li>
     </ul>
