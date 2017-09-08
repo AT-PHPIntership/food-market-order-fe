@@ -24,13 +24,15 @@ export class CategoryBlockComponent implements OnInit {
 
     ngOnInit() {
     let url;
-    url = environment.hostname + '/api/counts';
+    url = environment.hostname + '/api/statistics/counts';
     this.apiService.apiGet(url).subscribe(data => {
-        this.category_total = data.Category ? data.Category : 0;
-        this.dailymenu_total = data.DailyMenu ? data.DailyMenu : 0;
-        this.food_total = data.Food ? data.Food : 0;
-        this.material_total = data.Material ? data.Material : 0;
-        this.supplier_total = data.Supplier ? data.Supplier : 0;
+        let counts;
+        counts = data.data;
+        this.category_total = counts.categories ? counts.categories : 0;
+        this.dailymenu_total = counts.daily_menus ? counts.daily_menus : 0;
+        this.food_total = counts.foods ? counts.foods : 0;
+        this.material_total = counts.materials ? counts.materials : 0;
+        this.supplier_total = counts.suppliers ? counts.suppliers : 0;
     });
     this.getListCategory();
     }
