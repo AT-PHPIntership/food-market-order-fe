@@ -12,12 +12,12 @@ const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard], data: {
-    breadcrumb: 'login'
-  }
+      breadcrumb: 'login'
+    }
   },
   { path: 'register', component: RegisterComponent, data: {
-    breadcrumb: 'register'
-  }
+       breadcrumb: 'register'
+    }
   },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   { path: '**', component: NotFoundComponent },
