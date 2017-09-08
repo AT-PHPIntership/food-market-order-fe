@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  hostname: 'http://laravel-foodorder.com',
+  hostname: 'http://mysite.hub',
 };
