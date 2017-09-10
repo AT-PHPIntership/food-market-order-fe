@@ -19,5 +19,8 @@ export class AppComponent implements OnInit {
     this.service.login.subscribe(data => {
       this.header.getInfo();
     });
+    this.service.cart.subscribe(data => {
+      this.header.addCart(data);
+    });
   }
 }

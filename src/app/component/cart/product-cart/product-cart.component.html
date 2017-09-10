@@ -20,7 +20,7 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">{{ 'price' | translate }}: </span>
-      <span class="price product-price">{{ product.price }}₫</span>
+      <span class="price product-price">{{ product.price.toLocaleString('vi') }}₫</span>
     </div>
   </div>
   <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
@@ -33,7 +33,7 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">{{ 'total' | translate }}: </span>
-      <span class="price product-price">{{ product.price * product.quantity }} ₫</span>
+      <span class="price product-price">{{(product.price * product.quantity).toLocaleString('vi') }} {{ 'unit' | translate }}</span>
     </div>
   </div>
   <div class="cpro_item col-xs-12 col-sm-1 col-md-1">

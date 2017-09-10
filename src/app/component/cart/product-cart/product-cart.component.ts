@@ -15,6 +15,11 @@ export class ProductCartComponent implements OnInit {
     this.product.quantity = val;
   }
   removeItem(item) {
-    this.cartService.removeItem(item);
+    if (item.type === 'App\\Food') {
+      this.cartService.removeItem(item, 'App\\Food');
+    }
+    if (item.type === 'App\\Material') {
+      this.cartService.removeItem(item, 'App\\Material');
+    }
   }
 }

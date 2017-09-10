@@ -16,4 +16,10 @@ export class CartComponent {
   back() {
     this._location.back();
   }
+  updateCartFood() {
+    this.cartService.updateCart('App\\Food');
+  }
+  updateCartMaterial() {
+    this.cartService.updateCart('App\\Food');
+  }
 }

@@ -39,7 +39,22 @@
                             </div>
                         </div>
                         <app-product-cart *ngFor="let item of cart.cartFoods" [product]="item"></app-product-cart>
-                        <app-button-cart></app-button-cart>
+                        <div class="list_button_cart clearfix">
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                                <p>
+                                    <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
+                                    <span class="h3 cart__subtotal">{{cart.getTotalFoods().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
+                                </p>
+                                <a class="btn con-ajax-cart btn-inverse" (click)="back()"
+                                   title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>
+                                <input  (click)="updateCartFood()" name="update" class="btn btn-outline update-cart"
+                                        value="{{ 'update_cart' | translate }}">
+                                <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"
+                                        [routerLink]="['/checkout/foods']"><span>{{ 'process_order' | translate }}</span>
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
                     <h1 class="page-header">{{ 'material' | translate }}</h1>
                     <div class="page-content">
@@ -76,8 +91,23 @@
                         </div>
                     </div>
                     <app-product-cart *ngFor="let item of cart.cartMaterials" [product]="item"></app-product-cart>
-                    <app-button-cart></app-button-cart>
-                </div>
+                    <div class="list_button_cart clearfix">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                            <p>
+                                <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
+                                <span class="h3 cart__subtotal">{{cart.getTotalMaterial().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
+                            </p>
+                            <a class="btn con-ajax-cart btn-inverse" (click)="back()"
+                               title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>
+                            <input  (click)="updateCartMaterial()" name="update" class="btn btn-outline update-cart"
+                                    value="{{ 'update_cart' | translate }}">
+                            <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"
+                                    [routerLink]="['/checkout/materials']"><span>{{ 'process_order' | translate }}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    </div>
                 </form>
                 <p class="cart_navigation clearfix">
                     <a class="btn btn-inverse" (click)="back()" title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>

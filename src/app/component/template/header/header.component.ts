@@ -67,4 +67,7 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+  addCart(product) {
+    this.cartService.addItem(product);
+  }
 }

@@ -8,21 +8,29 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class CartService {
   public cart = new Subject<any>();
-  carts: any;
   cartFoods: any;
   cartMaterials: any;
   notify: any;
   constructor(private http: Http, private translate: TranslateService) {
-    let carts;
-    carts = localStorage.getItem('cart');
-    this.carts = carts !== null ? JSON.parse(carts) : [];
-  }
-  getCarts() {
-    localStorage.getItem('carts');
+    let cartFoods, cartMaterials;
+    cartFoods = localStorage.getItem('cart-food');
+    cartMaterials = localStorage.getItem('cart-material');
+    this.cartFoods = cartFoods !== null ? JSON.parse(cartFoods) : [];
+    this.cartMaterials = cartMaterials !== null ? JSON.parse(cartMaterials) : [];
+    this.updateCart('App\\Food');
+    this.updateCart('App\\Material');
+
   }
   addItem(product: any) {
     let existItem: any;
-    this.carts.forEach(function (item) {
+    this.cartFoods.forEach(function (item) {
+      if (item.id === product.id && item.type === product.type) {
+        existItem = item;
+        item.quantity++;
+        return false;
+      }
+    });
+    this.cartMaterials.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
         item.quantity++;
@@ -39,56 +47,81 @@ export class CartService {
       if (cartItem.type === 'App\\Material') {
         this.cartMaterials.push(cartItem);
       }
-      this.carts.push(cartItem);
     }
+    this.translate.get('success_add_cart', {name: product.name}).subscribe((res: string) => {
+      this.notify = res;
+    });
+    swal(this.notify.title, this.notify.message, 'success');
     this.saveCartToLocalStorage();
   }
   saveCartToLocalStorage() {
-    localStorage.setItem('cart', JSON.stringify(this.carts));
+    localStorage.setItem('cart-food', JSON.stringify(this.cartFoods));
+    localStorage.setItem('cart-material', JSON.stringify(this.cartMaterials));
   }
-  getTotal() {
+  getTotalFoods() {
     let total: number;
     total = 0;
-    this.carts.forEach(function (item) {
+    this.cartFoods.forEach(function (item) {
       total += (item.price * item.quantity);
     });
     return total;
   }
-  removeItem(item) {
+  getTotalMaterial() {
+    let total: number;
+    total = 0;
+    this.cartMaterials.forEach(function (item) {
+      total += (item.price * item.quantity);
+    });
+    return total;
+  }
+  removeItem(item, type) {
     let index;
-    index = this.carts.indexOf(item);
-    this.carts.splice(index, 1);
+    if (type === 'App\\Food') {
+      index = this.cartFoods.indexOf(item);
+      this.cartFoods.splice(index, 1);
+    }
+    if (type === 'App\\Material') {
+      index = this.cartMaterials.indexOf(item);
+      this.cartMaterials.splice(index, 1);
+    }
     this.saveCartToLocalStorage();
   }
   removeCart() {
-    this.carts = [];
+    this.cartFoods = [];
+    this.cartMaterials = [];
     this.saveCartToLocalStorage();
   }
-  updateCart() {
+  updateCart(type) {
+    let carts, url;
+    carts = [];
+    url = '';
+    if (type === 'App\\Food') {
+      carts = this.cartFoods;
+      url = environment.hostname + '/food/getCart';
+    }
+    if (type === 'App\\Material') {
+      carts = this.cartMaterials;
+      url = environment.hostname + '/material/getCart';
+    }
     let itemIds, value;
     itemIds = [];
-    for (value of this.carts){
+    for (value of carts){
       itemIds.push(value.id);
     }
-    console.log(itemIds);
     let headers;
     headers = new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     });
-    this.http.post(environment.hostname + '/item/getCart', itemIds,
+    this.http.post(url, itemIds,
       { headers: headers })
       .map(res => res.json())
       .subscribe((data: any) => {
         console.log(data);
-        this.carts.forEach(function (item) {
+        carts.forEach(function (item) {
           item.price = data.find(trai => trai.id === item.id).price;
         });
         this.saveCartToLocalStorage();
-        this.translate.get('success_update_cart').subscribe((res: string) => {
-          this.notify = res;
-        });
-        swal(this.notify.title, this.notify.message, 'success');
       });
   }
 }
