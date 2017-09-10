@@ -70,7 +70,7 @@ export class TokenService {
 
  /**
   * @brief send request to specify url with option method
-  * @details  The method option conatain the method want to send request.
+  * @details  The method option contain the method want to send request.
   *   If option content_type default equals true, the function will send the request body with application/json,
   * otherwise the function will send the request without json.
   *   If option accept default equals true, the response must be an application/json type, otherwise
@@ -98,17 +98,14 @@ export class TokenService {
         headers: headers
       }).map(res => res.json());
     } else if (method === 'PUT') {
-
-            console.log(data);
-            console.log({headers});
       return this.http.put(url, data, {
         headers: headers
       }).map(res => res.json());
     } else {
       return this.http.get(url, {
-      headers: headers
-    }).map(res => res.json());
-  }
+        headers: headers
+      }).map(res => res.json());
+    }
   }
   refreshToken() {
       this.removeAccessToken();

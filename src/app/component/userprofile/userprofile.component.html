@@ -1,14 +1,14 @@
 <section class="main-container col1-layout">
 
     <!-- Your Page Content Here -->
-    <div class="container">
+    <div class="container" *ngIf="tokenService.currentUser">
         <div class="box box-primary clear-fix">
             <div class="box-header">
                 <h3 class="box-title">{{ 'user_infomation' | translate }}</h3>
             </div>
             <div class="box-body">
                 <form class="form-horizontal" enctype="multipart/form-data" [formGroup]="updateForm"
-                      (ngSubmit)="update()">
+                      (ngSubmit)="update(updateForm.value)">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="text-center">
                             <img [src]="tokenService.currentUser.image" class="avatar img-circle img-thumbnail"
@@ -17,19 +17,19 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">{{ 'upload_image' | translate }}</label>
                             <div class="col-md-8">
-                                <input type="file" name="image" class="btn btn-primary form-control">
+                                <dropzone [config]="config" [message]="imageDragMessage" (error)="onUploadError($event)" (success)="onUploadSuccess($event)" (removedfile)="onRemoveFile($event)"></dropzone>
                             </div>
                         </div>
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'password' | translate }}</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="password" name="password">
+                                <input class="form-control" type="password" formControlName="password">
                             </div>
                         </div>
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'confirm_password' | translate }}</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="password" name="password_confirmation">
+                                <input class="form-control" type="password" formControlName="password_confirmation">
                             </div>
                         </div>
                     </div>
@@ -37,34 +37,34 @@
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'full_name' | translate }}</label>
                             <div class="col-md-8">
-                                <input class="col-md-6 form-control" type="text" name="full_name" [value]="tokenService.currentUser.full_name">
+                                <input class="col-md-6 form-control" type="text" formControlName="full_name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">{{ 'email' | translate }}</label>
                             <div class="col-md-8">
                                 <input class="form-control" disabled="" type="text"
-                                       name="email">
+                                       formControlName="email">
                             </div>
                         </div>
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'address' | translate }}</label>
                             <div class="col-md-8">
                                 <input class="form-control" type="text"
-                                       name="address">
+                                       formControlName="address">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label">{{ 'gender' | translate }}</label>
                             <div class="col-md-8">
                                 <div class="ui-select">
-                                    <select class="form-control selèct-hidden-accessible" name="gender"
+                                    <select class="form-control selèct-hidden-accessible" formControlName="gender"
                                             tabindex="-1" aria-hidden="true">
-                                        <option [selected]="{ 'true': tokenService.currentUser.gender === 1 }"
+                                        <option
                                                 value="1">{{
                                             'male' | translate }}
                                         </option>
-                                        <option [selected]="{ 'true': tokenService.currentUser.gender === 0 }"
+                                        <option 
                                                 value="0">{{
                                             'female' | translate }}
                                         </option>
@@ -75,21 +75,21 @@
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'birthday' | translate }}</label>
                             <div class="col-md-8">
-                                <input type="date" class="form-control" id="date-picker" name="birthday">
+                                <input type="date" class="form-control" id="date-picker" formControlName="birthday">
                             </div>
                         </div>
                         <div class="form-group ">
                             <label class="col-md-4 control-label">{{ 'phone_number' | translate }}</label>
                             <div class="col-md-8">
                                 <input class="form-control" autocomplete="off"
-                                       type="text" name="phone_number">
+                                       type="text" formControlName="phone_number">
 
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-8">
-                                <button class="btn btn-danger" type="reset">{{ 'reset' | translate }}</button>
+                                <a class="btn btn-danger" (click)="reset()">{{ 'reset' | translate }}</a>
                                 <button class="btn btn-primary" type="submit">
                                     {{ 'save_changes' | translate }}
                                 </button>
@@ -98,6 +98,33 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Total Orders</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover" id="table-order-history">
+                    <thead>
+                        <tr>
+                            <th>{{ 'id' | translate }}</th>
+                            <th>{{ 'ordered_at' | translate }}</th>
+                            <th>{{ 'status' | translate }}</th>
+                            <th>{{ 'payment' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>1978-01-01 04:50:01</td>
+                            <td><span class="label label-warning">Pending</span></td>
+                            <td>10000.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                            <!-- /.box-body -->
         </div>
     </div>
 </section>

@@ -40,12 +40,14 @@ export class LoginComponent implements OnInit {
       'email': model.email,
       'password': model.password,
     };
+    console.log(data);
     let headers, options;
     headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     options = new RequestOptions({headers: headers});
     this.http.post(environment.hostname + '/api/users/login', data, options).map(res => res.json()).subscribe((a: any) => {
+      this.tokenService.setToken(a.data);
       this.service.loginToken(a.data);
       this.translate.get('success_login').subscribe((res: string) => {
         this.notify = res;

@@ -76,5 +76,12 @@
   "birthday": "Ngày Sinh",
   "phone_number": "Điện Thoại",
   "gender": "Giới Tính",
-  "user_infomation": "Thông Tin Cá Nhân"
+  "user_infomation": "Thông Tin Cá Nhân",
+  "image_drag_message": "Nhấn hoặc kéo thả ảnh vào đây",
+  "reset": "Nhập lại",
+  "save_changes": "Cập nhật",
+  "id": "Mã",
+  "ordered_at": "Ngày đặt",
+  "status": "Tình trạng",
+  "payment": "Thanh toán"
 }

@@ -4,7 +4,6 @@ import { ShareService } from '../../../service/share.service';
 import { Http } from '@angular/http';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { environment } from '../../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -25,6 +24,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   login(data) {
+    console.log(data);
     this.tokenService.setToken(data);
     this.tokenService.getInfo();
   }
