@@ -6,7 +6,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
-import { DetailFoodComponent } from "./component/detail-food/detail-food.component";
+import { DetailFoodComponent } from './component/detail-food/detail-food.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
