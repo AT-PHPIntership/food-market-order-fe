@@ -97,11 +97,11 @@ export class CartService {
     url = '';
     if (type === 'App\\Food') {
       carts = this.cartFoods;
-      url = environment.hostname + '/food/getCart';
+      url = environment.hostname + 'api/foods/getCart';
     }
     if (type === 'App\\Material') {
       carts = this.cartMaterials;
-      url = environment.hostname + '/material/getCart';
+      url = environment.hostname + 'api/materials/getCart';
     }
     let itemIds, value;
     itemIds = [];

@@ -77,7 +77,7 @@
     "message": "Đã thêm {{name}} vào giỏ hàng!"
   },
   "name": "Tên",
-  "description": "Mô tả",
+  "image": "Hình ảnh",
   "price": "Giá",
   "quantity": "Số lượng",
   "total": "Tổng",
