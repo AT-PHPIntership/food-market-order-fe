@@ -2,7 +2,12 @@
 
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2 cart-img-column">
     <div class="cpro_item_inner">
-      <a [routerLink]= "['/detail',product.id]"
+      <a *ngIf="product.type === 'App\\Food'" [routerLink]= "['/foods/detail',product.id]"
+         class="cart__image">
+        <img width="75" height="75" alt="Sinh tố hoa quả"
+             src="{{ product.image }}">
+      </a>
+      <a *ngIf="product.type === 'App\\Materials'" [routerLink]= "['/materials/detail',product.id]"
          class="cart__image">
         <img width="75" height="75" alt="Sinh tố hoa quả"
              src="{{ product.image }}">
@@ -12,7 +17,10 @@
   <div class="cpro_item col-xs-12 col-sm-3 col-md-3">
     <div class="cpro_item_inner">
       <span class="visible-xs">{{ 'name' | translate }}: </span>
-      <a [routerLink]= "['/foods/detail',product.id]" class="product_name">
+      <a *ngIf="product.type === 'App\\Food'" [routerLink]= "['/foods/detail',product.id]" class="product_name">
+        {{ product.name }}
+      </a>
+      <a *ngIf="product.type === 'App\\Material'" [routerLink]= "['/materials/detail',product.id]" class="product_name">
         {{ product.name }}
       </a>
     </div>

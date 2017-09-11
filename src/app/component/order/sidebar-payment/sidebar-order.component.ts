@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CartService } from '../../../service/cart.service';
+import {ActivatedRoute, PRIMARY_OUTLET, Router} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-order',
@@ -8,14 +9,27 @@ import { CartService } from '../../../service/cart.service';
 })
 export class SidebarOrderComponent implements OnInit {
   cart: any;
+  urlBase: any;
   @Output() orderEvent: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
+    this.urlBase = this.router.url;
     this.cart = this.cartService;
   }
   order() {
-    this.orderEvent.emit(this.cart.carts);
+    let items;
+    items = [];
+    if (this.urlBase === '/checkout/foods') {
+      this.cart.cartFoods.forEach(item => {
+        items.push({id: item.id, quantity: item.quantity});
+      });
+    } else {
+      this.cart.cartMaterials.forEach(item => {
+        items.push({id: item.id, quantity: item.quantity});
+      });
+    }
+    this.orderEvent.emit(items);
   }
   ngOnInit() {
+    console.log(this.router.url);
   }
-
 }

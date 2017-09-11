@@ -850,6 +850,7 @@ input[type="checkbox"], input[type="radio"] {
     .sidebar {
         width: 32%;
         padding-left: 30px;
+        padding-right: 30px;
         background-position: left top;
         float: right;
     }

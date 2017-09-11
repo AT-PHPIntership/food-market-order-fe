@@ -70,6 +70,17 @@ export class TokenService {
       headers: headers
     }).map(res => res.json());
   }
+  postDataWithToken(url, data) {
+    let headers;
+    headers = new Headers({
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + this.getAccessToken(),
+    });
+    return this.http.post(url, data, {
+      headers: headers
+    }).map(res => res.json());
+  }
   refreshToken() {
       this.removeAccessToken();
       let headers, data, options;

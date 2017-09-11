@@ -15,6 +15,8 @@ import { APIService } from './service/api.service';
 import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
 import { ShoppingCartComponent } from './component/cart/index';
 import {CheckoutComponent} from './component/order/index';
+import {OrderService} from './service/order.service';
+import {OnFocusDirective} from './directive/focus-class.directive';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,8 @@ import {CheckoutComponent} from './component/order/index';
         RegisterComponent,
         RangePipe,
         ShoppingCartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        OnFocusDirective
     ],
     imports: [
         routing,
@@ -35,7 +38,7 @@ import {CheckoutComponent} from './component/order/index';
         SharedModule.forRoot(),
         HttpModule,
     ],
-    providers: [APIService, PaginationService],
+    providers: [APIService, PaginationService, OrderService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

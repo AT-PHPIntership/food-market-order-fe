@@ -77,7 +77,7 @@
     "message": "Đã thêm {{name}} vào giỏ hàng!"
   },
   "name": "Tên",
-  "description": "Mô tả",
+  "image": "Hình ảnh",
   "price": "Giá",
   "quantity": "Số lượng",
   "total": "Tổng",
@@ -94,9 +94,9 @@
   "return_cart": "Quay về giỏ hàng",
   "payment": "Thanh toán",
   "payment_when_ship": "Thanh toán khi giao hàng",
-  "ship": "Vận chuyển",
-  "ship_place": "Giao hàng tận nơi",
   "info_ship": "Thông tin nhận hành",
   "ship_another_address": "Giao hàng đến địa chỉ khác",
-  "extra_info_cart": "Cuộn để xem thêm"
+  "extra_info_cart": "Cuộn để xem thêm",
+  "announce": "Thông báo",
+  "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ"
 }

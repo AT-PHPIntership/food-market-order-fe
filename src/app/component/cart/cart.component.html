@@ -9,12 +9,12 @@
                         <div class="cart_header_labels clearfix">
                             <div class="label_item col-xs-12 col-sm-2 col-md-2">
                                 <div class="cart_product first_item">
-                                    {{ 'name' | translate }}
+                                    {{ 'image' | translate }}
                                 </div>
                             </div>
                             <div class="label_item col-xs-12 col-sm-3 col-md-3">
                                 <div class="cart_description item">
-                                    {{ 'description' | translate }}
+                                    {{ 'name' | translate }}
                                 </div>
                             </div>
                             <div class="label_item col-xs-12 col-sm-2 col-md-2">
@@ -45,9 +45,7 @@
                                     <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
                                     <span class="h3 cart__subtotal">{{cart.getTotalFoods().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
                                 </p>
-                                <a class="btn con-ajax-cart btn-inverse" (click)="back()"
-                                   title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>
-                                <input  (click)="updateCartFood()" name="update" class="btn btn-outline update-cart"
+                                <input (click)="updateCartFood()" name="update" class="btn btn-outline update-cart"
                                         value="{{ 'update_cart' | translate }}">
                                 <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"
                                         [routerLink]="['/checkout/foods']"><span>{{ 'process_order' | translate }}</span>
@@ -61,12 +59,12 @@
                     <div class="cart_header_labels clearfix">
                         <div class="label_item col-xs-12 col-sm-2 col-md-2">
                             <div class="cart_product first_item">
-                                {{ 'name' | translate }}
+                                {{ 'image' | translate }}
                             </div>
                         </div>
                         <div class="label_item col-xs-12 col-sm-3 col-md-3">
                             <div class="cart_description item">
-                                {{ 'description' | translate }}
+                                {{ 'name' | translate }}
                             </div>
                         </div>
                         <div class="label_item col-xs-12 col-sm-2 col-md-2">
@@ -97,8 +95,6 @@
                                 <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
                                 <span class="h3 cart__subtotal">{{cart.getTotalMaterial().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
                             </p>
-                            <a class="btn con-ajax-cart btn-inverse" (click)="back()"
-                               title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>
                             <input  (click)="updateCartMaterial()" name="update" class="btn btn-outline update-cart"
                                     value="{{ 'update_cart' | translate }}">
                             <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"

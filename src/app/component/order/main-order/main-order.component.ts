@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import swal from 'sweetalert2';
 import { OrderService } from '../../../service/order.service';
 import { Router } from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-order',
@@ -19,7 +20,8 @@ export class MainOrderComponent implements OnInit {
               public tokenService: TokenService,
               private formBuilder: FormBuilder,
               private orderService: OrderService,
-              private router: Router) {
+              private router: Router,
+              private translate: TranslateService) {
     this.cart = this.cartService;
     this.orderForm = this.formBuilder.group({
       personal: this.formBuilder.group({
@@ -29,7 +31,7 @@ export class MainOrderComponent implements OnInit {
         address: new FormControl('', [Validators.required])
       }),
       shipAddress: this.formBuilder.group({
-        address: new FormControl('', [Validators.required]),
+        address: new FormControl(''),
       }),
     });
   }
@@ -47,14 +49,19 @@ export class MainOrderComponent implements OnInit {
       data = {
         'address_ship': model.shipAddress.address !== '' ? model.shipAddress.address : model.personal.address,
         'trans_at': '2017-01-01',
-        'note': model.note,
         'user_id': this.tokenService.currentUser.id,
         'type': 'App\\Food',
         'items': items
       };
-      // console.log(data);
+       console.log(data);
       this.orderService.sendOrder(data).subscribe((a: any) => {
-        swal('Thông báo', 'Đặt hàng thành công!', 'success');
+        let message;
+        this.translate.get('success_add_cart.message', {
+          orderId: a.data.order_id, totalPrice:  a.data.total_price
+        }).subscribe((res: string) => {
+          message = res;
+        });
+        swal('Thông báo', 'Đặt hàng thành công đơn hàng' + a.data.order_id + ' với tổng giá ' + a.data.total_price + 'vnđ', 'success');
         this.cartService.removeCart();
         this.router.navigate(['/home']);
       }, (err: any) => {

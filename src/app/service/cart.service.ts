@@ -48,8 +48,11 @@ export class CartService {
         this.cartMaterials.push(cartItem);
       }
     }
-    this.translate.get('success_add_cart', {value: product.name}).subscribe((res: string) => {
+    this.translate.get('success_add_cart').subscribe((res: string) => {
       this.notify = res;
+    });
+    this.translate.get('success_add_cart.message', {name: product.name}).subscribe((res: string) => {
+      this.notify.message = res;
     });
     swal(this.notify.title, this.notify.message, 'success');
     this.saveCartToLocalStorage();
@@ -97,11 +100,11 @@ export class CartService {
     url = '';
     if (type === 'App\\Food') {
       carts = this.cartFoods;
-      url = environment.hostname + '/food/getCart';
+      url = environment.hostname + 'api/foods/getCart';
     }
     if (type === 'App\\Material') {
       carts = this.cartMaterials;
-      url = environment.hostname + '/material/getCart';
+      url = environment.hostname + 'api/materials/getCart';
     }
     let itemIds, value;
     itemIds = [];

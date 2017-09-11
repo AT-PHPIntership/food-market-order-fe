@@ -8,6 +8,7 @@ import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrum
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
 import { CartComponent } from './component/cart/cart.component';
+import {OrderComponent} from './component/order/order.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
@@ -25,6 +26,16 @@ const appRoutes: Routes = [
     path: 'cart',
     component: CartComponent,
     data: { title: 'Cart List'},
+  },
+  {
+    path: 'checkout/foods',
+    component: OrderComponent,
+    data: { title: 'order'},
+  },
+  {
+    path: 'checkout/materials',
+    component: OrderComponent,
+    data: { title: 'order'},
   },
   { path: '**', component: NotFoundComponent }
 ];

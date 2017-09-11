@@ -2,7 +2,7 @@
   <div class="sidebar_header">
     <h2>
       <label class="control-label">{{ 'order' | translate }}</label>
-      <label class="control-label">({{ cart.carts.length }} {{ 'product' | translate }})</label>
+      <label class="control-label">({{ urlBase == '/checkout/foods' ? cart.cartFoods.length : cart.cartMaterials.length  }}) {{ 'product' | translate }}</label>
     </h2>
     <hr class="full_width">
   </div>
@@ -12,15 +12,15 @@
         <div class="summary-product-list">
           <table class="product-table">
             <tbody>
-            <tr *ngFor="let product of cart.carts" class="product product-has-image clearfix">
+            <tr *ngFor="let product of (urlBase == '/checkout/foods' ? cart.cartFoods : cart.cartMaterials)" class="product product-has-image clearfix">
               <td>
                 <div class="product-thumbnail">
                   <div class="product-thumbnail__wrapper">
-                    <img src="./assets/images/upload{{ product.avatar }}"
-                         alt="Cơm gà" class="product-thumbnail__image">
+                    <img src="{{ product.image }}"
+                         alt="{{ product.name }}" class="product-thumbnail__image">
 
                   </div>
-                  <span class="product-thumbnail__quantity" aria-hidden="true">{{ product.quantityCart }}</span>
+                  <span class="product-thumbnail__quantity" aria-hidden="true">{{ product.quantity }}</span>
                 </div>
               </td>
               <td class="product-info">
@@ -29,7 +29,7 @@
                 </span>
               </td>
               <td class="product-price text-right">
-                {{ (product.price * product.quantityCart).toLocaleString('vi') }} ₫
+                {{ (product.price * product.quantity).toLocaleString('vi') }} ₫
               </td>
             </tr>
             </tbody>
@@ -48,7 +48,7 @@
             <span class="total-line-name pull-left">
                 {{ 'total' | translate }}
             </span>
-          <span class="total-line-price pull-right">{{ cart.getTotal().toLocaleString('vi') }} đ</span>
+          <span class="total-line-price pull-right">{{ cart.getTotalFoods().toLocaleString('vi') }} đ</span>
         </div>
       </div>
     </div>
