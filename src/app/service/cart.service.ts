@@ -17,8 +17,8 @@ export class CartService {
     cartMaterials = localStorage.getItem('cart-material');
     this.cartFoods = cartFoods !== null ? JSON.parse(cartFoods) : [];
     this.cartMaterials = cartMaterials !== null ? JSON.parse(cartMaterials) : [];
-    this.updateCart('App\\Food');
-    this.updateCart('App\\Material');
+    // this.updateCart('App\\Food');
+    // this.updateCart('App\\Material');
 
   }
   addItem(product: any) {
@@ -48,7 +48,7 @@ export class CartService {
         this.cartMaterials.push(cartItem);
       }
     }
-    this.translate.get('success_add_cart', {name: product.name}).subscribe((res: string) => {
+    this.translate.get('success_add_cart', {value: product.name}).subscribe((res: string) => {
       this.notify = res;
     });
     swal(this.notify.title, this.notify.message, 'success');
