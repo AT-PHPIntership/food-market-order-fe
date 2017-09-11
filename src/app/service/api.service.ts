@@ -8,7 +8,7 @@ export class APIService {
 
     constructor (private http: Http) { }
 
-    apiGet = (url, condition_value) => {
+    apiGet = (url, condition_value = null) => {
         let url_request = '';
         url_request = url.toString() + ((condition_value == null) ? '' : ('/' + condition_value.toString()));
         return this.http
