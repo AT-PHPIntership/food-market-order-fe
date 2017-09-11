@@ -26,21 +26,21 @@ export class CartService {
     this.cartFoods.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantity++;
+        item.quantityOrder++;
         return false;
       }
     });
     this.cartMaterials.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantity++;
+        item.quantityOrder++;
         return false;
       }
     });
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantity = 1;
+      cartItem.quantityOrder = 1;
       if (cartItem.type === 'App\\Food') {
         this.cartFoods.push(cartItem);
       }
@@ -48,8 +48,11 @@ export class CartService {
         this.cartMaterials.push(cartItem);
       }
     }
-    this.translate.get('success_add_cart', {name: product.name}).subscribe((res: string) => {
+    this.translate.get('success_add_cart').subscribe((res: string) => {
       this.notify = res;
+    });
+    this.translate.get('success_add_cart.message', {name: product.name}).subscribe((res: string) => {
+      this.notify.message = res;
     });
     swal(this.notify.title, this.notify.message, 'success');
     this.saveCartToLocalStorage();
@@ -62,7 +65,7 @@ export class CartService {
     let total: number;
     total = 0;
     this.cartFoods.forEach(function (item) {
-      total += (item.price * item.quantity);
+      total += (item.price * item.quantityOrder);
     });
     return total;
   }
@@ -70,7 +73,7 @@ export class CartService {
     let total: number;
     total = 0;
     this.cartMaterials.forEach(function (item) {
-      total += (item.price * item.quantity);
+      total += (item.price * item.quantityOrder);
     });
     return total;
   }
@@ -97,11 +100,11 @@ export class CartService {
     url = '';
     if (type === 'App\\Food') {
       carts = this.cartFoods;
-      url = environment.hostname + 'api/foods/getCart';
+      url = environment.hostname + '/api/foods/getCart';
     }
     if (type === 'App\\Material') {
       carts = this.cartMaterials;
-      url = environment.hostname + 'api/materials/getCart';
+      url = environment.hostname + '/api/materials/getCart';
     }
     let itemIds, value;
     itemIds = [];
