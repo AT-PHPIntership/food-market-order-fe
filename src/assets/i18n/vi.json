@@ -70,5 +70,10 @@
   "The password field is required.": "Trường mật khẩu là bắt buộc.",
   "The password confirmation does not match.": "Xác nhận mật khẩu không khớp.",
   "The password must be at least 6 characters.": "Mật khẩu phải có ít nhất 6 ký tự.",
-  "The email must be a valid email address.": "Địa chỉ email không hợp lệ."
+  "The email must be a valid email address.": "Địa chỉ email không hợp lệ.",
+  "Category": "Thể loại",
+  "Quantity": "Số lượng",
+  "Add to cart": "Thêm vào giỏ hàng",
+  "Information": "Thông tin",
+  "Comment": "Nhận xét"
 }
