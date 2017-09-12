@@ -107,5 +107,6 @@
   "ship_another_address": "Giao hàng đến địa chỉ khác",
   "extra_info_cart": "Cuộn để xem thêm",
   "announce": "Thông báo",
-  "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ"
+  "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ",
+  "app-name": "Food Market Order"
 }

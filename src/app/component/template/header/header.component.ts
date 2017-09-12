@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
               private tokenService: TokenService,
               private translate: TranslateService,
               private cartService: CartService) {
-    this.cart = this.cartService;
     this.token = this.tokenService;
+    this.cart = cartService;
   }
   ngOnInit() {
   }
