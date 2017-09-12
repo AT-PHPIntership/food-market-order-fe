@@ -8,11 +8,11 @@ export class APIService {
 
   constructor (private http: Http) { }
 
-  apiGet = (url, condition_value = null) => {
-    let url_request = '';
-    url_request = url.toString() + ((condition_value == null) ? '' : ('/' + condition_value.toString()));
-    return this.http
-        .get(url_request)
-        .map(res => res.json());
-  }
+    apiGet = (url, condition_value = null) => {
+        let url_request = '';
+        url_request = url.toString() + ((condition_value == null) ? '' : ('/' + condition_value.toString()));
+        return this.http
+            .get(url_request)
+            .map(res => res.json());
+    }
 }
