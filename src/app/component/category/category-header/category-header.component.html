@@ -1,0 +1,29 @@
+<div class="content_scene_cat clearfix">
+  <div class="content_scene_cat_bg">
+    <div class="image">
+      <img src="http://bizweb.dktcdn.net/100/038/419/themes/49902/assets/list_collection_default.png?1495677182625"
+           alt="Tất cả sản phẩm" class="img-responsive">
+    </div>
+    <h1 class="page-heading product-listing">{{ 'product' | translate }}</h1>
+  </div>
+</div>
+<div class="category-heading clearfix">
+  <div class="sortPagiBar clearfix row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <!-- /snippets/collection-sorting.liquid -->
+      <div class="form-horizontal">
+        <label for="SortBy" class="hidden-xs">{{ 'filter' | translate }}</label>
+        <select name="SortBy" id="SortBy">
+          <option value="manual">{{ 'manual' | translate }}</option>
+          <option value="best-selling">{{ 'best-selling' | translate }}</option>
+          <option value="alpha-asc">{{ 'alpha-asc' | translate }}</option>
+          <option value="alpha-desc">{{ 'alpha-desc' | translate }}</option>
+          <option value="price-asc">{{ 'price-asc' | translate }}</option>
+          <option value="price-desc">{{ 'price-desc' | translate }}</option>
+          <option value="created-desc">{{ 'created-desc' | translate }}</option>
+          <option value="created-asc">{{ 'created-asc' | translate }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
