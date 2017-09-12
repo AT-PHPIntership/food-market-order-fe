@@ -8,24 +8,24 @@ import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrum
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
 import { CartComponent } from './component/cart/cart.component';
-import {OrderComponent} from './component/order/order.component';
+import { OrderComponent } from './component/order/order.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: BreadcrumbsComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'login', component: LoginComponent, canActivate: [NoLoggedGuard], data: {
-    breadcrumb: 'login'
-  }
+      breadcrumb: 'login'
+    }
   },
   { path: 'register', component: RegisterComponent, data: {
     breadcrumb: 'register'
-  }
+    }
   },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   {
     path: 'cart',
     component: CartComponent,
-    data: { title: 'Cart List'},
+    data: { title: 'Cart List', breadcrumb: 'cart'},
   },
   {
     path: 'checkout/foods',
