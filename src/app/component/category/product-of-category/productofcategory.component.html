@@ -1,0 +1,36 @@
+<div class="container" style="">
+  <div class="row">
+    <div class="col-md-3">
+      <app-category-block></app-category-block>
+      <app-filter-product></app-filter-product>
+    </div>
+    <div class="col-md-9">
+      <app-category-header></app-category-header>
+      <!-- Nav tabs -->
+<ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#panel1" (click)="paginationFood()" role="tab">{{ "food" | translate }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel2" (click)="paginationMaterial()" role="tab">{{ "material" | translate }}</a>
+    </li>
+</ul>
+<!-- Tab panels -->
+<div class="tab-content card">
+    <!--Panel 1-->
+    <div class="tab-pane fade in active" id="panel1" role="tabpanel">
+        <br>
+        <app-food-productofcategory></app-food-productofcategory>
+    </div>
+    <!--/.Panel 1-->
+    <!--Panel 2-->
+    <div class="tab-pane fade" id="panel2" role="tabpanel">
+        <br>
+        <app-material-productofcategory></app-material-productofcategory>
+    </div>
+    <!--/.Panel 2-->
+</div>
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+</div>
