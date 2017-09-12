@@ -35,7 +35,6 @@ export class ListfoodComponent implements OnInit, OnDestroy {
           food.type = 'App\\Food';
           this.productListComponent.data.push(food);
         });
-        // this.productListComponent.data = data.data;
         this.pagination.init(data);
       });
     });

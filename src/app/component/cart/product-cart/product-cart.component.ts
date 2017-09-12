@@ -12,7 +12,7 @@ export class ProductCartComponent implements OnInit {
   ngOnInit() {
   }
   changeQuantity(val) {
-    this.product.quantity = val;
+    this.product.quantityOrder = val;
   }
   removeItem(item) {
     if (item.type === 'App\\Food') {

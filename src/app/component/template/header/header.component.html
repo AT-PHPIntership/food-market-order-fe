@@ -13,10 +13,10 @@
           <nav>
             <div class="header_user_info e-scale 1">
               <ul class="links">
-                <li *ngIf="currentUser == null"><a id="customer_login_link" [routerLink]="['/login']" title="{{ 'login' | translate }}">{{ 'login' | translate }}</a></li>
-                <li *ngIf="currentUser != null"><a (click)="logout()" title="{{ 'logout' | translate }}">{{ 'logout' | translate }}</a></li>
-                <li *ngIf="currentUser != null"><a [routerLink]="['/account']" title="{{ 'account' | translate:currentUser }}">{{ 'account' | translate:currentUser }}</a></li>
-                <li *ngIf="currentUser == null"><a [routerLink]="['/register']" title="{{ 'register' | translate }}">{{ 'register' | translate }}</a></li>
+                <li *ngIf="token.currentUser == null"><a id="customer_login_link" [routerLink]="['/login']" title="{{ 'login' | translate }}">{{ 'login' | translate }}</a></li>
+                <li *ngIf="token.currentUser != null"><a (click)="logout()" title="{{ 'logout' | translate }}">{{ 'logout' | translate }}</a></li>
+                <li *ngIf="token.currentUser != null"><a [routerLink]="['/account']" title="{{ 'account' | translate:token.currentUser }}">{{ 'account' | translate:token.currentUser }}</a></li>
+                <li *ngIf="token.currentUser == null"><a [routerLink]="['/register']" title="{{ 'register' | translate }}">{{ 'register' | translate }}</a></li>
               </ul>
             </div>
           </nav>
