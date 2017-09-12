@@ -1,0 +1,69 @@
+<div [ngClass]="{'clear_left': (index % size == 0)}" class="product_block {{class}}">
+<div class="item-variant clearfix product-block">
+  <div class="product-meta">
+    <h3 class="name">
+      <a class="product-name"
+         [routerLink]="['/detail',product.food.id]"
+         title="{{ product.name }}">{{ product.food.name }}</a>
+    </h3>
+    <div class="review clearfix">
+      <span class="shopify-product-reviews-badge" data-id="995766"></span>
+    </div>
+    <div class="content_price">
+                        <span class="price product-price sale-price">
+                         <span>{{ product.food.price.toLocaleString('vi') }} {{ 'unit' | translate }}</span>
+                       </span>
+    </div>
+    <div class="content_price">
+      <span class="price product-price sale-price">
+                         <span>Sl: {{ product.quantity }} </span>
+                       </span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="product-image-container image">
+    <div class="layout-img">
+      <a class="product_img_link"
+         [routerLink]="['/detail',product.food.id]"
+         title="{{ product.name }}">
+        <img class="replace-2x img-responsive"
+             src="{{ product.food.image }}"
+             alt="{{ product.food.name }}">
+        <span class="product-additional" data-idproduct="995766">
+            <img class="replace-2x img-responsive"
+                 src="{{ product.food.image }}">
+        </span>
+      </a>
+    </div>
+    <div class="right">
+      <div class="action">
+        <div class="quickview">
+          <a class="btn-inverse btn" href="#quick-view-product"
+             title="{{ 'quick-view' | translate }}">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </div>
+        <div class="view_detail">
+          <a class="btn btn-inverse lnk_view"
+             [routerLink]="['/detail',product.food.id]"
+             data-toggle="tooltip" title="" data-original-title="Xem">
+            <i class="fa fa-eye"></i>
+          </a>
+        </div>
+        <div class="cart addtocart">
+          <form onsubmit="return false" method="post" enctype="multipart/form-data"
+                class="form-ajaxtocart" id="product-actions-995766">
+            <input type="hidden" name="id" value="8697313">
+            <input type="hidden" name="variantId" value="8697313">
+            <button class="btn btn-outline-inverse ajax_addtocart" type="button"
+                    value="Submit" (click)="addCart()">
+              <i class="fa fa-shopping-cart"></i>
+              <span>{{ 'Buy' | translate }}</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
