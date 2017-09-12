@@ -3,20 +3,20 @@
     <div class="product-meta">
       <h3 class="name">
         <a class="product-name"
-           [routerLink]="['/detail',product.id]"
+           [routerLink]="['/category',product.id]"
            title="{{ product.name }}">{{ product.name }}</a>
       </h3>
       <div class="review clearfix">
         <span class="shopify-product-reviews-badge" data-id="995766"></span>
-      </div>
-      <div class="content_price">
+      </div>      
+      <div *ngIf = "product.price" class="content_price">
                           <span class="price product-price sale-price">
                            <span>{{ product.price.toLocaleString('vi') }} ₫</span>
                          </span>
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="product-image-container image">
+    <div *ngIf = "product.image" class="product-image-container image">
       <div class="layout-img">
         <a class="product_img_link"
            [routerLink]="['/detail',product.id]"
