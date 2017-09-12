@@ -46,8 +46,7 @@ export class LoginComponent implements OnInit {
     headers.append('Accept', 'application/json');
     options = new RequestOptions({headers: headers});
     this.http.post(environment.hostname + '/api/users/login', data, options).map(res => res.json()).subscribe((a: any) => {
-      this.tokenService.setToken(a);
-      this.service.loginToken(a.access_token);
+      this.service.loginToken(a.data);
       this.translate.get('success_login').subscribe((res: string) => {
         this.notify = res;
       });

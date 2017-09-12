@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.service.login.subscribe(data => {
-      this.header.getInfo();
+      this.header.login(data);
     });
   }
 }

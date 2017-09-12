@@ -13,54 +13,29 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  currentUser: any;
+  token: TokenService;
   notify: any;
   constructor(private router: Router,
               private http: Http,
               private tokenService: TokenService,
               private shareService: ShareService,
               private translate: TranslateService) {
-    if (this.tokenService.getAccessToken() != null) {
-      this.getInfo();
-    } else {
-      this.currentUser = null;
-    }
+    this.token = this.tokenService;
   }
   ngOnInit() {
+  }
+  login(data) {
+    this.tokenService.setToken(data);
+    this.tokenService.getInfo();
   }
   /** Logout system */
   logout() {
     this.tokenService.removeToken();
-    this.currentUser = null;
+    this.tokenService.currentUser = null;
     this.router.navigate(['/home']);
     this.translate.get('success_logout').subscribe((res: string) => {
       this.notify = res;
     });
     swal(this.notify.title, this.notify.message, 'success');
-  }
-  /** Get information basic of user */
-  getInfo() {
-    this.tokenService.getDataWithToken(environment.hostname + '/api/user').subscribe((data: any) => {
-      this.currentUser = data;
-      return data;
-    }, (err: any) => {
-      if (err.status === 401) {
-        /** Access token expired will refresh token*/
-        this.tokenService.refreshToken().subscribe((dataToken: any) => {
-          this.tokenService.setToken(dataToken);
-          this.getInfo();
-        }, (err2: any) => {
-          /** Refresh token expired*/
-          if (err2.status === 401) {
-            this.translate.get('login_agian').subscribe((res: string) => {
-              this.notify = res;
-            });
-            swal(this.notify.title, this.notify.message, 'warning');
-            this.tokenService.removeToken();
-            this.shareService.loginToken(null);
-          }
-        });
-      }
-    });
   }
 }
