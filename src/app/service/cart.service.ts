@@ -120,9 +120,8 @@ export class CartService {
       { headers: headers })
       .map(res => res.json())
       .subscribe((data: any) => {
-        console.log(data);
         carts.forEach(function (item) {
-          item.price = data.find(trai => trai.id === item.id).price;
+          item.price = data.data.find(trai => trai.id === item.id).price;
         });
         this.saveCartToLocalStorage();
       });

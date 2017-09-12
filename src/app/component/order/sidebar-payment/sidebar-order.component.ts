@@ -20,11 +20,12 @@ export class SidebarOrderComponent implements OnInit {
     items = [];
     if (this.urlBase === '/checkout/foods') {
       this.cart.cartFoods.forEach(item => {
-        items.push({id: item.id, quantity: item.quantity});
+        console.log(item);
+        items.push({id: item.id, quantity: item.quantityOrder});
       });
     } else {
       this.cart.cartMaterials.forEach(item => {
-        items.push({id: item.id, quantity: item.quantity});
+        items.push({id: item.id, quantity: item.quantityOrder});
       });
     }
     this.orderEvent.emit(items);

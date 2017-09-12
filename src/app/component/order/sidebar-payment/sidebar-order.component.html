@@ -20,7 +20,7 @@
                          alt="{{ product.name }}" class="product-thumbnail__image">
 
                   </div>
-                  <span class="product-thumbnail__quantity" aria-hidden="true">{{ product.quantity }}</span>
+                  <span class="product-thumbnail__quantity" aria-hidden="true">{{ product.quantityOrder }}</span>
                 </div>
               </td>
               <td class="product-info">
@@ -29,7 +29,7 @@
                 </span>
               </td>
               <td class="product-price text-right">
-                {{ (product.price * product.quantity).toLocaleString('vi') }} ₫
+                {{ (product.price * product.quantityOrder).toLocaleString('vi') }} ₫
               </td>
             </tr>
             </tbody>

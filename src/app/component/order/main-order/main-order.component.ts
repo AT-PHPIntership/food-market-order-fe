@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import swal from 'sweetalert2';
 import { OrderService } from '../../../service/order.service';
 import { Router } from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-order',
@@ -16,6 +16,7 @@ export class MainOrderComponent implements OnInit {
   cart: any;
   ortherShip = false;
   orderForm: FormGroup;
+  notify: any;
   constructor(private cartService: CartService,
               public tokenService: TokenService,
               private formBuilder: FormBuilder,
@@ -25,48 +26,62 @@ export class MainOrderComponent implements OnInit {
     this.cart = this.cartService;
     this.orderForm = this.formBuilder.group({
       personal: this.formBuilder.group({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        name: new FormControl('', [Validators.required]),
-        phone: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-        address: new FormControl('', [Validators.required])
+        email: new FormControl(tokenService.currentUser.email, [Validators.required, Validators.email]),
+        name: new FormControl(tokenService.currentUser.full_name, [Validators.required]),
+        phone: new FormControl(tokenService.currentUser.phone_number, [Validators.required, Validators.pattern('[0-9]*')]),
+        address: new FormControl(tokenService.currentUser.address, [Validators.required]),
+        trans_at: new FormControl('', [Validators.required])
       }),
       shipAddress: this.formBuilder.group({
         address: new FormControl(''),
       }),
     });
+    this.notify = {
+      title: '', message: ''
+    };
   }
   order(items) {
+    let model, data;
+    model = this.orderForm.value;
     if (!this.orderForm.valid) {
-      swal('Thông báo!', 'Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại', 'error');
+      this.translate.get('data_invalid').subscribe((res: string) => {
+        this.notify = res;
+      });
+      swal(this.notify.title, this.notify.message, 'error');
       return;
     }
     if (this.tokenService.currentUser === undefined) {
-      swal('Thông báo!', 'Mời bạn đăng nhập rồi thực hiện chức năng này!', 'error');
-      return;
-    }
-      let model, data;
-      model = this.orderForm.value;
-      data = {
-        'address_ship': model.shipAddress.address !== '' ? model.shipAddress.address : model.personal.address,
-        'trans_at': '2017-01-01',
-        'user_id': this.tokenService.currentUser.id,
-        'type': 'App\\Food',
-        'items': items
-      };
-       console.log(data);
-      this.orderService.sendOrder(data).subscribe((a: any) => {
-        let message;
-        this.translate.get('success_add_cart.message', {
-          orderId: a.data.order_id, totalPrice:  a.data.total_price
-        }).subscribe((res: string) => {
-          message = res;
-        });
-        swal('Thông báo', 'Đặt hàng thành công đơn hàng' + a.data.order_id + ' với tổng giá ' + a.data.total_price + 'vnđ', 'success');
-        this.cartService.removeCart();
-        this.router.navigate(['/home']);
-      }, (err: any) => {
-        swal('Thông báo!', 'Đặt hàng thất bại!', 'error');
+      this.translate.get('invite_login').subscribe((res: string) => {
+        this.notify = res;
       });
+      swal(this.notify.title, this.notify.message, 'error');
+    }
+    data = {
+      'address_ship': model.shipAddress.address !== '' ? model.shipAddress.address : model.personal.address,
+      'trans_at': new Date().toISOString().slice(0, 10) + ' ' + model.personal.trans_at,
+      'user_id': this.tokenService.currentUser.id,
+      'type': 'App\\Food',
+      'items': items
+    };
+    console.log(data);
+    this.translate.get('announce').subscribe((res: string) => {
+      this.notify.title = res;
+    });
+    this.orderService.sendOrder(data).subscribe((a: any) => {
+      this.translate.get('order_success', {
+        orderId: a.data.order_id, totalPrice:  a.data.total_price
+      }).subscribe((res: string) => {
+        this.notify.message = res;
+      });
+      swal(this.notify.title, this.notify.message, 'success');
+      this.cartService.removeCart();
+      this.router.navigate(['/home']);
+    }, (err: any) => {
+      this.translate.get('order_fail').subscribe((res: string) => {
+        this.notify.title = res;
+      });
+      swal(this.notify.title, this.notify.message, 'error');
+    });
   }
   ngOnInit() {
   }

@@ -108,5 +108,11 @@
   "extra_info_cart": "Cuộn để xem thêm",
   "announce": "Thông báo",
   "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ",
-  "app-name": "Food Market Order"
+  "app-name": "Food Market Order",
+  "ship_time": "Thời gian giao hàng",
+  "data_invalid": {
+    "title": "Thông báo",
+    "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
+  },
+  "order_fail": "Đặt hàng thất bại!"
 }
