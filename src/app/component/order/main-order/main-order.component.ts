@@ -24,12 +24,17 @@ export class MainOrderComponent implements OnInit {
               private router: Router,
               private translate: TranslateService) {
     this.cart = this.cartService;
+    // while (this.tokenService.currentUser == null) {}
+    console.log(tokenService);
     this.orderForm = this.formBuilder.group({
       personal: this.formBuilder.group({
-        email: new FormControl(tokenService.currentUser.email, [Validators.required, Validators.email]),
-        name: new FormControl(tokenService.currentUser.full_name, [Validators.required]),
-        phone: new FormControl(tokenService.currentUser.phone_number, [Validators.required, Validators.pattern('[0-9]*')]),
-        address: new FormControl(tokenService.currentUser.address, [Validators.required]),
+        email: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.email : '',
+            [Validators.required, Validators.email]),
+        name: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.full_name : '',
+            [Validators.required]),
+        phone: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.phone_number : '',
+            [Validators.required, Validators.pattern('[0-9]*')]),
+        address: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.address : '', [Validators.required]),
         trans_at: new FormControl('', [Validators.required])
       }),
       shipAddress: this.formBuilder.group({
@@ -39,6 +44,7 @@ export class MainOrderComponent implements OnInit {
     this.notify = {
       title: '', message: ''
     };
+    console.log(tokenService.currentUser);
   }
   order(items) {
     let model, data;

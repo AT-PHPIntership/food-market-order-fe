@@ -19,6 +19,7 @@ export class TokenService {
     this.dataRefresh = {
       refresh_token: this.getRefreshToken(),
     };
+    this.currentUser = null;
     this.getInfo();
   }
   isLogged() {

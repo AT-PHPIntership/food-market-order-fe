@@ -35,11 +35,13 @@ const appRoutes: Routes = [
     path: 'checkout/foods',
     component: OrderComponent,
     data: { title: 'order'},
+    canActivate: [LoggedGuard]
   },
   {
     path: 'checkout/materials',
     component: OrderComponent,
     data: { title: 'order'},
+    canActivate: [LoggedGuard]
   },
   { path: '**', component: NotFoundComponent }
 ];
