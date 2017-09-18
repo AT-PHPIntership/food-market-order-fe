@@ -15,6 +15,7 @@ import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
 import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
+import {OrderDetailComponent} from './component/account/orderDetail/orderDetail.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { ItemFoodComponent } from './component/listfood/item-food/item-food.comp
         ProductsDailyMenuComponent,
         ItemFoodComponent,
         RegisterComponent,
+        OrderDetailComponent,
         RangePipe
     ],
     imports: [

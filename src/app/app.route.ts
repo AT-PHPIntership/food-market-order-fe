@@ -11,6 +11,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: CategoryComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
       breadcrumb: 'login'
     }
   },
+  {path: 'order/:id', component: OrderDetailComponent, data: {}},
   { path: 'register', component: RegisterComponent, data: {
        breadcrumb: 'register'
     }
