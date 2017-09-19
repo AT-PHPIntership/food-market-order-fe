@@ -114,5 +114,6 @@
     "title": "Thông báo",
     "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
   },
-  "order_fail": "Đặt hàng thất bại!"
+  "order_fail": "Đặt hàng thất bại!",
+  "order": "Đặt hàng"
 }

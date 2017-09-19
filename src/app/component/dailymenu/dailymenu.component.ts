@@ -40,7 +40,6 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
             daliyItem.food.type = 'App\\Food';
             this.listProductsComponent.data.push(daliyItem);
           });
-            // this.listProductsComponent.data = data.data;
             this.pagination.init(data);
         });
     });

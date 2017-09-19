@@ -17,9 +17,8 @@ export class CartService {
     cartMaterials = localStorage.getItem('cart-material');
     this.cartFoods = cartFoods !== null ? JSON.parse(cartFoods) : [];
     this.cartMaterials = cartMaterials !== null ? JSON.parse(cartMaterials) : [];
-    // this.updateCart('App\\Food');
-    // this.updateCart('App\\Material');
-
+    this.updateCart('App\\Food');
+    this.updateCart('App\\Material');
   }
   addItem(product: any) {
     let existItem: any;

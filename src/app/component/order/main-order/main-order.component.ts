@@ -24,8 +24,6 @@ export class MainOrderComponent implements OnInit {
               private router: Router,
               private translate: TranslateService) {
     this.cart = this.cartService;
-    // while (this.tokenService.currentUser == null) {}
-    console.log(tokenService);
     this.orderForm = this.formBuilder.group({
       personal: this.formBuilder.group({
         email: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.email : '',
@@ -69,7 +67,6 @@ export class MainOrderComponent implements OnInit {
       'type': 'App\\Food',
       'items': items
     };
-    console.log(data);
     this.translate.get('announce').subscribe((res: string) => {
       this.notify.title = res;
     });

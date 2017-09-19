@@ -31,6 +31,5 @@ export class SidebarOrderComponent implements OnInit {
     this.orderEvent.emit(items);
   }
   ngOnInit() {
-    console.log(this.router.url);
   }
 }
