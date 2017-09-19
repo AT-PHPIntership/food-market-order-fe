@@ -100,11 +100,11 @@ export class CartService {
     url = '';
     if (type === 'App\\Food') {
       carts = this.cartFoods;
-      url = environment.hostname + '/api/foods/getCart';
+      url = environment.hostname + '/api/carts/getCartFoods';
     }
     if (type === 'App\\Material') {
       carts = this.cartMaterials;
-      url = environment.hostname + '/api/materials/getCart';
+      url = environment.hostname + '/api/carts/getCartFoods';
     }
     let itemIds, value;
     itemIds = [];
@@ -120,7 +120,6 @@ export class CartService {
       { headers: headers })
       .map(res => res.json())
       .subscribe((data: any) => {
-        console.log(data);
         carts.forEach(function (item) {
           item.price = data.find(trai => trai.id === item.id).price;
         });

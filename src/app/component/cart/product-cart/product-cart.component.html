@@ -4,12 +4,12 @@
     <div class="cpro_item_inner">
       <a *ngIf="product.type === 'App\\Food'" [routerLink]= "['/foods/detail',product.id]"
          class="cart__image">
-        <img width="75" height="75" alt="Sinh tố hoa quả"
+        <img width="75" height="75" alt="{{ product.name }}"
              src="{{ product.image }}">
       </a>
       <a *ngIf="product.type === 'App\\Materials'" [routerLink]= "['/materials/detail',product.id]"
          class="cart__image">
-        <img width="75" height="75" alt="Sinh tố hoa quả"
+        <img width="75" height="75" alt="{{ product.name }}"
              src="{{ product.image }}">
       </a>
     </div>
@@ -28,7 +28,7 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">{{ 'price' | translate }}: </span>
-      <span class="price product-price">{{ product.price.toLocaleString('vi') }}₫</span>
+      <span class="price product-price">{{ product.price.toLocaleString('vi') }} {{ 'unit' | translate }}</span>
     </div>
   </div>
   <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
@@ -41,7 +41,7 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">{{ 'total' | translate }}: </span>
-      <span class="price product-price">{{(product.price * product.quantityOrder).toLocaleString('vi') }} {{ 'unit' | translate }}</span>
+      <span class="price product-price">{{ (product.price * product.quantityOrder).toLocaleString('vi') }} {{ 'unit' | translate }}</span>
     </div>
   </div>
   <div class="cpro_item col-xs-12 col-sm-1 col-md-1">

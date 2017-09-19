@@ -18,11 +18,11 @@ const appRoutes: Routes = [
     }
   },
   { path: 'register', component: RegisterComponent, data: {
-    breadcrumb: 'register'
+      breadcrumb: 'register'
     }
   },
   { path: 'daily-menu', component: DailyMenuComponent, data: {
-    breadcrumb: 'Daily menu'
+      breadcrumb: 'Daily menu'
   } },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   {
