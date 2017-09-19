@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   login(data) {
-    console.log(data);
     this.tokenService.setToken(data);
     this.tokenService.getInfo();
   }

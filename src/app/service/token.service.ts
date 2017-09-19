@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { TranslateService } from '@ngx-translate/core';
 import swal from 'sweetalert2';
-import {ShareService} from './share.service';
+import { ShareService } from './share.service';
 
 @Injectable()
 export class TokenService {
@@ -32,12 +32,14 @@ export class TokenService {
   getTokenType() {
     return Cookie.get(TokenService.TOKEN_TYPE);
   }
+
   /** Get information basic of user */
   getInfo() {
     if (this.getAccessToken() == null) {
       this.currentUser = null;
       return;
     }
+
     this.requestWithToken(environment.hostname + '/api/users/me', 'GET').subscribe((data: any) => {
       this.currentUser = data.data;
     }, (err: any) => {

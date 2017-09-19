@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
     notify: any;
     imageDragMessage: any;
     imageName: string = null;
-    constructor(protected tokenService: TokenService,
+    constructor(public tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
                 private service: ShareService,
@@ -86,6 +86,8 @@ export class UserProfileComponent implements OnInit {
                 swal(this.notify.title, this.notify.message, 'error');
             }
         });
+        this.tokenService.getInfo();
+        this.reset();
     }
 
     reset() {
