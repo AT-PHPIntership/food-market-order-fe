@@ -100,11 +100,11 @@ export class CartService {
     url = '';
     if (type === 'App\\Food') {
       carts = this.cartFoods;
-      url = environment.hostname + '/api/foods/getCart';
+      url = environment.hostname + '/api/carts/getCartFoods';
     }
     if (type === 'App\\Material') {
       carts = this.cartMaterials;
-      url = environment.hostname + '/api/materials/getCart';
+      url = environment.hostname + '/api/carts/getCartFoods';
     }
     let itemIds, value;
     itemIds = [];
