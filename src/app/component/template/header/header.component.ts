@@ -1,4 +1,3 @@
-///<reference path="../../../service/token.service.ts"/>
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../../../service/token.service';
 import { ShareService } from '../../../service/share.service';
