@@ -16,7 +16,7 @@ export class TopTrendComponent implements OnInit {
 
   ngOnInit() {
     let url;
-    url = environment.hostname + '/api/statistics/trends';
+    url = `${environment.hostname}/api/statistics/trends`;
     this.apiService.apiGet(url).subscribe(data => {
       data.data.foods.forEach(item => {
         let food;
