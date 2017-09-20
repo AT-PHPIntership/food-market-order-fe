@@ -28,7 +28,7 @@ export class ListfoodComponent implements OnInit, OnDestroy {
         this.page = 1;
       }
       let url;
-      url = environment.hostname + '/api/foods?page=' + this.page;
+      url = `${environment.hostname}/api/foods?page=${this.page}`;
       this.apiService.apiGet(url).subscribe(data => {
         console.log(data);
         this.productListComponent.data = data.data;
