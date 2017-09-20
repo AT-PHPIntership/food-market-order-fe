@@ -98,9 +98,6 @@ export class TokenService {
         headers: headers
       }).map(res => res.json());
     } else if (method === 'PUT') {
-
-            console.log(data);
-            console.log({headers});
       return this.http.put(url, data, {
         headers: headers
       }).map(res => res.json());
