@@ -22,14 +22,12 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.queryParams.subscribe(params => {
       this.page = +params['page'];
-      console.log(this.page);
       if (!this.page) {
         this.page = 1;
       }
       let url;
       url = `${environment.hostname}/api/categories?page=${this.page}`;
       this.apiService.apiGet(url).subscribe(data => {
-        console.log(data);
         this.productListComponent.data = data.data;
         this.pagination.init(data);
       });
