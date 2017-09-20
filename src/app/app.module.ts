@@ -15,7 +15,11 @@ import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
 import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
-import {OrderDetailComponent} from './component/account/orderDetail/orderDetail.component';
+import { ShoppingCartComponent } from './component/cart/index';
+import { CheckoutComponent } from './component/order/index';
+import { OrderService } from './service/order.service';
+import { OnFocusDirective } from './directive/focus-class.directive';
+import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 
 @NgModule({
     declarations: [
@@ -28,8 +32,11 @@ import {OrderDetailComponent} from './component/account/orderDetail/orderDetail.
         ProductsDailyMenuComponent,
         ItemFoodComponent,
         RegisterComponent,
+        RangePipe,
+        ShoppingCartComponent,
+        CheckoutComponent,
+        OnFocusDirective,
         OrderDetailComponent,
-        RangePipe
     ],
     imports: [
         routing,
@@ -37,7 +44,7 @@ import {OrderDetailComponent} from './component/account/orderDetail/orderDetail.
         SharedModule.forRoot(),
         HttpModule,
     ],
-    providers: [APIService, PaginationService],
+    providers: [APIService, PaginationService, OrderService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

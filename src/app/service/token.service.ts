@@ -19,6 +19,7 @@ export class TokenService {
     this.dataRefresh = {
       refresh_token: this.getRefreshToken(),
     };
+    this.currentUser = null;
     this.getInfo();
   }
   isLogged() {
@@ -67,6 +68,17 @@ export class TokenService {
       'Authorization': 'Bearer ' + this.getAccessToken(),
     });
     return this.http.get(url, {
+      headers: headers
+    }).map(res => res.json());
+  }
+  postDataWithToken(url, data) {
+    let headers;
+    headers = new Headers({
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + this.getAccessToken(),
+    });
+    return this.http.post(url, data, {
       headers: headers
     }).map(res => res.json());
   }

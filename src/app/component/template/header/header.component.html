@@ -123,12 +123,12 @@
               <div id="cart" class="blockcart_top clearfix">
                 <div class="media heading">
                   <div class="cart-inner media-body">
-                    <a href="#" id="CartToggle">
+                    <a [routerLink]="['/cart']">
                       <div class="icon-cart"></div>
                       <span class="fix-cart">{{ 'cart' | translate }}</span>
-                      <span id="CartCount">5</span>
+                      <span id="CartCount">{{ cart.cartMaterials.length + cart.cartFoods.length}}</span>
                       <span> - </span>
-                      <span id="CartCost">320.000{{ 'unit' | translate }}</span>
+                      <span id="CartCost">{{(cart.getTotalFoods() + cart.getTotalMaterial()).toLocaleString('vi') }} {{ 'unit' | translate }}</span>
                     </a>
                   </div>
                 </div>

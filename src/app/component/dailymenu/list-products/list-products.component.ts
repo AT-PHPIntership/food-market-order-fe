@@ -8,5 +8,7 @@ import { PaginationService } from '../../../service/pagination.service';
 })
 export class ProductsDailyMenuComponent {
     data: any;
-    constructor () {}
+    constructor () {
+      this.data = [];
+    }
 }

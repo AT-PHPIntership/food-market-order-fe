@@ -8,9 +8,10 @@ import { ListCategoryComponent } from './component/category/list-category/listca
 import { ProductOfCategoryComponent } from './component/category/product-of-category/productofcategory.component';
 import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { RegisterComponent } from './component/register/register.component';
-import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { CartComponent } from './component/cart/cart.component';
+import { OrderComponent } from './component/order/order.component';
 import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 
 const appRoutes: Routes = [
@@ -30,13 +31,30 @@ const appRoutes: Routes = [
   },
   {path: 'order/:id', component: OrderDetailComponent, data: {}},
   { path: 'register', component: RegisterComponent, data: {
-       breadcrumb: 'register'
+    breadcrumb: 'register'
     }
   },
   { path: 'daily-menu', component: DailyMenuComponent, data: {
     breadcrumb: 'Daily menu'
   } },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: 'cart',
+    component: CartComponent,
+    data: { title: 'Cart List', breadcrumb: 'cart'},
+  },
+  {
+    path: 'checkout/foods',
+    component: OrderComponent,
+    data: { title: 'order'},
+    canActivate: [LoggedGuard]
+  },
+  {
+    path: 'checkout/materials',
+    component: OrderComponent,
+    data: { title: 'order'},
+    canActivate: [LoggedGuard]
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
