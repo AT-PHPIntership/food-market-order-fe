@@ -18,6 +18,7 @@ import { ItemFoodComponent } from './component/listfood/item-food/item-food.comp
 import { HomeComponent } from './component/home/home.component';
 import { TopTrendComponent } from './component/home/top-trend/top-trend.component';
 import { SlideShowComponent } from './component/home/slide-show/slide-show.component';
+import { HomeDailymenuComponent } from './component/home/home-dailymenu/home-dailymenu.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { SlideShowComponent } from './component/home/slide-show/slide-show.compo
         RangePipe,
         HomeComponent,
         TopTrendComponent,
-        SlideShowComponent
+        SlideShowComponent,
+        HomeDailymenuComponent
     ],
     imports: [
         routing,
