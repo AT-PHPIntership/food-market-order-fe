@@ -68,19 +68,18 @@ export class UserProfileComponent implements OnInit {
 
         this.tokenService.requestWithToken(environment.hostname + '/api/users/me', 'PUT', this.data).subscribe((resJson: any) => {
             this.responseData = resJson;
-            this.translate.get('success_register').subscribe((res: string) => {
+            this.translate.get('success_update').subscribe((res: string) => {
                 this.notify = res;
             });
             swal(this.notify.title, this.notify.message, 'success');
         }, (err: any) => {
-            // console.log('err');
             if (err.status !== 422) {
-                this.translate.get('error_register').subscribe((res: string) => {
+                this.translate.get('error_update').subscribe((res: string) => {
                     this.notify = res;
                 });
                 swal(this.notify.title, this.notify.message, 'error');
             } else {
-                this.translate.get('error_validation_register').subscribe((res: string) => {
+                this.translate.get('error_validation_update').subscribe((res: string) => {
                     this.notify = res;
                 });
                 swal(this.notify.title, this.notify.message, 'error');
@@ -117,7 +116,6 @@ export class UserProfileComponent implements OnInit {
     }
 
     onUploadError(event: any) {
-        console.log(event);
     }
 
     onUploadSuccess(event: any) {
@@ -127,7 +125,6 @@ export class UserProfileComponent implements OnInit {
     onRemoveFile(event: any) {
         this.tokenService.requestWithToken(environment.hostname + '/api/users/upload-image', 'POST',
             { 'fileName': this.imageName }).subscribe((data: any) => {
-            console.log(data);
         });
         this.imageName = null;
     }
