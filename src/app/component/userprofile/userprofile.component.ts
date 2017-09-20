@@ -73,7 +73,6 @@ export class UserProfileComponent implements OnInit {
             });
             swal(this.notify.title, this.notify.message, 'success');
         }, (err: any) => {
-            // console.log('err');
             if (err.status !== 422) {
                 this.translate.get('error_register').subscribe((res: string) => {
                     this.notify = res;
@@ -117,7 +116,6 @@ export class UserProfileComponent implements OnInit {
     }
 
     onUploadError(event: any) {
-        console.log(event);
     }
 
     onUploadSuccess(event: any) {
@@ -127,7 +125,6 @@ export class UserProfileComponent implements OnInit {
     onRemoveFile(event: any) {
         this.tokenService.requestWithToken(environment.hostname + '/api/users/upload-image', 'POST',
             { 'fileName': this.imageName }).subscribe((data: any) => {
-            console.log(data);
         });
         this.imageName = null;
     }
