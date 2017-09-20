@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from "../../../service/api.service";
-import { environment } from "../../../../environments/environment";
+import { APIService } from '../../../service/api.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-top-trend',
@@ -21,13 +21,13 @@ export class TopTrendComponent implements OnInit {
       data.data.foods.forEach(item => {
         let food;
         food = Object.assign({}, item);
-        food.type = "App\\Food";
+        food.type = 'App\\Food';
         this.data.push(food);
       });
       data.data.materials.forEach(item => {
         let material;
         material = Object.assign({}, item);
-        material.type = "App\\Material";
+        material.type = 'App\\Material';
         this.data.push(material);
       });
     });
