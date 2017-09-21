@@ -22,7 +22,7 @@ export class DetailFoodComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       let url;
-      url = environment.hostname + '/api/foods/' + this.id;
+      url = `${environment.hostname}/api/foods/${this.id}`;
       this.apiService.apiGet(url).subscribe(data => {
         this.block.item = data;
       });
