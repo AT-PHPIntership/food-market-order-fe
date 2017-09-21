@@ -12,10 +12,12 @@ import { RegisterComponent } from './component/register/register.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { UserProfileComponent} from './component/userprofile/userprofile.component';
 import { DetailFoodComponent } from './component/detail-food/detail-food.component';
 import { HomeComponent } from './component/home/home.component';
 
 const appRoutes: Routes = [
+  { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
   { path: 'home', component: HomeComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'materials', component: MaterialComponent },

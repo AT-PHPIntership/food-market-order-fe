@@ -24,7 +24,7 @@ export class CategoryBlockComponent implements OnInit {
 
     ngOnInit() {
     let url;
-    url = environment.hostname + '/api/statistics/counts';
+    url = `${environment.hostname}/api/statistics/counts`;
     this.apiService.apiGet(url).subscribe(data => {
         let counts;
         counts = data.data;
@@ -39,7 +39,7 @@ export class CategoryBlockComponent implements OnInit {
 
     getListCategory() {
         let url;
-        url = environment.hostname + '/api/categories';
+        url = `${environment.hostname}/api/categories`;
         this.apiService.apiGet(url).subscribe(data => {
             this.categories = data.data;
         });
