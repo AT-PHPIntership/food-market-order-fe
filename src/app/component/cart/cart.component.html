@@ -45,7 +45,7 @@
                                     <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
                                     <span class="h3 cart__subtotal">{{cart.getTotalFoods().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
                                 </p>
-                                <input (click)="updateCartFood()" name="update" class="btn btn-outline update-cart"
+                                <input (click)="updateCart()" name="update" class="btn btn-outline update-cart"
                                         value="{{ 'update_cart' | translate }}">
                                 <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"
                                         [routerLink]="['/checkout/foods']"><span>{{ 'process_order' | translate }}</span>
@@ -95,7 +95,7 @@
                                 <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
                                 <span class="h3 cart__subtotal">{{cart.getTotalMaterial().toLocaleString('vi')}} {{ 'unit' | translate }}</span>
                             </p>
-                            <input  (click)="updateCartMaterial()" name="update" class="btn btn-outline update-cart"
+                            <input  (click)="updateCart()" name="update" class="btn btn-outline update-cart"
                                     value="{{ 'update_cart' | translate }}">
                             <button class="btn btn-outline" title="{{ 'process_order' | translate }}" type="button"
                                     [routerLink]="['/checkout/materials']"><span>{{ 'process_order' | translate }}</span>

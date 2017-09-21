@@ -3,7 +3,7 @@
   <div class="product-meta">
     <h3 class="name">
       <a class="product-name"
-         [routerLink]="['/detail',product.food.id]"
+         [routerLink]="['/foods/detail',product.food.id]"
          title="{{ product.name }}">{{ product.food.name }}</a>
     </h3>
     <div class="review clearfix">
@@ -19,7 +19,7 @@
   <div class="product-image-container image">
     <div class="layout-img">
       <a class="product_img_link"
-         [routerLink]="['/detail',product.food.id]"
+         [routerLink]="['/foods/detail',product.food.id]"
          title="{{ product.name }}">
         <img class="replace-2x img-responsive"
              src="{{ product.food.image }}"
@@ -40,7 +40,7 @@
         </div>
         <div class="view_detail">
           <a class="btn btn-inverse lnk_view"
-             [routerLink]="['/detail',product.food.id]"
+             [routerLink]="['/foods/detail',product.food.id]"
              data-toggle="tooltip" title="" data-original-title="Xem">
             <i class="fa fa-eye"></i>
           </a>

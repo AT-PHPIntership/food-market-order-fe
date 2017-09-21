@@ -13,6 +13,7 @@
 /src/assets/images/upload
 /src/assets/images/banner
 /src/assets/images/slide
+/src/environments
 # IDEs and editors
 /.idea
 .project

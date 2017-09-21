@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
@@ -11,16 +11,16 @@ export class CartService {
   cartFoods: any;
   cartMaterials: any;
   notify: any;
+
   constructor(private http: Http, private translate: TranslateService) {
     let cartFoods, cartMaterials;
     cartFoods = localStorage.getItem('cart-food');
     cartMaterials = localStorage.getItem('cart-material');
     this.cartFoods = cartFoods !== null ? JSON.parse(cartFoods) : [];
     this.cartMaterials = cartMaterials !== null ? JSON.parse(cartMaterials) : [];
-    this.updateCart('App\\Food');
-    this.updateCart('App\\Material');
-
+    this.updateCart();
   }
+
   addItem(product: any) {
     let existItem: any;
     this.cartFoods.forEach(function (item) {
@@ -57,10 +57,12 @@ export class CartService {
     swal(this.notify.title, this.notify.message, 'success');
     this.saveCartToLocalStorage();
   }
+
   saveCartToLocalStorage() {
     localStorage.setItem('cart-food', JSON.stringify(this.cartFoods));
     localStorage.setItem('cart-material', JSON.stringify(this.cartMaterials));
   }
+
   getTotalFoods() {
     let total: number;
     total = 0;
@@ -69,6 +71,7 @@ export class CartService {
     });
     return total;
   }
+
   getTotalMaterial() {
     let total: number;
     total = 0;
@@ -77,6 +80,7 @@ export class CartService {
     });
     return total;
   }
+
   removeItem(item, type) {
     let index;
     if (type === 'App\\Food') {
@@ -89,39 +93,48 @@ export class CartService {
     }
     this.saveCartToLocalStorage();
   }
+
   removeCart() {
     this.cartFoods = [];
     this.cartMaterials = [];
     this.saveCartToLocalStorage();
   }
-  updateCart(type) {
-    let carts, url;
-    carts = [];
-    url = '';
-    if (type === 'App\\Food') {
-      carts = this.cartFoods;
-      url = environment.hostname + '/api/carts/getCartFoods';
+
+  updateCart() {
+    let url;
+    url = `${environment.hostname}/api/carts`;
+    let foodIds, materialIds, value;
+    foodIds = [];
+    materialIds = [];
+    for (value of this.cartFoods) {
+      foodIds.push(value.id);
     }
-    if (type === 'App\\Material') {
-      carts = this.cartMaterials;
-      url = environment.hostname + '/api/carts/getCartFoods';
-    }
-    let itemIds, value;
-    itemIds = [];
-    for (value of carts){
-      itemIds.push(value.id);
+    for (value of this.cartMaterials) {
+      materialIds.push(value.id);
     }
     let headers;
     headers = new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     });
-    this.http.post(url, itemIds,
-      { headers: headers })
+    url = `${url}?foods=${foodIds.toString()}&materials=${materialIds.toString()}`;
+    this.http.get(url,
+      {headers: headers})
       .map(res => res.json())
       .subscribe((data: any) => {
-        carts.forEach(function (item) {
-          item.price = data.find(trai => trai.id === item.id).price;
+        this.cartFoods.forEach(function (item) {
+          let itemNew;
+          itemNew = data.data.foods.find(food => food.id === item.id);
+          item.name = itemNew.name;
+          item.price = itemNew.price;
+          item.image = itemNew.image;
+        });
+        this.cartMaterials.forEach(function (item) {
+          let itemNew;
+          itemNew = data.data.materials.find(material => material.id === item.id);
+          item.name = itemNew.name;
+          item.price = itemNew.price;
+          item.image = itemNew.image;
         });
         this.saveCartToLocalStorage();
       });
