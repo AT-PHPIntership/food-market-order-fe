@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './component/template/not-found/not-found.component';
 import { LoginComponent } from './component/login/login.component';
 import { ListfoodComponent } from './component/listfood/listfood.component';
+import { MaterialComponent } from './component/material/material.component';
 import { CategoryComponent } from './component/category/category.component';
 import { ListCategoryComponent } from './component/category/list-category/listcategory.component';
 import { ProductOfCategoryComponent } from './component/category/product-of-category/productofcategory.component';
@@ -17,6 +18,7 @@ import { HomeComponent } from './component/home/home.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'foods', component: ListfoodComponent },
+  { path: 'materials', component: MaterialComponent },
   { path: 'categories', component: ListCategoryComponent, data: {
     breadcrumb: 'Categories'
   }

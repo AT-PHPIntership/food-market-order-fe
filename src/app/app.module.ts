@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { CategoryComponents } from './component/category';
 import { HttpModule } from '@angular/http';
 import { ListfoodComponent } from './component/listfood/listfood.component';
+import { MaterialComponent } from './component/material/material.component';
+import { ItemMaterialComponent } from './component/material/item-material/item-material.component';
 import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
 import { RangePipe } from './pipe/range.pipe';
@@ -28,9 +30,11 @@ import { SlideShowComponent } from './component/home/slide-show/slide-show.compo
         LoginComponent,
         CategoryComponents,
         ListfoodComponent,
+        MaterialComponent,
         DailyMenuComponent,
         ProductsDailyMenuComponent,
         ItemFoodComponent,
+        ItemMaterialComponent,
         RegisterComponent,
         RangePipe,
         DetailFoodComponent,
