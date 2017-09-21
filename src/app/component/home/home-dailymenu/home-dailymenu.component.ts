@@ -10,7 +10,7 @@ import * as moment from 'moment';
   styleUrls: ['./home-dailymenu.component.css']
 })
 export class HomeDailymenuComponent implements OnInit {
-  // var moment = require('moment');
+
   sub: any;
   data: any;
   constructor(private route: ActivatedRoute,
