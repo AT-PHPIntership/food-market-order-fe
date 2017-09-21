@@ -13,6 +13,6 @@ export class ItemMaterialComponent {
   data: any ;
 
   constructor(private http: Http, private pagination: PaginationService) {
-  	this.data = [];
+    this.data = [];
   }
 }
