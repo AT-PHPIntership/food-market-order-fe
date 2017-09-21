@@ -14,8 +14,13 @@ import { TokenService } from './service/token.service';
 import { CategoryComponents } from './component/category';
 import { HttpModule } from '@angular/http';
 import { ListfoodComponent } from './component/listfood/listfood.component';
+import { MaterialComponent } from './component/material/material.component';
+import { ItemMaterialComponent } from './component/material/item-material/item-material.component';
 import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
+import { RangePipe } from './pipe/range.pipe';
+import { DetailFoodComponent } from './component/detail-food/detail-food.component';
+import { PrimaryBlockComponent } from './component/detail-food/primary-block/primary-block.component';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
@@ -43,11 +48,15 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         UserProfileComponent,
         CategoryComponents,
         ListfoodComponent,
+        MaterialComponent,
         DailyMenuComponent,
         ProductsDailyMenuComponent,
         ItemFoodComponent,
+        ItemMaterialComponent,
         RegisterComponent,
         RangePipe,
+        DetailFoodComponent,
+        PrimaryBlockComponent,
         HomeComponent,
         TopTrendComponent,
         SlideShowComponent
