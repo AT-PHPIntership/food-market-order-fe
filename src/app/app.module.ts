@@ -20,6 +20,9 @@ import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
 import { ItemFoodComponent } from './component/listfood/item-food/item-food.component';
+import { HomeComponent } from './component/home/home.component';
+import { TopTrendComponent } from './component/home/top-trend/top-trend.component';
+import { SlideShowComponent } from './component/home/slide-show/slide-show.component';
 
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -44,7 +47,10 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         ProductsDailyMenuComponent,
         ItemFoodComponent,
         RegisterComponent,
-        RangePipe
+        RangePipe,
+        HomeComponent,
+        TopTrendComponent,
+        SlideShowComponent
     ],
     imports: [
         routing,

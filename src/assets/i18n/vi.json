@@ -112,5 +112,9 @@
   "error_validation_update": {
     "title": "Thông báo",
     "message": "Cập nhật thất bại!"
-  }
+  },
+  "best-seller": "BÁN CHẠY NHẤT",
+  "slider-messge1": "Tươi sạch, vệ sinh, đảm bảo an toàn thực phẩm",
+  "slider-messge2": "Thức ăn ngon, Vận chuyển nhanh chóng!",
+  "view": "Xem"
 }

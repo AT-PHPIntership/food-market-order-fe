@@ -123,9 +123,8 @@ export class UserProfileComponent implements OnInit {
     }
 
     onRemoveFile(event: any) {
-        this.tokenService.requestWithToken(`${environment.hostname}/api/users/upload-image`, 'POST',
-            { 'fileName': this.imageName }).subscribe((data: any) => {
-        });
+        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image?file_name=${this.imageName}`, 'GET')
+        .subscribe((data: any) => {});
         this.imageName = null;
     }
 }

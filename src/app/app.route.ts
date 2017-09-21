@@ -12,10 +12,11 @@ import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrum
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
 import { UserProfileComponent} from './component/userprofile/userprofile.component';
+import { HomeComponent } from './component/home/home.component';
 
 const appRoutes: Routes = [
   { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
-  { path: 'home', component: CategoryComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'categories', component: ListCategoryComponent, data: {
     breadcrumb: 'Categories'
