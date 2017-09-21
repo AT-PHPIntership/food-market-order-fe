@@ -26,10 +26,7 @@ export class HomeDailymenuComponent implements OnInit {
       yyyy = today.getFullYear().toString();
       current_date = yyyy + '-' + mm + '-' + dd;
       let url;
-      // url = `${environment.hostname}/api/foods?page=${this.page}`;
-      //url = environment.hostname + '/api/daily-menus/' + current_date;
       url = `${environment.hostname}/api/daily-menus/${current_date}`;
-      console.log(url);
       this.apiService.apiGet(url).subscribe(data => {
         this.data = data.data;
       });

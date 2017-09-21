@@ -3,15 +3,18 @@
     <div class="category_item block clearfix cat_snack">
       <div class="col-md-12">
         <div class="category_sub">
-          <h3 class="title_block pull-left">{{ 'daily-menu' | translate }}</h3>
+          <a class="product-name"
+             [routerLink]="['/daily-menu']">
+            <h3 class="title_block pull-left">{{ 'daily-menu' | translate }}</h3>
+          </a>
         </div>
           <div class="row">
             <div class="col-md-8">
               <app-dailymenu-block [index]="i" size="4" [class]="'col-md-3 col-xs-6 col-sp-12'"
-                                 *ngFor="let item of data; let i = index" [product]="item">
+                                 *ngFor="let item of data | slice:0:12; let i = index;"                                                                   [product]="item" >
               </app-dailymenu-block>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="home_ads">
               <img class="img-responsive" src="https://bizweb.dktcdn.net/100/038/419/themes/49902/assets/home_verticaltabs_1.png?1495677182625">
             </div>
         </div>
