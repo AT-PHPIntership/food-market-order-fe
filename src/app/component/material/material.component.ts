@@ -32,7 +32,7 @@ export class MaterialComponent implements OnInit, OnDestroy {
         res.data.forEach(item => {
           let material;
           material = Object.assign({}, item);
-          material.type = 'App\\Food';
+          material.type = 'App\\Material';
           this.productListComponent.data.push(material);
         });
         this.pagination.init(res);
