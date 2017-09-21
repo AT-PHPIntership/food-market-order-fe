@@ -11,9 +11,10 @@ import { RegisterComponent } from './component/register/register.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { HomeComponent } from './component/home/home.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: CategoryComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'categories', component: ListCategoryComponent, data: {
     breadcrumb: 'Categories'
