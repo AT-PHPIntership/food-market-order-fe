@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class APIService {
 
-    constructor (private http: Http) { }
+  constructor (private http: Http) { }
 
     apiGet = (url, condition_value = null) => {
         let url_request = '';

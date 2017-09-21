@@ -24,7 +24,10 @@
     "@ngx-translate/core": "^7.2.0",
     "@ngx-translate/http-loader": "^1.0.2",
     "core-js": "^2.4.1",
+    "moment": "^2.18.1",
+    "dropzone": "^5.1.1",
     "ng2-cookies": "^1.0.12",
+    "ngx-dropzone-wrapper": "^4.6.2",
     "rxjs": "^5.4.1",
     "sweetalert2": "^6.6.9",
     "zone.js": "^0.8.14"

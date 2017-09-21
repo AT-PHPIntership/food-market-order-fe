@@ -3,17 +3,17 @@ import { PaginationService } from '../../service/pagination.service';
 import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../../service/api.service';
 import { environment } from '../../../environments/environment';
-import { ItemFoodComponent } from './item-food/item-food.component';
+import { ItemMaterialComponent } from './item-material/item-material.component';
 
 @Component({
-  selector: 'app-listfood',
-  templateUrl: './listfood.component.html',
-  styleUrls: ['./listfood.component.css']
+  selector: 'app-material',
+  templateUrl: './material.component.html',
+  styleUrls: ['./material.component.css']
 })
-export class ListfoodComponent implements OnInit, OnDestroy {
+export class MaterialComponent implements OnInit, OnDestroy {
   page: number;
   sub: any;
-  @ViewChild(ItemFoodComponent) productListComponent: ItemFoodComponent;
+  @ViewChild(ItemMaterialComponent) productListComponent: ItemMaterialComponent;
   constructor(private pagination: PaginationService,
               private route: ActivatedRoute,
               private apiService: APIService) {
@@ -27,10 +27,10 @@ export class ListfoodComponent implements OnInit, OnDestroy {
         this.page = 1;
       }
       let url;
-      url = `${environment.hostname}/api/foods?page=${this.page}`;
-      this.apiService.apiGet(url).subscribe(data => {
-        this.productListComponent.data = data.data;
-        this.pagination.init(data);
+      url = `${environment.hostname}/api/materials?page=${this.page}`;
+      this.apiService.apiGet(url).subscribe(res => {
+        this.productListComponent.data = res.data;
+        this.pagination.init(res);
       });
     });
   }
