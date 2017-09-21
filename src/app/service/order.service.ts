@@ -9,7 +9,7 @@ export class OrderService {
   constructor(private http: Http, private tokenService: TokenService) {
   }
   sendOrder(data) {
-    return this.tokenService.postDataWithToken(environment.hostname + '/api/orders',
+    return this.tokenService.requestWithToken(`{environment.hostname}/api/orders`, 'post',
         data);
   }
 }
