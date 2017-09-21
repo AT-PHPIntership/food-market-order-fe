@@ -11,6 +11,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { BreadcrumbsComponent } from './component/template/breadcrumbs/breadcrumbs.component';
 import { LoggedGuard } from './security/logged.guard';
 import { NoLoggedGuard } from './security/no-logged.guard';
+import { DetailFoodComponent } from './component/detail-food/detail-food.component';
 import { HomeComponent } from './component/home/home.component';
 
 const appRoutes: Routes = [
@@ -32,9 +33,15 @@ const appRoutes: Routes = [
        breadcrumb: 'register'
     }
   },
+  { path: 'foods/detail',
+    children: [
+      { path: ':id', component: DetailFoodComponent}
+    ],
+  },
   { path: 'daily-menu', component: DailyMenuComponent, data: {
     breadcrumb: 'Daily menu'
-  } },
+    }
+  },
   { path: 'account', component: NotFoundComponent, canActivate: [LoggedGuard] },
   { path: '**', component: NotFoundComponent },
 ];

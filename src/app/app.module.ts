@@ -11,6 +11,8 @@ import { ListfoodComponent } from './component/listfood/listfood.component';
 import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
 import { RangePipe } from './pipe/range.pipe';
+import { DetailFoodComponent } from './component/detail-food/detail-food.component';
+import { PrimaryBlockComponent } from './component/detail-food/primary-block/primary-block.component';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
@@ -31,6 +33,8 @@ import { SlideShowComponent } from './component/home/slide-show/slide-show.compo
         ItemFoodComponent,
         RegisterComponent,
         RangePipe,
+        DetailFoodComponent,
+        PrimaryBlockComponent,
         HomeComponent,
         TopTrendComponent,
         SlideShowComponent
