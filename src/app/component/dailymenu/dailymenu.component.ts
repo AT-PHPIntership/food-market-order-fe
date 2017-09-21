@@ -32,7 +32,7 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
         yyyy = today.getFullYear().toString();
         current_date = yyyy + '-' + mm + '-' + dd;
         let url;
-        url = environment.hostname + '/api/daily-menus/' + current_date + '?page=' + this.page;
+        url = `${environment.hostname}/api/daily-menus/${current_date}?page=${this.page}`;
         this.apiService.apiGet(url).subscribe(data => {
             this.listProductsComponent.data = data.data;
             this.pagination.init(data);

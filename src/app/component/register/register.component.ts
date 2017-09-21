@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
         options = new RequestOptions({headers: headers});
-        this.http.post(environment.hostname + '/api/users', data, options).map(res => res.json()).subscribe((resJson: any) => {
+        this.http.post(`${environment.hostname}/api/users`, data, options).map(res => res.json()).subscribe((resJson: any) => {
             this.responseData = resJson;
             this.translate.get('success_register').subscribe((res: string) => {
                 this.notify = res;
