@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  hostname: 'http://foodmarket.com',
+  hostname: ''
 };
