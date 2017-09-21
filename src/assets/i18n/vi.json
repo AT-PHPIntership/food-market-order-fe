@@ -80,11 +80,14 @@
   "The password confirmation does not match.": "Xác nhận mật khẩu không khớp.",
   "The password must be at least 6 characters.": "Mật khẩu phải có ít nhất 6 ký tự.",
   "The email must be a valid email address.": "Địa chỉ email không hợp lệ.",
-  "Category": "Thể loại",
-  "Quantity": "Số lượng",
-  "Add to cart": "Thêm vào giỏ hàng",
-  "Information": "Thông tin",
-  "Comment": "Nhận xét",
-  "Buy": "Mua ngay",
-  "quick-view": "Xem nhanh"
+  "category": "Thể loại",
+  "quantity": "Số lượng",
+  "add-cart": "Thêm vào giỏ hàng",
+  "information": "Thông tin",
+  "comment": "Nhận xét",
+  "buy": "Mua ngay",
+  "quick-view": "Xem nhanh",
+  "twitter": "Twitter",
+  "facebook": "Facebook",
+  "google": "Google+"
 }
