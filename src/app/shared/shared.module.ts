@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoggedGuard } from '../security/logged.guard';
 import { NoLoggedGuard } from '../security/no-logged.guard';
+import { CartService } from '../service/cart.service';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,7 +39,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [ShareService, APIService, TokenService, LoggedGuard, NoLoggedGuard]
+      providers: [ShareService, APIService, TokenService, LoggedGuard, NoLoggedGuard, CartService]
     };
   }
 }

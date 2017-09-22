@@ -43,7 +43,7 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
           this.page = 1;
         }
         let url;
-        url = `${environment.hostname}/api/categories/'${this.category_id}/${type}?page=${this.page}`;
+        url = `${environment.hostname}/api/categories/${this.category_id}/${type}?page=${this.page}`;
         this.apiService.apiGet(url).subscribe(data => {
           if (type === 'foods') {
             this.foodListComponent.data = data.data;
