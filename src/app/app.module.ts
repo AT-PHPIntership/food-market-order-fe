@@ -37,7 +37,7 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
     addRemoveLinks: true,
     uploadMultiple: false,
     resizeWidth: 300,
-    resizeHeight: 300
+    resizeHeight: 300,
 };
 @NgModule({
     declarations: [
