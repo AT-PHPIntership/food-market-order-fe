@@ -63,7 +63,6 @@
   "register_form": "Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để đăng ký.",
   "full_name": "Họ Tên",
   "confirm_password": "Nhập lại mật khẩu",
-  "or": "hoặc",
   "success_register": {
     "title" : "Thông báo",
     "message": "Đăng ký thành công!"
@@ -127,5 +126,40 @@
   "slider-messge1": "Tươi sạch, vệ sinh, đảm bảo an toàn thực phẩm",
   "slider-messge2": "Thức ăn ngon, Vận chuyển nhanh chóng!",
   "view": "Xem",
-  "daily-menu": "THỰC ĐƠN HẰNG NGÀY"
+  "daily-menu": "THỰC ĐƠN HẰNG NGÀY",
+  "success_add_cart": {
+    "title": "Thông báo",
+    "message": "Đã thêm {{name}} vào giỏ hàng!"
+  },
+  "name": "Tên",
+  "image": "Hình ảnh",
+  "price": "Giá",
+  "quantity": "Số lượng",
+  "total": "Tổng",
+  "delete": "Xóa",
+  "continue_order": "Tiếp tục đặt hàng",
+  "process_order": "Tiến hành đặt hàng",
+  "menu": "Thực đơn",
+  "update_cart": "Cập nhật giỏ hàng",
+  "info_order": "Thông tin mua hàng",
+  "require": "Bạn phải nhập",
+  "format": "đúng định dạng",
+  "phone": "Số điện thoại",
+  "address": "Địa chỉ",
+  "return_cart": "Quay về giỏ hàng",
+  "payment": "Thanh toán",
+  "payment_when_ship": "Thanh toán khi giao hàng",
+  "info_ship": "Thông tin nhận hành",
+  "ship_another_address": "Giao hàng đến địa chỉ khác",
+  "extra_info_cart": "Cuộn để xem thêm",
+  "announce": "Thông báo",
+  "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ",
+  "app-name": "Food Market Order",
+  "ship_time": "Thời gian giao hàng",
+  "data_invalid": {
+    "title": "Thông báo",
+    "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
+  },
+  "order_fail": "Đặt hàng thất bại!",
+  "order": "Đặt hàng"
 }
