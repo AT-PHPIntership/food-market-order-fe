@@ -29,6 +29,10 @@ import { TopTrendComponent } from './component/home/top-trend/top-trend.componen
 import { SlideShowComponent } from './component/home/slide-show/slide-show.component';
 import { HomeDailymenuComponent } from './component/home/home-dailymenu/home-dailymenu.component';
 import { HomeMaterialComponent } from './component/home/home-material/home-material.component';
+import { ShoppingCartComponent } from './component/cart/index';
+import { CheckoutComponent } from './component/order/index';
+import { OrderService } from './service/order.service';
+import { OnFocusDirective } from './directive/focus-class.directive';
 
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -62,7 +66,10 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         TopTrendComponent,
         SlideShowComponent,
         HomeDailymenuComponent,
-        HomeMaterialComponent
+        HomeMaterialComponent,
+        ShoppingCartComponent,
+        CheckoutComponent,
+        OnFocusDirective
     ],
     imports: [
         routing,
@@ -75,6 +82,7 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         TokenService,
         APIService,
         PaginationService,
+        OrderService
     ],
     bootstrap: [AppComponent]
 })

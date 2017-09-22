@@ -14,6 +14,6 @@ export class DailyMenuBlockComponent implements OnInit {
   ngOnInit() {
   }
   addCart() {
-    this.service.addCart(this.product);
+    this.service.addCart(this.product.food);
   }
 }

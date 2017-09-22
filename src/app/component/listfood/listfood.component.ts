@@ -29,7 +29,12 @@ export class ListfoodComponent implements OnInit, OnDestroy {
       let url;
       url = `${environment.hostname}/api/foods?page=${this.page}`;
       this.apiService.apiGet(url).subscribe(data => {
-        this.productListComponent.data = data.data;
+        data.data.forEach(item => {
+          let food;
+          food = Object.assign({}, item);
+          food.type = 'App\\Food';
+          this.productListComponent.data.push(food);
+        });
         this.pagination.init(data);
       });
     });

@@ -29,7 +29,12 @@ export class MaterialComponent implements OnInit, OnDestroy {
       let url;
       url = `${environment.hostname}/api/materials?page=${this.page}`;
       this.apiService.apiGet(url).subscribe(res => {
-        this.productListComponent.data = res.data;
+        res.data.forEach(item => {
+          let material;
+          material = Object.assign({}, item);
+          material.type = 'App\\Material';
+          this.productListComponent.data.push(material);
+        });
         this.pagination.init(res);
       });
     });
