@@ -14,6 +14,7 @@ import { UserProfileComponent} from './component/userprofile/userprofile.compone
 import { DetailFoodComponent } from './component/detail-food/detail-food.component';
 import { HomeComponent } from './component/home/home.component';
 import { CartComponent } from './component/cart/cart.component';
+import { OrderComponent } from './component/order/order.component';
 
 const appRoutes: Routes = [
   { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
@@ -50,6 +51,18 @@ const appRoutes: Routes = [
     path: 'cart',
     component: CartComponent,
     data: { title: 'Cart List', breadcrumb: 'cart'},
+  },
+  {
+    path: 'checkout/foods',
+    component: OrderComponent,
+    data: { title: 'order'},
+    canActivate: [LoggedGuard]
+  },
+  {
+    path: 'checkout/materials',
+    component: OrderComponent,
+    data: { title: 'order'},
+    canActivate: [LoggedGuard]
   },
   { path: '**', component: NotFoundComponent }
 ];

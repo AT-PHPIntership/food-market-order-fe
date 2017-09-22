@@ -35,10 +35,10 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
         url = `${environment.hostname}/api/daily-menus/${current_date}?page=${this.page}`;
         this.apiService.apiGet(url).subscribe(data => {
           data.data.forEach(item => {
-            let food;
-            food = Object.assign({}, item);
-            food.type = 'App\\Food';
-            this.listProductsComponent.data.push(food);
+            let daliyItem;
+            daliyItem = Object.assign({}, item);
+            daliyItem.food.type = 'App\\Food';
+            this.listProductsComponent.data.push(daliyItem);
           });
             this.pagination.init(data);
         });

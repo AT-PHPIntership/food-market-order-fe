@@ -140,5 +140,26 @@
   "continue_order": "Tiếp tục đặt hàng",
   "process_order": "Tiến hành đặt hàng",
   "menu": "Thực đơn",
-  "update_cart": "Cập nhật giỏ hàng"
+  "update_cart": "Cập nhật giỏ hàng",
+  "info_order": "Thông tin mua hàng",
+  "require": "Bạn phải nhập",
+  "format": "đúng định dạng",
+  "phone": "Số điện thoại",
+  "address": "Địa chỉ",
+  "return_cart": "Quay về giỏ hàng",
+  "payment": "Thanh toán",
+  "payment_when_ship": "Thanh toán khi giao hàng",
+  "info_ship": "Thông tin nhận hành",
+  "ship_another_address": "Giao hàng đến địa chỉ khác",
+  "extra_info_cart": "Cuộn để xem thêm",
+  "announce": "Thông báo",
+  "order_success": "Đặt hàng thành công đơn hàng {{orderId}} với tổng giá {{totalPrice}} vnđ",
+  "app-name": "Food Market Order",
+  "ship_time": "Thời gian giao hàng",
+  "data_invalid": {
+    "title": "Thông báo",
+    "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
+  },
+  "order_fail": "Đặt hàng thất bại!",
+  "order": "Đặt hàng"
 }
