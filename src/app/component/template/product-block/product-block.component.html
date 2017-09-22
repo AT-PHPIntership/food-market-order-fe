@@ -3,7 +3,7 @@
     <div class="product-meta">
       <h3 class="name">
         <a class="product-name"
-           [routerLink]="['/category',product.id]"
+           [routerLink]="['/foods/detail',product.id]"
            title="{{ product.name }}">{{ product.name }}</a>
       </h3>
       <div class="review clearfix">
@@ -40,12 +40,12 @@
           </div>
           <div class="view_detail">
             <a class="btn btn-inverse lnk_view"
-               [routerLink]="['/detail',product.id]"
+               [routerLink]="['/foods/detail',product.id]"
                data-toggle="tooltip" title="" data-original-title="Xem">
               <i class="fa fa-eye"></i>
             </a>
           </div>
-          <div class="cart addtocart" *ngIf="product.quantity !== undefined || product.quantity > 0 || product.status ">
+          <div class="cart addtocart" *ngIf="product.quantity !== undefined || product.quantity > 0 || product.type === 'App\\Material' ">
             <form onsubmit="return false" method="post" enctype="multipart/form-data"
                   class="form-ajaxtocart">
               <button class="btn btn-outline-inverse ajax_addtocart" type="button"

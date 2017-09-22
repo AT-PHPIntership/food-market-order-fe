@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
+import {TokenService} from './token.service';
 
 @Injectable()
 export class OrderService {
-  constructor(private http: Http) {
+  constructor(private http: Http, private tokenService: TokenService) {
   }
   sendOrder(data) {
-    return this.http.post(environment.hostname + '/api/orders',
-        data).map(res => res.json());
+    return this.tokenService.requestWithToken(`${environment.hostname}/api/orders`, 'POST',
+      data);
   }
   getItemByOrder(id) {
-    return this.http.get(environment.hostname + '/api/orders/' + id + '/getItems').map(res => res.json());
+    return this.tokenService.requestWithToken(`${environment.hostname}/api/orders/${id}/getItems`, 'GET');
   }
 }

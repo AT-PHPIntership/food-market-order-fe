@@ -24,8 +24,6 @@ export class MainOrderComponent implements OnInit {
               private router: Router,
               private translate: TranslateService) {
     this.cart = this.cartService;
-    // while (this.tokenService.currentUser == null) {}
-    console.log(tokenService);
     this.orderForm = this.formBuilder.group({
       personal: this.formBuilder.group({
         email: new FormControl(tokenService.currentUser !== null ? tokenService.currentUser.email : '',
@@ -44,7 +42,6 @@ export class MainOrderComponent implements OnInit {
     this.notify = {
       title: '', message: ''
     };
-    console.log(tokenService.currentUser);
   }
   order(items) {
     let model, data;
@@ -66,13 +63,14 @@ export class MainOrderComponent implements OnInit {
       'address_ship': model.shipAddress.address !== '' ? model.shipAddress.address : model.personal.address,
       'trans_at': new Date().toISOString().slice(0, 10) + ' ' + model.personal.trans_at,
       'user_id': this.tokenService.currentUser.id,
-      'type': 'App\\Food',
+      'type': items[0].type,
       'items': items
     };
-    console.log(data);
     this.translate.get('announce').subscribe((res: string) => {
       this.notify.title = res;
     });
+    console.log(data
+    )
     this.orderService.sendOrder(data).subscribe((a: any) => {
       this.translate.get('order_success', {
         orderId: a.data.order_id, totalPrice:  a.data.total_price

@@ -1,0 +1,10 @@
+.product_block {
+    width: 195px;
+}
+.carousel-inner {
+    display: inline-flex;
+    overflow: visible;
+}
+#adv_team_4_columns_carousel {
+    overflow: auto;
+}
