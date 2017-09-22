@@ -1,0 +1,54 @@
+<div class="list_product_cart clearfix" data-id="3203311">
+
+  <div class="cpro_item col-xs-12 col-sm-2 col-md-2 cart-img-column">
+    <div class="cpro_item_inner">
+      <a *ngIf="product.type === 'App\\Food'" [routerLink]= "['/foods/detail',product.id]"
+         class="cart__image">
+        <img width="75" height="75" alt="{{ product.name }}"
+             src="{{ product.image }}">
+      </a>
+      <a *ngIf="product.type === 'App\\Materials'" [routerLink]= "['/materials/detail',product.id]"
+         class="cart__image">
+        <img width="75" height="75" alt="{{ product.name }}"
+             src="{{ product.image }}">
+      </a>
+    </div>
+  </div>
+  <div class="cpro_item col-xs-12 col-sm-3 col-md-3">
+    <div class="cpro_item_inner">
+      <span class="visible-xs">{{ 'name' | translate }}: </span>
+      <a *ngIf="product.type === 'App\\Food'" [routerLink]= "['/foods/detail',product.id]" class="product_name">
+        {{ product.name }}
+      </a>
+      <a *ngIf="product.type === 'App\\Material'" [routerLink]= "['/materials/detail',product.id]" class="product_name">
+        {{ product.name }}
+      </a>
+    </div>
+  </div>
+  <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+    <div class="cpro_item_inner">
+      <span class="visible-xs">{{ 'price' | translate }}: </span>
+      <span class="price product-price">{{ product.price.toLocaleString('vi') }} {{ 'unit' | translate }}</span>
+    </div>
+  </div>
+  <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
+    <div class="cpro_item_inner">
+      <span class="visible-xs">{{ 'quantity' | translate }}: </span>
+      <input class="input-text qty" [ngModel]="product.quantityOrder" (change)="changeQuantity($event.target.value)" type="number" name="Lines"
+             min="0" data-id="3203311">
+    </div>
+  </div>
+  <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+    <div class="cpro_item_inner">
+      <span class="visible-xs">{{ 'total' | translate }}: </span>
+      <span class="price product-price">{{ (product.price * product.quantityOrder).toLocaleString('vi') }} {{ 'unit' | translate }}</span>
+    </div>
+  </div>
+  <div class="cpro_item col-xs-12 col-sm-1 col-md-1">
+    <div class="cpro_item_inner">
+      <a (click)="removeItem(product)"  class="cart__remove" data-id="3203311">
+        <small>{{ 'delete' | translate }}</small>
+      </a>
+    </div>
+  </div>
+</div>
