@@ -28,6 +28,7 @@ import { HomeComponent } from './component/home/home.component';
 import { TopTrendComponent } from './component/home/top-trend/top-trend.component';
 import { SlideShowComponent } from './component/home/slide-show/slide-show.component';
 import { HomeDailymenuComponent } from './component/home/home-dailymenu/home-dailymenu.component';
+import { HomeMaterialComponent } from './component/home/home-material/home-material.component';
 
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -60,7 +61,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         HomeComponent,
         TopTrendComponent,
         SlideShowComponent,
-        HomeDailymenuComponent
+        HomeDailymenuComponent,
+        HomeMaterialComponent
     ],
     imports: [
         routing,

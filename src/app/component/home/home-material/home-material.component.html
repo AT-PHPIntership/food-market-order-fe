@@ -1,0 +1,24 @@
+<div class="row ">
+  <div id="apsubcategoriestab_block">
+    <div class="category_item block clearfix cat_snack">
+      <div class="col-md-12">
+        <div class="category_sub">
+          <a class="product-name"
+             [routerLink]="['materials']">
+            <h3 class="title_block pull-left">{{ 'materials' | translate }}</h3>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-responsive" src="https://bizweb.dktcdn.net/100/038/419/themes/49902/assets/home_verticaltabs_2.png?1502267854590">
+          </div>
+          <div class="col-md-8">
+            <app-product-block [index]="i" size="4" [class]="'col-md-3 col-xs-6                                                                     col-sp-12'"
+                                 *ngFor="let item of data | slice:0:12; let i = index;"                                                                   [product]="item" >
+            </app-product-block>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
