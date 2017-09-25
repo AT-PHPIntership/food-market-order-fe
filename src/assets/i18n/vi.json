@@ -161,5 +161,7 @@
     "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
   },
   "order_fail": "Đặt hàng thất bại!",
-  "order": "Đặt hàng"
+  "order": "Đặt hàng",
+  "in_stock": "Còn Hàng",
+  "out_of_stock": "Hết Hàng"
 }

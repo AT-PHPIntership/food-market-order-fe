@@ -1,0 +1,95 @@
+<div class="primary_block" *ngIf="item !== null" >
+  <div class="row">
+    <div class="product-left-column col-xs-12 col-sm-12 col-md-5">
+      <div id="image-block" class="image clearfix">
+        <a id="view_full_size">
+          <img class="img-responsive" src="{{ item.image }}"
+               alt="{{ item.name }}"/>
+        </a>
+      </div>
+    </div>
+    <div class="product-center-column col-xs-12 col-sm-12 col-md-7">
+      <h1 itemprop="name">{{ item.name }}</h1>
+      <div class="product-extra">
+        <ul class="list-unstyled description no-padding">
+          <li><b>{{ 'category' | translate }} </b>
+            <span class="availability">
+              <span class="available instock">{{ item.category.name }}</span>
+            </span>
+          </li>
+          <li><b>{{ 'supplier' | translate }} </b>
+            <span class="availability">
+              <span class="available instock">{{ item.supplier.name }}</span>
+            </span>
+          </li>
+          <li><b>{{ 'status' | translate }} </b>
+            <span class="availability">
+              <span *ngIf="item.status == 1" class="available instock">{{ 'in_stock' | translate }}</span>
+              <span *ngIf="item.status == 0" class="available instock">{{ 'out_of_stock' | translate }}</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="product-right-column float-right col-xs-12 col-sm-12 col-md-7">
+      <div>
+        <form action="" method="post" enctype="multipart/form-data" id="add-to-cart-form">
+          <div class="product_price_content">
+            <span id="ProductPrice" class="price on-sale">
+              {{ item.price.toLocaleString('vi') }} ₫
+            </span>
+          </div>
+          <div *ngIf="item.status == 1" class="quantity_wanted_p clearfix">
+            <label for="quantity" class="quantity-selector">{{ 'quantity' | translate }}</label>
+            <div class="pull-left">
+              <div class="custom pull-left">
+                <input type="number" id="Quantity" name="quantity" value="1" min="1"
+                       class="form-group col-xs-5">
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item.status == 1" class="border-box clear-fix">
+            <button class="btn btn-outline btn-cart ajax_addtocart" >
+              <span><i class="icon-basket"></i> {{ 'add-cart' | translate }}</span></button>
+          </div>
+        </form>
+      </div>
+      <div class="socialsharing_product no-print">
+        <ul class="social-sharing list-unstyled">
+          <li>
+            <a class="btn social-sharing btn-twitter">
+              <i class="fa fa-twitter"></i> {{ 'twitter' | translate }}
+            </a>
+          </li>
+          <li>
+            <a class="btn social-sharing btn-facebook">
+              <i class="fa fa-facebook"></i> {{ 'facebook' | translate }}
+            </a>
+          </li>
+          <li>
+            <a class="btn social-sharing btn-google-plus">
+              <i class="fa fa-google-plus"></i> {{ 'google' | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="more_info_block">
+    <ul class="nav nav-tabs tab-info page-product-heading">
+      <li class="active">
+        <a href="#tabInfomation" data-toggle="tab" class="title_block">{{ 'information' | translate }}</a>
+      </li>
+      <li>
+        <a href="#tabComment" data-toggle="tab">{{ 'comment' | translate }}</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <section id="tabInfomation" class="tab-pane page-product-box active">
+        {{ item.description }}
+      </section>
+      <section id="tabComment" class="tab-pane page-product-box">
+      </section>
+    </div>
+  </div>
+</div>
