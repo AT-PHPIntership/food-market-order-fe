@@ -15,6 +15,8 @@ import { DetailFoodComponent } from './component/detail-food/detail-food.compone
 import { HomeComponent } from './component/home/home.component';
 import { CartComponent } from './component/cart/cart.component';
 import { OrderComponent } from './component/order/order.component';
+import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
+
 
 const appRoutes: Routes = [
   { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
@@ -40,6 +42,11 @@ const appRoutes: Routes = [
   { path: 'foods/detail',
     children: [
       { path: ':id', component: DetailFoodComponent}
+    ],
+  },
+  { path: 'materials/detail',
+    children: [
+      { path: ':id', component: DetailMaterialComponent}
     ],
   },
   { path: 'daily-menu', component: DailyMenuComponent, data: {
