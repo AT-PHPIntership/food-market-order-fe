@@ -98,11 +98,11 @@ export class TokenService {
         if (accept) {
             headers.append('Accept', 'application/json');
         }
-        if (method === 'POST') {
+        if (method.toUpperCase() === 'POST') {
             return this.http.post(url, data, {
                 headers: headers
             }).map(res => res.json());
-        } else if (method === 'PUT') {
+        } else if (method.toUpperCase() === 'PUT') {
             return this.http.put(url, data, {
                 headers: headers
             }).map(res => res.json());
@@ -125,7 +125,7 @@ export class TokenService {
     }
 
     setToken(token) {
-        Cookie.set(TokenService.TOKEN_TYPE, token.token_type);
+        Cookie.set(TokenService.TOKEN_TYPE, token.token_type, (token.expires_in / 3600));
         Cookie.set(TokenService.TOKEN_KEY, token.access_token, (token.expires_in / 3600));
         Cookie.set(TokenService.TOKEN_REFRESH, token.refresh_token, 1995);
         this.dataRefresh.refresh_token = token.refresh_token;
