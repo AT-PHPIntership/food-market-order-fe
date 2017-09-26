@@ -54,7 +54,6 @@ export class UserProfileComponent implements OnInit {
         });
         this.tokenService.requestWithToken(`${environment.hostname}/api/orders`, 'GET').subscribe((res: any) => {
             this.ordersHistory = res.data;
-            console.log(res.data);
         });
     }
 
