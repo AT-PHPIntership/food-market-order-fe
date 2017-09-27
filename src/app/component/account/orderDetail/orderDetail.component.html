@@ -12,7 +12,8 @@
               </div>
               <div class="col-md-6">
                 <label for="trans-at">{{ 'trans_at' | translate }}: </label>
-                <input id="trans-at" type="datetime-local" [(ngModel)]="transAt" [ngModelOptions]="{standalone: true}"/>
+                <input id="trans-at" type="datetime-local" [(ngModel)]="transAt" [ngModelOptions]="{standalone: true}"
+								/>
               </div>
             </div>
             <div class="cart_header_labels clearfix">
@@ -76,7 +77,7 @@
               <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
                 <div class="cpro_item_inner">
                   <span class="visible-xs">{{ 'quantity'| translate }}: </span>
-                  <input class="input-text qty" [ngModel]="product.quantity" (change)="changeQuantity($event.target.value, index)" type="number" name="Lines"
+                  <input class="input-text qty" [ngModel]="product.quantity" [ngModelOptions]="{standalone: true}" (change)="changeQuantity($event.target.value, index)" type="number" name="Lines"
                          min="0" data-id="3203311">
                 </div>
               </div>

@@ -22,18 +22,20 @@ export class UserProfileComponent implements OnInit {
     notify: any;
     imageDragMessage: any;
     imageName: string = null;
+    i: number;
     constructor(public tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
                 private service: ShareService,
                 private router: Router,
                 private translate: TranslateService,
-                protected config: DropzoneConfig) {
+                public config: DropzoneConfig) {
+        this.i = 0;
         this.config.headers = {
                 'Accept': 'application/json',
                 'Authorization': this.tokenService.getTokenType() + ' ' + this.tokenService.getAccessToken()
         };
-       this.updateForm = this.formBuilder.group({
+        this.updateForm = this.formBuilder.group({
             full_name: new FormControl(this.tokenService.currentUser.full_name, [Validators.required]),
             email: new FormControl(this.tokenService.currentUser.email, []),
             birthday: new FormControl(this.tokenService.currentUser.birthday, [Validators.required]),
@@ -51,6 +53,18 @@ export class UserProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+        let i = 0;
+        this.config.init = function () {
+            i = i + 1;
+            if (localStorage.getItem('imageName') != null && i === 1) {
+                const mockFile = {
+                    name: 'Image detail'
+                };
+                this.emit('addedfile', mockFile);
+                this.emit('thumbnail', mockFile, `${environment.hostname}/images/users/${localStorage.getItem('imageName')}`);
+                this.emit('complete', mockFile);
+            }
+        };
     }
 
     /** Registered system */
@@ -85,6 +99,9 @@ export class UserProfileComponent implements OnInit {
                 swal(this.notify.title, this.notify.message, 'error');
             }
         });
+        if (localStorage.getItem('imageName') != null) {
+            localStorage.removeItem('imageName');
+        }
         this.tokenService.getInfo();
         this.reset();
     }
@@ -120,11 +137,13 @@ export class UserProfileComponent implements OnInit {
 
     onUploadSuccess(event: any) {
         this.imageName = event[1];
+        localStorage.setItem('imageName', this.imageName);
     }
 
     onRemoveFile(event: any) {
         this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image?file_name=${this.imageName}`, 'GET')
         .subscribe((data: any) => {});
+        localStorage.removeItem('imageName');
         this.imageName = null;
     }
 }

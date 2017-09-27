@@ -19,7 +19,9 @@ import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
 import { RangePipe } from './pipe/range.pipe';
 import { DetailFoodComponent } from './component/detail-food/detail-food.component';
-import { PrimaryBlockComponent } from './component/detail-food/primary-block/primary-block.component';
+import { FoodPrimaryBlockComponent } from './component/detail-food/food-primary-block/food-primary-block.component';
+import { MaterialPrimaryBlockComponent } from './component/detail-material/material-primary-block/material-primary-block.component';
+import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
@@ -28,12 +30,13 @@ import { HomeComponent } from './component/home/home.component';
 import { TopTrendComponent } from './component/home/top-trend/top-trend.component';
 import { SlideShowComponent } from './component/home/slide-show/slide-show.component';
 import { HomeDailymenuComponent } from './component/home/home-dailymenu/home-dailymenu.component';
+import { HomeMaterialComponent } from './component/home/home-material/home-material.component';
 import { ShoppingCartComponent } from './component/cart/index';
 import { CheckoutComponent } from './component/order/index';
 import { OrderService } from './service/order.service';
 import { OnFocusDirective } from './directive/focus-class.directive';
 import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
-
+import { ProductService } from './service/product.service';
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -61,15 +64,18 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         RegisterComponent,
         RangePipe,
         DetailFoodComponent,
-        PrimaryBlockComponent,
+        FoodPrimaryBlockComponent,
         HomeComponent,
         TopTrendComponent,
         SlideShowComponent,
         HomeDailymenuComponent,
+        HomeMaterialComponent,
         ShoppingCartComponent,
         CheckoutComponent,
         OnFocusDirective,
-        OrderDetailComponent,
+        DetailMaterialComponent,
+        MaterialPrimaryBlockComponent,
+        OrderDetailComponent
     ],
     imports: [
         routing,
@@ -82,7 +88,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         TokenService,
         APIService,
         PaginationService,
-        OrderService
+        OrderService,
+        ProductService
     ],
     bootstrap: [AppComponent]
 })

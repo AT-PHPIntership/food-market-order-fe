@@ -127,6 +127,7 @@
   "slider-messge2": "Thức ăn ngon, Vận chuyển nhanh chóng!",
   "view": "Xem",
   "daily-menu": "THỰC ĐƠN HẰNG NGÀY",
+  "materials": "NGUYÊN LIỆU",
   "success_add_cart": {
     "title": "Thông báo",
     "message": "Đã thêm {{name}} vào giỏ hàng!"
@@ -186,5 +187,7 @@
   "error_delete": {
     "title": "Thông báo",
     "message": "Xóa thật bại, vui lòng thử lại!"
-  }
+  },
+  "in_stock": "Còn Hàng",
+  "out_of_stock": "Hết Hàng"
 }

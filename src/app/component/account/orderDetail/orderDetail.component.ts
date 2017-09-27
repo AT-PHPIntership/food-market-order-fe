@@ -32,11 +32,13 @@ export class OrderDetailComponent {
     this.orderService.getItemByOrder(this.id).subscribe(data => {
       if (data.data.length !== 0) {
         this.order = data.data;
+        console.log(this.order);
         this.transAt =  this.order.trans_at.replace(' ', 'T');
       }
     });
   }
   changeQuantity(val, index) {
+    console.log(index);
     this.order.order_items[index].quantity = val;
   }
   removeItem(item) {
@@ -96,11 +98,11 @@ export class OrderDetailComponent {
       let items;
       items = [];
       this.order.order_items.forEach(item => {
-        items.push({id: item.id, quantity: item.quantityOrder});
+        items.push({id: item.itemtable.id, quantity: item.quantity});
       });
       data = {
         'address_ship': this.order.address,
-        'trans_at': this.transAt,
+        'trans_at': this.transAt.replace('T', ' '),
         'items': items
       };
       this.orderService.updateOrder(this.id, data).subscribe(res => {

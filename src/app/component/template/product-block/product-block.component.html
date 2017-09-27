@@ -3,7 +3,7 @@
     <div class="product-meta">
       <h3 class="name">
         <a class="product-name"
-           [routerLink]="['/foods/detail',product.id]"
+           [routerLink]="[type + '/detail',product.id]"
            title="{{ product.name }}">{{ product.name }}</a>
       </h3>
       <div class="review clearfix">
@@ -40,7 +40,7 @@
           </div>
           <div class="view_detail">
             <a class="btn btn-inverse lnk_view"
-               [routerLink]="['/foods/detail',product.id]"
+               [routerLink]="[type + '/detail',product.id]"
                data-toggle="tooltip" title="" data-original-title="Xem">
               <i class="fa fa-eye"></i>
             </a>

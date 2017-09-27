@@ -2,25 +2,25 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../../service/api.service';
 import { environment } from '../../../environments/environment';
-import { FoodPrimaryBlockComponent } from './food-primary-block/food-primary-block.component';
+import { MaterialPrimaryBlockComponent } from './material-primary-block/material-primary-block.component';
 import { ProductService } from '../../service/product.service';
 
 @Component({
-  selector: 'app-detail-food',
-  templateUrl: './detail-food.component.html',
-  styleUrls: ['./detail-food.component.css']
+  selector: 'app-detail-material',
+  templateUrl: './detail-material.component.html',
+  styleUrls: ['./detail-material.component.css']
 })
-export class DetailFoodComponent implements OnInit, OnDestroy {
+export class DetailMaterialComponent implements OnInit, OnDestroy {
   id: number;
   sub: any;
-  @ViewChild(FoodPrimaryBlockComponent) block: FoodPrimaryBlockComponent;
+  @ViewChild(MaterialPrimaryBlockComponent) block: MaterialPrimaryBlockComponent;
   constructor(private route: ActivatedRoute,
               private apiService: APIService,
               private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.productService.setProductType('foods');
+    this.productService.setProductType('materials');
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       let url;
