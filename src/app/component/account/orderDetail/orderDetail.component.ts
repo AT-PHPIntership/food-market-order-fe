@@ -32,13 +32,11 @@ export class OrderDetailComponent {
     this.orderService.getItemByOrder(this.id).subscribe(data => {
       if (data.data.length !== 0) {
         this.order = data.data;
-        console.log(this.order);
         this.transAt =  this.order.trans_at.replace(' ', 'T');
       }
     });
   }
   changeQuantity(val, index) {
-    console.log(index);
     this.order.order_items[index].quantity = val;
   }
   removeItem(item) {

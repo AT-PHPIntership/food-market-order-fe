@@ -69,8 +69,6 @@ export class MainOrderComponent implements OnInit {
     this.translate.get('announce').subscribe((res: string) => {
       this.notify.title = res;
     });
-    console.log(data
-    )
     this.orderService.sendOrder(data).subscribe((a: any) => {
       this.translate.get('order_success', {
         orderId: a.data.order_id, totalPrice:  a.data.total_price
