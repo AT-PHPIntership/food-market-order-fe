@@ -35,8 +35,8 @@ import { ShoppingCartComponent } from './component/cart/index';
 import { CheckoutComponent } from './component/order/index';
 import { OrderService } from './service/order.service';
 import { OnFocusDirective } from './directive/focus-class.directive';
+import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 import { ProductService } from './service/product.service';
-
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -74,7 +74,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         CheckoutComponent,
         OnFocusDirective,
         DetailMaterialComponent,
-        MaterialPrimaryBlockComponent
+        MaterialPrimaryBlockComponent,
+        OrderDetailComponent
     ],
     imports: [
         routing,

@@ -15,8 +15,8 @@ import { DetailFoodComponent } from './component/detail-food/detail-food.compone
 import { HomeComponent } from './component/home/home.component';
 import { CartComponent } from './component/cart/cart.component';
 import { OrderComponent } from './component/order/order.component';
+import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
-
 
 const appRoutes: Routes = [
   { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
       breadcrumb: 'login'
     }
   },
+  {path: 'order/:id', component: OrderDetailComponent, data: {}, canActivate: [LoggedGuard]},
   { path: 'register', component: RegisterComponent, data: {
       breadcrumb: 'register'
     }

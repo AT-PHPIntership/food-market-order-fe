@@ -42,7 +42,6 @@ export class MainOrderComponent implements OnInit {
     this.notify = {
       title: '', message: ''
     };
-    console.log(tokenService.currentUser);
   }
   order(items) {
     let model, data;
@@ -64,7 +63,7 @@ export class MainOrderComponent implements OnInit {
       'address_ship': model.shipAddress.address !== '' ? model.shipAddress.address : model.personal.address,
       'trans_at': new Date().toISOString().slice(0, 10) + ' ' + model.personal.trans_at,
       'user_id': this.tokenService.currentUser.id,
-      'type': 'App\\Food',
+      'type': items[0].type,
       'items': items
     };
     this.translate.get('announce').subscribe((res: string) => {

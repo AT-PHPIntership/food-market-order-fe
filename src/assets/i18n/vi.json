@@ -163,6 +163,31 @@
   },
   "order_fail": "Đặt hàng thất bại!",
   "order": "Đặt hàng",
+  "confirm_delete": {
+    "title": "Bạn có chắc chắn",
+    "message": "Bạn muốn xóa nội dung này",
+    "text_confirm": "Vâng, xóa nó",
+    "text_cancel": "Không, hủy"
+  },
+  "confirm_update": {
+    "title": "Bạn có chắc chắn",
+    "message": "Bạn muốn cập nhật nội dung này",
+    "text_confirm": "Vâng, cập nhật nó",
+    "text_cancel": "Không, hủy"
+  },
+  "delete_success": {
+    "title": "Thông báo",
+    "message": "Bạn đã xóa thành công"
+  },
+  "update_success": {
+    "title": "Thông báo",
+    "message": "Bạn đã cập nhật thành công"
+  },
+  "trans_at": "Thời gian giao hàng",
+  "error_delete": {
+    "title": "Thông báo",
+    "message": "Xóa thật bại, vui lòng thử lại!"
+  },
   "in_stock": "Còn Hàng",
   "out_of_stock": "Hết Hàng"
 }

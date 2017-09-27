@@ -9,7 +9,6 @@ import swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { DropzoneConfig, DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
-import { Subject } from 'rxjs/Subject';
 
 @Component({
     selector: 'app-user',

@@ -48,14 +48,15 @@ export class CartService {
         this.cartMaterials.push(cartItem);
       }
     }
+    this.translate.reloadLang('vi');
     this.translate.get('success_add_cart').subscribe((res: string) => {
       this.notify = res;
     });
     this.translate.get('success_add_cart.message', {name: product.name}).subscribe((res: string) => {
       this.notify.message = res;
+      swal(this.notify.title, this.notify.message, 'success');
+      this.saveCartToLocalStorage();
     });
-    swal(this.notify.title, this.notify.message, 'success');
-    this.saveCartToLocalStorage();
   }
 
   saveCartToLocalStorage() {
