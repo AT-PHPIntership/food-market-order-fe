@@ -19,7 +19,9 @@ import { DailyMenuComponent } from './component/dailymenu/dailymenu.component';
 import { ProductsDailyMenuComponent } from './component/dailymenu/list-products/list-products.component';
 import { RangePipe } from './pipe/range.pipe';
 import { DetailFoodComponent } from './component/detail-food/detail-food.component';
-import { PrimaryBlockComponent } from './component/detail-food/primary-block/primary-block.component';
+import { FoodPrimaryBlockComponent } from './component/detail-food/food-primary-block/food-primary-block.component';
+import { MaterialPrimaryBlockComponent } from './component/detail-material/material-primary-block/material-primary-block.component';
+import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
 import { PaginationService } from './service/pagination.service';
 import { TemplateComponent } from './component/template/index';
 import { APIService } from './service/api.service';
@@ -33,6 +35,8 @@ import { ShoppingCartComponent } from './component/cart/index';
 import { CheckoutComponent } from './component/order/index';
 import { OrderService } from './service/order.service';
 import { OnFocusDirective } from './directive/focus-class.directive';
+import { ProductService } from './service/product.service';
+import { AboutComponent } from './component/about/about.component';
 
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -61,7 +65,7 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         RegisterComponent,
         RangePipe,
         DetailFoodComponent,
-        PrimaryBlockComponent,
+        FoodPrimaryBlockComponent,
         HomeComponent,
         TopTrendComponent,
         SlideShowComponent,
@@ -69,7 +73,10 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         HomeMaterialComponent,
         ShoppingCartComponent,
         CheckoutComponent,
-        OnFocusDirective
+        OnFocusDirective,
+        DetailMaterialComponent,
+        MaterialPrimaryBlockComponent,
+        AboutComponent
     ],
     imports: [
         routing,
@@ -82,7 +89,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         TokenService,
         APIService,
         PaginationService,
-        OrderService
+        OrderService,
+        ProductService
     ],
     bootstrap: [AppComponent]
 })

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../../service/api.service';
 import { environment } from '../../../environments/environment';
 import { ItemFoodComponent } from './item-food/item-food.component';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'app-listfood',
@@ -16,18 +17,20 @@ export class ListfoodComponent implements OnInit, OnDestroy {
   @ViewChild(ItemFoodComponent) productListComponent: ItemFoodComponent;
   constructor(private pagination: PaginationService,
               private route: ActivatedRoute,
-              private apiService: APIService) {
+              private apiService: APIService,
+              private productService: ProductService) {
     this.page = 0;
   }
 
   ngOnInit() {
+    this.productService.setProductType('foods');
     this.sub = this.route.queryParams.subscribe(params => {
       this.page = +params['page'];
       if (!this.page) {
         this.page = 1;
       }
       let url;
-      url = `${environment.hostname}/api/foods?page=${this.page}`;
+      url = `${environment.hostname}/api/${this.productService.getProductType()}?page=${this.page}`;
       this.apiService.apiGet(url).subscribe(data => {
         data.data.forEach(item => {
           let food;

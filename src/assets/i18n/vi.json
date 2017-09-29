@@ -162,5 +162,27 @@
     "message": "Dữ liệu chưa hợp lệ! Mời bạn kiểm tra lại!"
   },
   "order_fail": "Đặt hàng thất bại!",
-  "order": "Đặt hàng"
+  "order": "Đặt hàng",
+  "in_stock": "Còn Hàng",
+  "out_of_stock": "Hết Hàng",
+  "register-news": "Đăng ký để nhận tin mới",
+  "follow": "Theo dõi",
+  "about-footer": "Nhà hàng Leo Food thiết kế theo phong cách vừa truyền thống vừa mang nét hiện đại. Kiến trúc sang trọng kết hợp với khung cảnh thiên nhiên tạo cảm giác đặc biệt hơn cho du khách khi thưởng thức ẩm thực tại đây.",
+  "your-email": "Nhập địa chỉ email cảu bạn",
+  "contact": "Liên hệ",
+  "phone": "Di Động",
+  "my-phone": "0905123456",
+  "my-email": "foodteam@gmail.com",
+  "email": "Email",
+  "local": "Đà Nẵng",
+  "guide": "Hướng dẫn mua hàng",
+  "regulations": "Quy định sử dụng",
+  "policy": "Chính sách sử dụng",
+  "rules": "Điều khoản dịch vụ",
+  "search-product": "Tìm kiếm sản phẩm",
+  "about-store": "Giới thiệu cửa hàng",
+  "infor-contact": "Thông tin liên hệ",
+  "team": "PHP FOOD",
+  "content-about": "FoodMarket là dịch vụ trực tuyến để Đặt món và Giao tận nơi theo yêu cầu tại bất cứ hàng quán nào mà bạn mong muốn. FoodMarket rất phù hợp để gọi đồ ăn trưa, ăn nhẹ xế chiều, ăn tối. Thời gian giao hàng thường tối đa là 60 phút.Bạn có thể đặt hàng trực tiếp tại Website.",
+  "title-about": "Giới thiệu về Food Market"
 }
