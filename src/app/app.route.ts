@@ -16,7 +16,7 @@ import { HomeComponent } from './component/home/home.component';
 import { CartComponent } from './component/cart/cart.component';
 import { OrderComponent } from './component/order/order.component';
 import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
-import { AboutComponent } from './component/about/about.component'
+import { AboutComponent } from './component/about/about.component';
 
 
 const appRoutes: Routes = [
