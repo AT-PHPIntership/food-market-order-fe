@@ -38,6 +38,8 @@ import { OnFocusDirective } from './directive/focus-class.directive';
 import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 import { ProductService } from './service/product.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutComponent } from './component/about/about.component';
+import { SearchComponent } from './component/search/index';
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -76,7 +78,9 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         OnFocusDirective,
         DetailMaterialComponent,
         MaterialPrimaryBlockComponent,
-        OrderDetailComponent
+        OrderDetailComponent,
+        AboutComponent,
+        SearchComponent
     ],
     imports: [
         routing,

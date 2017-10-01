@@ -1,11 +1,8 @@
-<!-- start header -->
 <header id="header">
   <section class="header-container">
-    <!-- start top bar header -->
     <div id="topbar">
       <div class="banner">
         <div class="container">
-
         </div>
       </div>
       <div class="nav">
@@ -23,8 +20,6 @@
         </div>
       </div>
     </div>
-    <!--end top bar header  -->
-    <!-- start header main -->
     <div id="header-main">
       <div class="container">
         <div class="row">
@@ -36,15 +31,14 @@
             </h1>
           </div>
           <div class="header-right header-cart col-lg-9 col-md-9 col-sm-8 col-xs-4">
-            <!-- top menu -->
             <div id="apollo-menu">
               <nav id="cavas_menu" class="apollo-megamenu">
                 <div class="" role="navigation">
                   <div id="apollo-top-menu" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav megamenu">
                       <li class="active">
-                        <a class="" href="" title="{{ 'home' | translate }}" target="_self">
-                          <span class="">{{ 'home' | translate }}</span>
+                        <a [routerLink]="['/home']" title="{{ 'home' | translate }}">
+                          {{ 'home' | translate }}
                         </a>
                       </li>
                       <li class="parent dropdown ">
@@ -57,13 +51,13 @@
                             <div class="mega-col-inner">
                               <ul>
                                 <li class="">
-                                  <a class="" href="#" title="{{ 'material' | translate }}">
+                                  <a class="" [routerLink]="['/materials']" title="{{ 'material' | translate }}">
                                     <span class="">{{ 'material' | translate }}</span>
                                   </a>
                                 </li>
                                 <li class="">
-                                  <a class="" href="#" title="{{ 'order' | translate }}">
-                                    <span class="">{{ 'order' | translate }}</span>
+                                  <a class="" [routerLink]="['/foods']" title="{{ 'food' | translate }}">
+                                    <span class="">{{ 'food' | translate }}</span>
                                   </a>
                                 </li>
                               </ul>
@@ -72,22 +66,17 @@
                         </div>
                       </li>
                       <li class="">
-                        <a class="" href="" title="{{ 'material' | translate }}" target="_self">
+                        <a class="" [routerLink]="['/materials']" title="{{ 'material' | translate }}" target="_self">
                           <span class="">{{ 'material' | translate }}</span>
                         </a>
                       </li>
                       <li class="">
-                        <a class="" href="" title="{{ 'order' | translate }}" target="_self">
+                        <a class="" [routerLink]="['/daily-menu']" title="{{ 'daily-menu' | translate }}" target="_self">
                           <span class="">{{ 'order' | translate }}</span>
                         </a>
                       </li>
-                      <li class="">
-                        <a class="" href="" title="{{ 'news' | translate }}" target="_self">
-                          <span class="">{{ 'news' | translate }}</span>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a class="" href="" title="{{ 'about' | translate }}" target="_self">
+                      <li >
+                        <a  title="{{ 'about' | translate }}"  [routerLink]="['/about']">
                           <span class="">{{ 'about' | translate }}</span>
                         </a>
                       </li>
@@ -96,21 +85,20 @@
                 </div>
               </nav>
             </div>
-            <!-- end top menu -->
             <div class="inner no-padding col-lg-8 col-md-8 col-sm-8 hidden-xs">
               <div class="search_block_top clearfix">
                 <div class="nav-search visible">
-                  <form class="input-group searchbox search-box" action="" method="get" role="search">
+                  <form class="input-group searchbox search-box"  (ngSubmit)="search(key)" role="search">
                     <div class="filter_type category_filter input-group-addon group-addon-select icon-selec">
                       <select name="category_id" class="no-border">
                         <option value="0">{{ 'all_category' | translate }}</option>
                         <option value="">{{ 'material' | translate }}</option>
-                        <option value="">{{ 'order' | translate }}</option>
+                        <option value="">{{ 'daily-menu' | translate }}</option>
                       </select>
                     </div>
                     <div class="search-input-wrapper clearfix input-group">
                       <input class="search_query_top form-control input-lg input-search" size="35" type="search"
-                             name="query" value="" placeholder="{{ 'search' | translate }} ...">
+                             name="query" [(ngModel)]="key" placeholder="{{ 'search' | translate }} ...">
                       <span class="input-group-addon input-group-search">
                         <button class="search_button" type="submit">{{ 'search' | translate }}</button>
                       </span>
@@ -138,7 +126,5 @@
         </div>
       </div>
     </div>
-    <!-- end header main -->
   </section>
 </header>
-<!-- end header -->

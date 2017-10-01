@@ -17,10 +17,13 @@ import { CartComponent } from './component/cart/cart.component';
 import { OrderComponent } from './component/order/order.component';
 import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 import { DetailMaterialComponent } from './component/detail-material/detail-material.component';
+import { AboutComponent } from './component/about/about.component';
+import { MainSearchComponent } from './component/search/search.component';
 
 const appRoutes: Routes = [
   { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard]},
   { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'foods', component: ListfoodComponent },
   { path: 'materials', component: MaterialComponent },
   { path: 'categories', component: ListCategoryComponent, data: {
@@ -71,6 +74,14 @@ const appRoutes: Routes = [
     component: OrderComponent,
     data: { title: 'order'},
     canActivate: [LoggedGuard]
+  },
+  { path: 'about', component: AboutComponent, data: {
+    breadcrumb: 'about_page'
+    }
+  },
+  { path: 'search', component: MainSearchComponent, data: {
+    breadcrumb: 'search_page'
+  }
   },
   { path: '**', component: NotFoundComponent }
 ];

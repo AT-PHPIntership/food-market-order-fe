@@ -13,6 +13,7 @@ import { CartService } from '../../../service/cart.service';
 export class HeaderComponent implements OnInit {
   token: TokenService;
   notify: any;
+  key: string;
   cart: CartService;
   constructor(private router: Router,
               private tokenService: TokenService,
@@ -39,5 +40,8 @@ export class HeaderComponent implements OnInit {
   }
   addCart(product) {
     this.cartService.addItem(product);
+  }
+  search(key) {
+    this.router.navigate(['/search'], { queryParams: { key: key }});
   }
 }
