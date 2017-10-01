@@ -9,6 +9,7 @@ import swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { DropzoneConfig, DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
+import { PaginationService } from '../../service/pagination.service';
 
 @Component({
     selector: 'app-user',
@@ -23,6 +24,7 @@ export class UserProfileComponent implements OnInit {
     imageDragMessage: any;
     imageName: string = null;
     i: number;
+    ordersHistory: any;
     constructor(public tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
@@ -47,9 +49,11 @@ export class UserProfileComponent implements OnInit {
         }, {
             validator: this.MatchPassword
         });
-       this.translate.get('image_drag_message').subscribe((res: string) => {
+        this.translate.get('image_drag_message').subscribe((res: string) => {
            this.imageDragMessage = res;
         });
+        this.ordersHistory = {data: []};
+        this.loadOrdersHistory(1);
     }
 
     ngOnInit() {
@@ -141,9 +145,21 @@ export class UserProfileComponent implements OnInit {
     }
 
     onRemoveFile(event: any) {
-        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image?file_name=${this.imageName}`, 'GET')
-        .subscribe((data: any) => {});
+        const data = {
+            'file_name': this.imageName
+        };
+
+        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image`, 'DELETE', data)
+        .subscribe((res: any) => {});
         localStorage.removeItem('imageName');
         this.imageName = null;
+    }
+    pageChanged(event) {
+        this.loadOrdersHistory(event);
+    }
+    loadOrdersHistory(page) {
+      this.tokenService.requestWithToken(`${environment.hostname}/api/orders?page=${page}`, 'GET').subscribe((res: any) => {
+        this.ordersHistory = res;
+      });
     }
 }

@@ -81,7 +81,7 @@ export class TokenService {
      *   If option accept default equals true, the response must be an application/json type, otherwise
      * the response not must be a application/json.
      * @param url: string the url send request to
-     * @param method: string the method send request: GET, POST, PUT.
+     * @param method: string the method send request: GET, POST, PUT, DELETE.
      * @param data: any data to make request
      * @param content_type: boolean the type of request body is json or not.
      * @param accept: boolean the type of response must be json or not.
@@ -108,11 +108,12 @@ export class TokenService {
             }).map(res => res.json());
         } else if (method.toUpperCase() === 'DELETE') {
             return this.http.delete(url, {
-                headers: headers
+                headers: headers,
+                body: data
             }).map(res => res.json());
-        }else {
+        } else {
             return this.http.get(url, {
-              headers: headers
+                headers: headers
             }).map(res => res.json());
         }
     }
