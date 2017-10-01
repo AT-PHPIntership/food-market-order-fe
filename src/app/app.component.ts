@@ -3,8 +3,8 @@ import { ShareService } from './service/share.service';
 import { HeaderComponent } from './component/template/header/header.component';
 import { TranslateService } from '@ngx-translate/core';
 import { QuickviewComponent } from './component/category/quickview/quickview.component';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
-import {Title} from "@angular/platform-browser";
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',

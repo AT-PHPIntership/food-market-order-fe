@@ -3,7 +3,7 @@ import { PaginationService } from '../../../service/pagination.service';
 import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../../../service/api.service';
 import { environment } from '../../../../environments/environment';
-import {Title} from "@angular/platform-browser";
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-category-block',

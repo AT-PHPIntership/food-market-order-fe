@@ -21,19 +21,19 @@ import { AboutComponent } from './component/about/about.component';
 import { MainSearchComponent } from './component/search/search.component';
 
 const appRoutes: Routes = [
-  { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard],data: {
-      breadcrumb: 'categories',
-      title: 'register'
+  { path: 'account', component: UserProfileComponent, canActivate: [LoggedGuard], data: {
+      breadcrumb: 'account_page',
+      title: 'account_page'
     }
   },
   { path: 'home', component: HomeComponent, data: {
-      breadcrumb: 'categories',
-      title: 'register'
+      breadcrumb: '',
+      title: ''
     }
   },
   { path: '', component: HomeComponent, data: {
-      breadcrumb: 'categories',
-      title: 'register'
+      breadcrumb: '',
+      title: ''
     }
   },
   { path: 'foods', component: ListfoodComponent, data: {

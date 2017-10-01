@@ -12,6 +12,7 @@ import { MaterialProductOfCategoryComponent } from './material-productofcategory
 })
 export class ProductOfCategoryComponent implements OnInit, OnDestroy {
   page: number;
+  sort: any;
   category_id: number;
   sub: any;
   @ViewChild(FoodProductOfCategoryComponent) foodListComponent: FoodProductOfCategoryComponent;
@@ -20,6 +21,7 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private apiService: APIService) {
     this.page = 0;
+    this.sort = '';
   }
 
   ngOnInit() {
@@ -39,8 +41,12 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
       this.category_id = +params['id'];
       this.sub = this.route.queryParams.subscribe(paramOthers => {
         this.page = +paramOthers['page'];
+        this.sort = +paramOthers['sort'];
         if (!this.page) {
           this.page = 1;
+        }
+        if (!this.sort) {
+          this.sort = '';
         }
         let url;
         url = `${environment.hostname}/api/${type}?search=|category_id:${this.category_id}&page=${this.page}`;

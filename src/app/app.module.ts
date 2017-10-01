@@ -40,7 +40,8 @@ import { ProductService } from './service/product.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AboutComponent } from './component/about/about.component';
 import { SearchComponent } from './component/search/index';
-import {FacebookModule} from "ngx-facebook";
+import { FacebookModule } from 'ngx-facebook';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -97,7 +98,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         APIService,
         PaginationService,
         OrderService,
-        ProductService
+        ProductService,
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
     ],
     bootstrap: [AppComponent]
 })
