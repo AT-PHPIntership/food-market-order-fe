@@ -7,7 +7,7 @@
         <img width="75" height="75" alt="{{ product.name }}"
              src="{{ product.image }}">
       </a>
-      <a *ngIf="product.type === 'App\\Materials'" [routerLink]= "['/materials/detail',product.id]"
+      <a *ngIf="product.type === 'App\\Material'" [routerLink]= "['/materials/detail',product.id]"
          class="cart__image">
         <img width="75" height="75" alt="{{ product.name }}"
              src="{{ product.image }}">

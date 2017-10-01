@@ -14,11 +14,17 @@ export class ProductBlockComponent implements OnInit {
   @Input() class: any;
   type: string;
   constructor(private service: ShareService, private productService: ProductService) {
-    this.type = this.productService.getProductType();
+    // this.type = this.productService.getProductType();
+    setTimeout(() => {
+      this.type = this.product.type === 'App\\Food' ? 'foods' : 'materials';
+    }, 1000);
   }
   ngOnInit() {
   }
   addCart() {
     this.service.addCart(this.product);
+  }
+  openViewQuick() {
+    this.service.openQuickView(this.product);
   }
 }

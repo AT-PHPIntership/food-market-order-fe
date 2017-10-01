@@ -58,12 +58,6 @@
                         </div>
                         <div class="right">
                           <div class="action">
-                            <div class="quickview">
-                              <a class="btn-inverse btn" href="#quick-view-product"
-                                 title="{{ 'quick-view' | translate }}">
-                                <i class="fa fa-search-plus"></i>
-                              </a>
-                            </div>
                             <div class="view_detail">
                               <a class="btn btn-inverse lnk_view" *ngIf = "item.type === 'App\\Food'"
                                  [routerLink]="['/foods/detail',item.id]"
@@ -76,10 +70,10 @@
                                 <i class="fa fa-eye"></i>
                               </a>
                             </div>
-                            <div class="cart addtocart">
+                            <div class="cart addtocart" *ngIf="item.quantity !== undefined || item.quantity > 0 || (item.type === 'App\\Material' && item.status === 1) ">
                               <form method="post" enctype="multipart/form-data" class="form-ajaxtocart">
                                 <button class="btn btn-outline-inverse ajax_addtocart" type="button"
-                                        value="Submit" (click)="addCart()">
+                                        value="Submit" (click)="addCart(item)">
                                   <i class="fa fa-shopping-cart"></i>
                                   <span>{{ 'Buy' | translate }}</span>
                                 </button>

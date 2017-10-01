@@ -24,7 +24,12 @@ export class HomeDailymenuComponent implements OnInit {
       current_day = moment().format('Y-M-D');
       url = `${environment.hostname}/api/daily-menus/${current_day}`;
       this.apiService.apiGet(url).subscribe(data => {
-        this.data = data.data;
+        data.data.forEach(item => {
+          let food;
+          food = Object.assign({}, item);
+          food.type = 'App\\Food';
+          this.data.push(food);
+        });
       });
     });
   }

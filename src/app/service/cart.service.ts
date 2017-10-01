@@ -21,26 +21,29 @@ export class CartService {
     this.updateCart();
   }
 
-  addItem(product: any) {
+  addItem(data) {
+    let product;
+    product = data.item;
+    console.log(product);
     let existItem: any;
     this.cartFoods.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantityOrder++;
+        item.quantityOrder += data.quantity;
         return false;
       }
     });
     this.cartMaterials.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantityOrder++;
+        item.quantityOrder += data.quantity;
         return false;
       }
     });
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantityOrder = 1;
+      cartItem.quantityOrder = data.quantity;
       if (cartItem.type === 'App\\Food') {
         this.cartFoods.push(cartItem);
       }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-category-header',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-header.component.css']
 })
 export class CategoryHeaderComponent implements OnInit {
-
-  constructor() { }
+  sort: any;
+  constructor(public titleService: Title, private router: Router) {
+    this.sort = 'name';
+  }
 
   ngOnInit() {
   }
-
+  changeSort(value) {
+    this.sort = value;
+    this.router.navigate([] , { queryParams: { sort: this.sort } });
+  }
 }

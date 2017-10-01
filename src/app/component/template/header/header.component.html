@@ -90,10 +90,9 @@
                 <div class="nav-search visible">
                   <form class="input-group searchbox search-box"  (ngSubmit)="search(key)" role="search">
                     <div class="filter_type category_filter input-group-addon group-addon-select icon-selec">
-                      <select name="category_id" class="no-border">
-                        <option value="0">{{ 'all_category' | translate }}</option>
-                        <option value="">{{ 'material' | translate }}</option>
-                        <option value="">{{ 'daily-menu' | translate }}</option>
+                      <select name="category_id" class="no-border" [(ngModel)]="productService.productType" (change)="search(key)">
+                        <option value="materials" class="text-capitalize">{{ 'materials' | translate }}</option>
+                        <option value="foods" class="text-capitalize">{{ 'daily-menu' | translate }}</option>
                       </select>
                     </div>
                     <div class="search-input-wrapper clearfix input-group">

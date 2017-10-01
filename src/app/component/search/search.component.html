@@ -1,6 +1,8 @@
 <div class="row">
   <div id="center_column" class="center_column col-md-12">
     <div id="search-page">
+      <h2 *ngIf="productService.getProductType() === 'materials'">{{ 'search_by_materials' |translate }}</h2>
+      <h2 *ngIf="productService.getProductType() === 'foods'">{{ 'search_by_foods' |translate }}</h2>
       <app-product-list-search></app-product-list-search>
       <div class="text-center">
         <app-pagination></app-pagination>

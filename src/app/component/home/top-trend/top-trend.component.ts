@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../../service/api.service';
 import { environment } from '../../../../environments/environment';
+import {ShareService} from '../../../service/share.service';
 
 @Component({
   selector: 'app-top-trend',
@@ -10,7 +11,8 @@ import { environment } from '../../../../environments/environment';
 export class TopTrendComponent implements OnInit {
   data: any;
   sub: any;
-  constructor(private apiService: APIService) {
+  constructor(private apiService: APIService,
+              private shareService: ShareService) {
     this.data = [];
   }
 
@@ -32,5 +34,7 @@ export class TopTrendComponent implements OnInit {
       });
     });
   }
-
+  addCart(item) {
+    this.shareService.addCart(item);
+  }
 }

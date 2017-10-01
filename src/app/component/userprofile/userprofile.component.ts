@@ -37,18 +37,18 @@ export class UserProfileComponent implements OnInit {
                 'Accept': 'application/json',
                 'Authorization': this.tokenService.getTokenType() + ' ' + this.tokenService.getAccessToken()
         };
-        this.updateForm = this.formBuilder.group({
-            full_name: new FormControl(this.tokenService.currentUser.full_name, [Validators.required]),
-            email: new FormControl(this.tokenService.currentUser.email, []),
-            birthday: new FormControl(this.tokenService.currentUser.birthday, [Validators.required]),
-            address: new FormControl(this.tokenService.currentUser.address, [Validators.required]),
-            phone_number: new FormControl(this.tokenService.currentUser.phone_number, []),
-            gender: new FormControl(this.tokenService.currentUser.gender.toString(), []),
-            password: new FormControl('', []),
-            password_confirmation: new FormControl('', [])
-        }, {
-            validator: this.MatchPassword
-        });
+      this.updateForm = this.formBuilder.group({
+        full_name: new FormControl('', [Validators.required]),
+        email: new FormControl('', []),
+        birthday: new FormControl('', [Validators.required]),
+        address: new FormControl('', [Validators.required]),
+        phone_number: new FormControl('', []),
+        gender: new FormControl('', []),
+        password: new FormControl('', []),
+        password_confirmation: new FormControl('', [])
+      }, {
+        validator: this.MatchPassword
+      });
         this.translate.get('image_drag_message').subscribe((res: string) => {
            this.imageDragMessage = res;
         });
@@ -69,6 +69,9 @@ export class UserProfileComponent implements OnInit {
                 this.emit('complete', mockFile);
             }
         };
+      setTimeout(() =>  {
+          this.reset();
+      }, 1000);
     }
 
     /** Registered system */
@@ -82,7 +85,7 @@ export class UserProfileComponent implements OnInit {
             'password': model.password,
             'password_confirmation': model.password_confirmation,
             'image': this.imageName
-    };
+        };
 
         this.tokenService.requestWithToken(`${environment.hostname}/api/users/me`, 'PUT', this.data).subscribe((resJson: any) => {
             this.responseData = resJson;
@@ -107,7 +110,6 @@ export class UserProfileComponent implements OnInit {
             localStorage.removeItem('imageName');
         }
         this.tokenService.getInfo();
-        this.reset();
     }
 
     reset() {

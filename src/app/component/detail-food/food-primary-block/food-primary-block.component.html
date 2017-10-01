@@ -32,13 +32,13 @@
             <label for="quantity" class="quantity-selector">{{ 'quantity' | translate }}</label>
             <div class="pull-left">
               <div class="custom pull-left">
-                <input type="number" id="Quantity" name="quantity" value="1" min="1"
+                <input type="number" id="Quantity" [(ngModel)]="quantity" min="1" [ngModelOptions]="{standalone: true}"
                        class="form-group col-xs-5">
               </div>
             </div>
           </div>
           <div class="border-box clear-fix">
-            <button class="btn btn-outline btn-cart ajax_addtocart" >
+            <button class="btn btn-outline btn-cart ajax_addtocart" (click)="addCart()" >
               <span><i class="icon-basket"></i> {{ 'add-cart' | translate }}</span></button>
           </div>
         </form>
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a class="btn social-sharing btn-facebook">
+            <a class="btn social-sharing btn-facebook" data-type="facebook" (click)="share()">
               <i class="fa fa-facebook"></i> {{ 'facebook' | translate }}
             </a>
           </li>
@@ -78,6 +78,7 @@
         {{ item.description }}
       </section>
       <section id="tabComment" class="tab-pane page-product-box">
+        <fb-comments numposts="10"></fb-comments>
       </section>
     </div>
   </div>

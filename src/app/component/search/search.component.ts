@@ -4,6 +4,7 @@ import { ProductListSearchComponent } from './product-list-search/product-list-s
 import { PaginationService } from '../../service/pagination.service';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
+import {ProductService} from '../../service/product.service';
 
 @Component({
   selector: 'app-search',
@@ -15,39 +16,48 @@ export class MainSearchComponent implements OnInit {
   key: string;
   page: number;
   sub: any;
+  type: any;
   @ViewChild(ProductListSearchComponent) productListSearch: ProductListSearchComponent;
   constructor(private route: ActivatedRoute,
               private pagination: PaginationService,
               private http: Http,
-              private router: Router) { }
+              private router: Router, public productService: ProductService) {
+  }
 
   ngOnInit() {
-      this.sub = this.route.queryParams.subscribe(querParams => {
-          this.page = querParams['page'] || 1;
-          this.getListResult(this.key, this.page);
-      });
-      this.sub = this.route.params.subscribe(params => {
-          this.key = params['id'] || '';
-          this.getListResult(this.key, this.page);
+      this.route.params.subscribe(params => {
+          this.type = params['type'] || 'foods';
+          this.sub = this.route.queryParams.subscribe(querParams => {
+            this.page = querParams['page'] || 1;
+            this.key = querParams['key'] || '';
+            this.getListResult(this.key, this.page);
+        });
       });
   }
 
   getListResult(key: string, page: number) {
-      if (this.key === '') {
-          this.http.get(environment.hostname + '/item/all?page=' + (this.page - 1)
-              + '&size=12').map(res => res.json()).subscribe((data: any) => {
-              this.productListSearch.listResult = data.content;
-              this.pagination.init(data);
-          }, (err: any) => {
-          });
-      }else {
-          this.http.get(environment.hostname + '/item/search?key=' + this.key + '&page=' + (this.page - 1) + '&size=12')
-              .map(res => res.json()).subscribe((data: any) => {
-              console.log(data);
-              this.productListSearch.listResult = data.content;
-              this.pagination.init(data);
-          }, (err: any) => {
-          });
-      }
+      let url;
+      url = `${environment.hostname}/api/${this.type}?search=${key}&page=${page}&size=12`;
+      this.http.get(url).map(res => res.json()).subscribe((data: any) => {
+          this.productListSearch.listResult = [];
+          if (this.type === 'foods') {
+            data.data.forEach(item => {
+              let food;
+              food = Object.assign({}, item);
+              food.type = 'App\\Food';
+              this.productListSearch.listResult.push(food);
+            });
+          }
+          if (this.type === 'materials') {
+            data.data.forEach(item => {
+              let material;
+              material = Object.assign({}, item);
+              material.type = 'App\\Material';
+              this.productListSearch.listResult.push(material);
+            });
+          }
+          this.pagination.init(data);
+      }, (err: any) => {
+      });
   }
 }

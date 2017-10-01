@@ -104,6 +104,10 @@
   "payment": "Thanh toán",
   "Buy": "Mua ngay",
   "quick-view": "Xem nhanh",
+  "success_update": {
+    "title": "Thông báo",
+    "message": "Cập nhật thành công!"
+  },
   "error_update": {
     "title": "Thông báo",
     "message": "Cập nhật thật bại, vui lòng thử lại!"
@@ -126,8 +130,8 @@
   "slider-messge1": "Tươi sạch, vệ sinh, đảm bảo an toàn thực phẩm",
   "slider-messge2": "Thức ăn ngon, Vận chuyển nhanh chóng!",
   "view": "Xem",
-  "daily-menu": "THỰC ĐƠN HẰNG NGÀY",
-  "materials": "NGUYÊN LIỆU",
+  "daily-menu": "Thực đơn hằng ngày",
+  "materials": "Nguyên liệu",
   "success_add_cart": {
     "title": "Thông báo",
     "message": "Đã thêm {{name}} vào giỏ hàng!"
@@ -211,5 +215,16 @@
   "content-about": "FoodMarket là dịch vụ trực tuyến để Đặt món và Giao tận nơi theo yêu cầu tại bất cứ hàng quán nào mà bạn mong muốn. FoodMarket rất phù hợp để gọi đồ ăn trưa, ăn nhẹ xế chiều, ăn tối. Thời gian giao hàng thường tối đa là 60 phút.Bạn có thể đặt hàng trực tiếp tại Website.",
   "title-about": "Giới thiệu về Food Market",
   "about_page": "Trang giới thiệu",
-  "search_page": "Trang tìm kiếm"
+  "search_page": "Trang tìm kiếm",
+  "search_by_materials": "Tìm kiếm theo nguyên liệu",
+  "search_by_foods": "Tìm kiếm theo thức ăn",
+  "male": "Nam",
+  "female": "Nữ",
+  "product_related": "Sản phẩm liên quan",
+  "detail-page": "Trang chi tiết sản phẩm",
+  "categories_food": "Danh mục thức ăn",
+  "categories_material": "Danh mục nguyên liệu",
+  "order": "Đơn hàng",
+  "order_material": "Đặt hàng nguyên liệu",
+  "order_food": "Đặt hàng thức ăn"
 }

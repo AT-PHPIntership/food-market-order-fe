@@ -40,6 +40,7 @@ import { ProductService } from './service/product.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AboutComponent } from './component/about/about.component';
 import { SearchComponent } from './component/search/index';
+import {FacebookModule} from "ngx-facebook";
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -88,6 +89,7 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         BrowserModule,
         SharedModule.forRoot(),
         DropzoneModule.forRoot(DROPZONE_CONFIG),
+        FacebookModule.forRoot(),
         NgxPaginationModule
     ],
     providers: [

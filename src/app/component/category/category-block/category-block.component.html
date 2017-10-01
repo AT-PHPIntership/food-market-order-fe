@@ -5,28 +5,28 @@
       	<li>
 	      	<a routerLink="/daily-menu" routerLinkActive="active" title="BST">
 		        {{ "daily-menu" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ dailymenu_total }}</span>
+		        <span class="leo-qty pull-right">{{ dailymenu_total }}</span>
 	      	</a>
       	</li>
       	<li>
 	      	<a routerLink="/foods" routerLinkActive="active" title="BST">
 		        {{ "food" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ food_total }}</span>
+		        <span class="leo-qty pull-right">{{ food_total }}</span>
 	      	</a>
       	</li>
       	<li>
 	      	<a routerLink="/materials" routerLinkActive="active" title="BST">
 		        {{ "material" | translate }}
-		        <span id="leo-cat-939408" class="leo-qty pull-right">{{ material_total }}</span>
+		        <span class="leo-qty pull-right">{{ material_total }}</span>
 	      	</a>
       	</li>
       	<li data-toggle="collapse" data-target="#foods" class="collapsed">
           	<a>
           		{{ "category" | translate }}
-          		<span id="leo-cat-939408" class="leo-qty pull-right">{{ category_total }}</span>
+          		<span class="leo-qty pull-right">{{ category_total }}</span>
           	</a>
           	<ul class="sub-menu collapse" id="foods">
-          		<li *ngFor="let item of categories">
+          		<li class="{{item.id === categoryId ? 'active' : ''}}" *ngFor="let item of categories">
           			<a [routerLink]="['/category', item.id]">{{ item.name }}</a>
           		</li>
 	            <li>
