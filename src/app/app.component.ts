@@ -52,7 +52,11 @@ export class AppComponent implements OnInit {
       .mergeMap((route) => route.data)
       .subscribe((event) => {
         if (event.hasOwnProperty('title')) {
-          this.titleService.setTitle(this.translate.instant(event['title']));
+          // this.translate.reloadLang('vi');
+          this.translate.get(event['title']).subscribe((res: string) => {
+            this.titleService.setTitle(res);
+          });
+          // this.titleService.setTitle(this.translate.instant(event['title']));
         }
       });
   }
