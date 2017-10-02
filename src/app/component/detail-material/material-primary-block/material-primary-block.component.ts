@@ -29,7 +29,7 @@ export class MaterialPrimaryBlockComponent {
   share() {
     let params: UIParams;
     params = {
-      href: 'http://foodmarket.ddns.net/',
+      href: location.href,
       method: 'share'
     };
     this.fb.ui(params)
