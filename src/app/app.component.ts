@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { QuickviewComponent } from './component/category/quickview/quickview.component';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import {FacebookService, InitParams} from "ngx-facebook";
 
 @Component({
   selector: 'app-root',
@@ -20,8 +21,14 @@ export class AppComponent implements OnInit {
               private translate: TranslateService,
               private _router: Router,
               private titleService: Title,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private fb: FacebookService) {
     translate.setDefaultLang('vi');
+    const initParams: InitParams = {
+      appId      : '129604284344795',
+      version    : 'v2.10'
+    };
+    fb.init(initParams);
   }
   ngOnInit() {
     this._router.events.subscribe((event: NavigationEnd) => {

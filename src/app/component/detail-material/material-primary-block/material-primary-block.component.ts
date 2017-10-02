@@ -15,13 +15,13 @@ export class MaterialPrimaryBlockComponent {
               private fb: FacebookService) {
     this.item = null;
     this.quantity =  1;
-    const initParams: InitParams = {
-      appId      : '129604284344795',
-      xfbml      : true,
-      version    : 'v2.10'
-    };
-
-    fb.init(initParams);
+    // const initParams: InitParams = {
+    //   appId      : '129604284344795',
+    //   xfbml      : true,
+    //   version    : 'v2.10'
+    // };
+    //
+    // fb.init(initParams);
   }
   addCart() {
     this.shareService.addCart(this.item, this.quantity);
