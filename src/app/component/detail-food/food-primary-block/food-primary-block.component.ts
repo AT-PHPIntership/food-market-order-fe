@@ -16,7 +16,7 @@ export class FoodPrimaryBlockComponent {
     this.item = null;
     this.quantity = 1;
     const initParams: InitParams = {
-      appId      : '129604284344795',
+      appId      : '291664234652788',
       xfbml      : true,
       version    : 'v2.10'
     };

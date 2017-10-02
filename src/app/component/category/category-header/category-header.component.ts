@@ -17,6 +17,6 @@ export class CategoryHeaderComponent implements OnInit {
   }
   changeSort(value) {
     this.sort = value;
-    this.router.navigate([] , { queryParams: { sort: this.sort } });
+    this.router.navigate([] , { queryParams: { sort: this.sort }, queryParamsHandling: 'merge' });
   }
 }

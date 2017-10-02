@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-product.component.css']
 })
 export class FilterProductComponent implements OnInit {
-
+  price: any;
   constructor() { }
 
   ngOnInit() {
   }
-
+  changeSortPrice(price) {
+    this.price = price;
+  }
 }

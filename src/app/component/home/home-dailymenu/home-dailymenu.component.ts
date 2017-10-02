@@ -25,10 +25,10 @@ export class HomeDailymenuComponent implements OnInit {
       url = `${environment.hostname}/api/daily-menus/${current_day}`;
       this.apiService.apiGet(url).subscribe(data => {
         data.data.forEach(item => {
-          let food;
-          food = Object.assign({}, item);
-          food.type = 'App\\Food';
-          this.data.push(food);
+          let dailyMenu;
+          dailyMenu = Object.assign({}, item);
+          dailyMenu.food.type = 'App\\Food';
+          this.data.push(dailyMenu);
         });
       });
     });

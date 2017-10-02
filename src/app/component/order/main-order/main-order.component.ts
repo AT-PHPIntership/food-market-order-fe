@@ -76,7 +76,12 @@ export class MainOrderComponent implements OnInit {
         this.notify.message = res;
       });
       swal(this.notify.title, this.notify.message, 'success');
-      this.cartService.removeCart();
+      if (items[0].type === 'App\\Food') {
+        this.cartService.removeCartFood();
+      }
+      if (items[0].type === 'App\\Material') {
+        this.cartService.removeCartMaterial();
+      }
       this.router.navigate(['/home']);
     }, (err: any) => {
       this.translate.get('order_fail').subscribe((res: string) => {

@@ -9,18 +9,18 @@
         <li class="advanced-filter"
             data-group="Giá" data-handle="duoi-30-000d">
           <input class="chkval" type="checkbox"
-                 name="Giá" value="duoi-30-000d"><a href="/collections/all/duoi-30-000d"
+                 name="Giá" value="duoi-30-000d"><a [routerLink]="" [queryParams]="{ price: '<~30000' }" queryParamsHandling="merge"
                                                     title="duoi-30-000d">Dưới 30.000đ</a></li>
         <li class="advanced-filter"
             data-group="Giá" data-handle="30-000d-100-000d">
           <input class="chkval" type="checkbox"
-                 name="Giá" value="30-000d-100-000d"><a href="/collections/all/30-000d-100-000d"
+                 name="Giá" value="30-000d-100-000d"><a [routerLink]="" [queryParams]="{ price: '>~30000-price:<~100000' }" queryParamsHandling="merge"
                                                         title="30-000d-100-000d">30.000đ -
           100.000đ</a></li>
         <li class="advanced-filter"
             data-group="Giá" data-handle="tren-100-000d">
-          <input class="chkval" type="checkbox"
-                 name="Giá" value="tren-100-000d"><a href="/collections/all/tren-100-000d"
+          <input class="chkval" type="checkbox"`
+                 name="Giá" value="tren-100-000d"><a [routerLink]="" [queryParams]="{ price: '>~100000' }" queryParamsHandling="merge"
                                                      title="tren-100-000d">Trên 100.000đ</a></li>
       </ul>
     </div>

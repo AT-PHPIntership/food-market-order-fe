@@ -3,7 +3,8 @@ import { ShareService } from '../../../service/share.service';
 
 @Component({
   selector: 'app-dailymenu-block',
-  templateUrl: './dailymenu-block.component.html'
+  templateUrl: './dailymenu-block.component.html',
+  styleUrls: ['../product-block/product-block.component.css']
 })
 export class DailyMenuBlockComponent implements OnInit {
   @Input() product: any;

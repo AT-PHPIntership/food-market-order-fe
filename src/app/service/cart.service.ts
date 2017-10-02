@@ -24,7 +24,6 @@ export class CartService {
   addItem(data) {
     let product;
     product = data.item;
-    console.log(product);
     let existItem: any;
     this.cartFoods.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
@@ -98,8 +97,11 @@ export class CartService {
     this.saveCartToLocalStorage();
   }
 
-  removeCart() {
+  removeCartFood() {
     this.cartFoods = [];
+    this.saveCartToLocalStorage();
+  }
+  removeCartMaterial() {
     this.cartMaterials = [];
     this.saveCartToLocalStorage();
   }
