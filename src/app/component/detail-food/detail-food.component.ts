@@ -4,7 +4,6 @@ import { APIService } from '../../service/api.service';
 import { environment } from '../../../environments/environment';
 import { FoodPrimaryBlockComponent } from './food-primary-block/food-primary-block.component';
 import { ProductService } from '../../service/product.service';
-import {ShareService} from "../../service/share.service";
 
 @Component({
   selector: 'app-detail-food',

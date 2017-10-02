@@ -5,7 +5,6 @@ import { APIService } from '../../../service/api.service';
 import { environment } from '../../../../environments/environment';
 import { FoodProductOfCategoryComponent } from './food-productofcategory/food-productofcategory.component';
 import { MaterialProductOfCategoryComponent } from './material-productofcategory/material-productofcategory.component';
-import {isUndefined} from "util";
 
 @Component({
   selector: 'app-productofcategory',
