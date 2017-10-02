@@ -16,7 +16,7 @@ export class MaterialPrimaryBlockComponent {
     this.item = null;
     this.quantity =  1;
     const initParams: InitParams = {
-      appId      : '291664234652788',
+      appId      : '129604284344795',
       xfbml      : true,
       version    : 'v2.10'
     };
