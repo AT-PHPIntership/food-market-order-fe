@@ -1,0 +1,7 @@
+.owl-row {
+    display: flow-root;
+    overflow: visible;
+}
+.block_content {
+    overflow: auto;
+}

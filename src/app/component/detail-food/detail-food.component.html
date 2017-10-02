@@ -3,6 +3,21 @@
     <div id="center_column" class="center_column col-sm-12 col-md-12">
       <div>
         <app-food-primary-block></app-food-primary-block>
+        <div class="product_related">
+          <div id="productrelated01" class="products_block exclusive block">
+            <h4 class="title_block">
+              <span>{{ 'product_related' | translate }}</span>
+            </h4>
+            <div class="block_content">
+              <div class="owl-row">
+                <app-product-block [index]="i" size="4" [class]="'col-md-3 col-sm-3 col-xs-6 col-sp-12'"
+                                   *ngFor="let item of itemsRelated; let i = index"
+                                   [product]="item">
+                </app-product-block>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

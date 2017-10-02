@@ -4,6 +4,7 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CartService } from '../../../service/cart.service';
+import {ProductService} from '../../../service/product.service';
 
 @Component({
   selector: 'app-header',
@@ -13,15 +14,20 @@ import { CartService } from '../../../service/cart.service';
 export class HeaderComponent implements OnInit {
   token: TokenService;
   notify: any;
+  key: string;
+  typeSearch: string;
   cart: CartService;
   constructor(private router: Router,
               private tokenService: TokenService,
               private translate: TranslateService,
-              private cartService: CartService) {
+              private cartService: CartService,
+              public productService: ProductService) {
     this.token = this.tokenService;
     this.cart = cartService;
+    this.typeSearch = '';
   }
   ngOnInit() {
+    this.typeSearch = this.productService.getProductType();
   }
   login(data) {
     this.tokenService.setToken(data);
@@ -37,7 +43,10 @@ export class HeaderComponent implements OnInit {
     });
     swal(this.notify.title, this.notify.message, 'success');
   }
-  addCart(product) {
-    this.cartService.addItem(product);
+  addCart(data) {
+    this.cartService.addItem(data);
+  }
+  search(key) {
+    this.router.navigate(['/search', this.productService.productType], { queryParams: { key: key }});
   }
 }

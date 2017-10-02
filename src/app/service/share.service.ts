@@ -6,12 +6,18 @@ import { Http } from '@angular/http';
 export class ShareService {
   public login = new Subject<any>();
   public cart = new Subject<any>();
+  public viewQuick = new Subject<any>();
   constructor(private http: Http) {
   }
   loginToken(data) {
     this.login.next(data);
   }
-  addCart(data) {
+  addCart(item: any, quantity = 1 ) {
+    let data;
+    data = {item: item, quantity: quantity};
     this.cart.next(data);
+  }
+  openQuickView(data) {
+    this.viewQuick.next(data);
   }
 }

@@ -4,7 +4,7 @@
       <img src="http://bizweb.dktcdn.net/100/038/419/themes/49902/assets/list_collection_default.png?1495677182625"
            alt="Tất cả sản phẩm" class="img-responsive">
     </div>
-    <h1 class="page-heading product-listing">{{ 'product' | translate }}</h1>
+    <h1 class="page-heading product-listing">{{ titleService.getTitle() }}</h1>
   </div>
 </div>
 <div class="category-heading clearfix">
@@ -13,15 +13,14 @@
       <!-- /snippets/collection-sorting.liquid -->
       <div class="form-horizontal">
         <label for="SortBy" class="hidden-xs">{{ 'filter' | translate }}</label>
-        <select name="SortBy" id="SortBy">
-          <option value="manual">{{ 'manual' | translate }}</option>
+        <select name="SortBy" id="SortBy" [ngModel] = "sort" (change)="changeSort($event.target.value)">
           <option value="best-selling">{{ 'best-selling' | translate }}</option>
-          <option value="alpha-asc">{{ 'alpha-asc' | translate }}</option>
-          <option value="alpha-desc">{{ 'alpha-desc' | translate }}</option>
-          <option value="price-asc">{{ 'price-asc' | translate }}</option>
-          <option value="price-desc">{{ 'price-desc' | translate }}</option>
-          <option value="created-desc">{{ 'created-desc' | translate }}</option>
-          <option value="created-asc">{{ 'created-asc' | translate }}</option>
+          <option value="name:asc">{{ 'alpha-asc' | translate }}</option>
+          <option value="name:desc">{{ 'alpha-desc' | translate }}</option>
+          <option value="price:asc">{{ 'price-asc' | translate }}</option>
+          <option value="price:desc">{{ 'price-desc' | translate }}</option>
+          <option value="created_at:desc">{{ 'created-desc' | translate }}</option>
+          <option value="created_at:asc">{{ 'created-asc' | translate }}</option>
         </select>
       </div>
     </div>

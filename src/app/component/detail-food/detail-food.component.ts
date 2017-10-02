@@ -13,10 +13,12 @@ import { ProductService } from '../../service/product.service';
 export class DetailFoodComponent implements OnInit, OnDestroy {
   id: number;
   sub: any;
+  itemsRelated: any;
   @ViewChild(FoodPrimaryBlockComponent) block: FoodPrimaryBlockComponent;
   constructor(private route: ActivatedRoute,
               private apiService: APIService,
               private productService: ProductService) {
+    this.itemsRelated = [];
   }
 
   ngOnInit() {
@@ -26,7 +28,14 @@ export class DetailFoodComponent implements OnInit, OnDestroy {
       let url;
       url = `${environment.hostname}/api/${this.productService.getProductType()}/${this.id}`;
       this.apiService.apiGet(url).subscribe(data => {
-        this.block.item = data;
+        let food;
+        food = Object.assign({}, data);
+        food.type = 'App\\Food';
+        this.block.item = food;
+        url = `${environment.hostname}/api/${this.productService.getProductType()}?search=|category_id:${food.category_id}&page=1`;
+        this.apiService.apiGet(url).subscribe(data2 => {
+          this.itemsRelated = data2.data;
+        });
       });
     });
   }

@@ -1,0 +1,120 @@
+<div class="container" *ngIf="order.id !== undefined">
+  <div class="row">
+    <div id="center_column" class="center_column col-md-12">
+      <div id="cart-page">
+        <form method="post" novalidate="" class="cart">
+          <h1 class="page-header">{{ 'order' |translate }}</h1>
+          <div class="page-content">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="address">{{ 'address' | translate }}: </label>
+                <input [(ngModel)]="order.address" [ngModelOptions]="{standalone: true}" id="address" type="text" value=""/>
+              </div>
+              <div class="col-md-6">
+                <label for="trans-at">{{ 'trans_at' | translate }}: </label>
+                <input id="trans-at" type="datetime-local" [(ngModel)]="transAt" [ngModelOptions]="{standalone: true}"
+								/>
+              </div>
+            </div>
+            <div class="cart_header_labels clearfix">
+              <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cart_product first_item">
+                  {{ 'image' | translate }}
+                </div>
+              </div>
+              <div class="label_item col-xs-12 col-sm-3 col-md-3">
+                <div class="cart_description item">
+                  {{ 'name' | translate }}
+                </div>
+              </div>
+              <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cart_price item">
+                  {{ 'price' | translate }}
+                </div>
+              </div>
+              <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cart_quantity item">
+                  {{ 'quantity' | translate }}
+                </div>
+              </div>
+              <div class="label_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cart_total item">
+                  {{ 'total' | translate }}
+                </div>
+              </div>
+              <div class="label_item col-xs-12 col-sm-1 col-md-1">
+                <div class="cart_delete last_item">
+                  {{ 'delete' | translate }}
+                </div>
+              </div>
+            </div>
+            <div  *ngFor="let product of order.order_items; let index = index" class="list_product_cart clearfix" data-id="3203311">
+              <div class="cpro_item col-xs-12 col-sm-2 col-md-2 cart-img-column">
+                <div class="cpro_item_inner">
+                  <a [routerLink]= "product.type === 'App\\Material' ? ['/material/detail',product.id] : ['/food/detail',product.id]"
+                     class="cart__image">
+                    <img width="75" height="75" alt=""
+                         alt="{{ product.itemtable.name }}"
+                         src="{{ product.itemtable.image }}"
+                    >
+                  </a>
+                </div>
+              </div>
+              <div class="cpro_item col-xs-12 col-sm-3 col-md-3">
+                <div class="cpro_item_inner">
+                  <span class="visible-xs">{{ 'name' | translate }}: </span>
+                  <a [routerLink]= "product.type === 'App\\Material' ? ['/material/detail',product.id] : ['/food/detail',product.id]" class="product_name">
+                    {{ product.itemtable.name }}
+                  </a>
+                </div>
+              </div>
+              <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cpro_item_inner">
+                  <span class="visible-xs">{{ 'price' |translate }}: </span>
+                  <span class="price product-price">{{ (product.itemtable.price).toLocaleString('vi') }}₫</span>
+                </div>
+              </div>
+              <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
+                <div class="cpro_item_inner">
+                  <span class="visible-xs">{{ 'quantity'| translate }}: </span>
+                  <input class="input-text qty" [ngModel]="product.quantity" [ngModelOptions]="{standalone: true}" (change)="changeQuantity($event.target.value, index)" type="number" name="Lines"
+                         min="0" data-id="3203311">
+                </div>
+              </div>
+              <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
+                <div class="cpro_item_inner">
+                  <span class="visible-xs">{{ 'total'| translate }}: </span>
+                  <span class="price product-price">{{(product.itemtable.price * product.quantity).toLocaleString('vi') }} ₫</span>
+                </div>
+              </div>
+              <div class="cpro_item col-xs-12 col-sm-1 col-md-1">
+                <div class="cpro_item_inner">
+                  <a (click)="removeItem(product)"  class="cart__remove" data-id="3203311">
+                    <small>Xóa</small>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="list_button_cart clearfix">
+              <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                <p>
+                  <span class="cart__subtotal-title">{{ 'total' | translate }}</span>
+                  <span class="h3 cart__subtotal">{{ getTotal().toLocaleString('vi') }} ₫</span>
+                </p>
+                <a class="btn con-ajax-cart btn-inverse" (click)="back()"
+                   title="{{ 'continue_order' | translate }}">{{ 'continue_order' | translate }}</a>
+                <input *ngIf="order.status == 1" (click)="updateOrder()" type="submit" name="update" class="btn btn-outline update-cart"
+                       value="Cập nhật đơn hàng">
+                <input *ngIf="order.status == 1" (click)="removeOrder()" type="submit" name="update" class="btn btn-outline update-cart"
+                       value="Hủy đơn hàng">
+              </div>
+            </div>
+          </div>
+        </form>
+        <p class="cart_navigation clearfix">
+          <a class="btn btn-inverse" (click)="back()" title="Trở về">Trở về</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

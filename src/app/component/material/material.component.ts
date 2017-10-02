@@ -13,6 +13,8 @@ import { ProductService } from '../../service/product.service';
 })
 export class MaterialComponent implements OnInit, OnDestroy {
   page: number;
+  sort: any;
+  price: any;
   sub: any;
   @ViewChild(ItemMaterialComponent) productListComponent: ItemMaterialComponent;
   constructor(private pagination: PaginationService,
@@ -20,6 +22,8 @@ export class MaterialComponent implements OnInit, OnDestroy {
               private apiService: APIService,
               private productService: ProductService) {
     this.page = 0;
+    this.sort = '';
+    this.price = '';
   }
 
   ngOnInit() {
@@ -29,9 +33,21 @@ export class MaterialComponent implements OnInit, OnDestroy {
       if (!this.page) {
         this.page = 1;
       }
-      let url;
-      url = `${environment.hostname}/api/${this.productService.getProductType()}?page=${this.page}`;
+      this.sort = params['sort'];
+      if (this.sort === undefined) {
+        this.sort = '';
+      }
+      this.price = params['price'];
+      if (this.price === undefined) {
+        this.price = '';
+      }
+      let url, price;
+      let orderBy;
+      orderBy = this.sort !== '' ? `&orderBy=${this.sort}` : '';
+      price = this.price !== '' ? `search=|price:${this.price}&` : '';
+      url = `${environment.hostname}/api/${this.productService.getProductType()}?${price}page=${this.page}${orderBy}`;
       this.apiService.apiGet(url).subscribe(res => {
+        this.productListComponent.data = [];
         res.data.forEach(item => {
           let material;
           material = Object.assign({}, item);

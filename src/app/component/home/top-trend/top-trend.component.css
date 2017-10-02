@@ -8,3 +8,13 @@
 #adv_team_4_columns_carousel {
     overflow: auto;
 }
+.clear_left {
+    clear: left;
+}
+.btn-inverse:hover {
+    background-color: #f8694d;
+}
+.btn-outline-inverse:hover {
+    color: white;
+}
+

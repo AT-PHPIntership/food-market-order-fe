@@ -12,6 +12,8 @@ import { MaterialProductOfCategoryComponent } from './material-productofcategory
 })
 export class ProductOfCategoryComponent implements OnInit, OnDestroy {
   page: number;
+  sort: any;
+  price: any;
   category_id: number;
   sub: any;
   @ViewChild(FoodProductOfCategoryComponent) foodListComponent: FoodProductOfCategoryComponent;
@@ -20,6 +22,8 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private apiService: APIService) {
     this.page = 0;
+    this.sort = '';
+    this.price = '';
   }
 
   ngOnInit() {
@@ -39,11 +43,23 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
       this.category_id = +params['id'];
       this.sub = this.route.queryParams.subscribe(paramOthers => {
         this.page = +paramOthers['page'];
+        this.sort = paramOthers['sort'];
         if (!this.page) {
           this.page = 1;
         }
-        let url;
-        url = `${environment.hostname}/api/categories/${this.category_id}/${type}?page=${this.page}`;
+        if (this.sort === undefined) {
+          this.sort = '';
+        }
+        this.price = paramOthers['price'];
+        if (this.price === undefined) {
+          this.price = '';
+        }
+        let url, category_id, price;
+        let orderBy;
+        orderBy = this.sort !== '' ? `&orderBy=${this.sort}` : '';
+        category_id = this.category_id !== undefined ? `category_id:${this.category_id}` : '';
+        price = this.price !== '' ? `-price:${this.price}` : '';
+        url = `${environment.hostname}/api/${type}?search=|${category_id}${price}&page=${this.page}${orderBy}`;
         this.apiService.apiGet(url).subscribe(data => {
           if (type === 'foods') {
             this.foodListComponent.data = data.data;

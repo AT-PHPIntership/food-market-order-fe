@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { DropzoneConfig, DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
-import { Subject } from 'rxjs/Subject';
+import { PaginationService } from '../../service/pagination.service';
 
 @Component({
     selector: 'app-user',
@@ -24,6 +24,7 @@ export class UserProfileComponent implements OnInit {
     imageDragMessage: any;
     imageName: string = null;
     i: number;
+    ordersHistory: any;
     constructor(public tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
@@ -36,21 +37,23 @@ export class UserProfileComponent implements OnInit {
                 'Accept': 'application/json',
                 'Authorization': this.tokenService.getTokenType() + ' ' + this.tokenService.getAccessToken()
         };
-        this.updateForm = this.formBuilder.group({
-            full_name: new FormControl(this.tokenService.currentUser.full_name, [Validators.required]),
-            email: new FormControl(this.tokenService.currentUser.email, []),
-            birthday: new FormControl(this.tokenService.currentUser.birthday, [Validators.required]),
-            address: new FormControl(this.tokenService.currentUser.address, [Validators.required]),
-            phone_number: new FormControl(this.tokenService.currentUser.phone_number, []),
-            gender: new FormControl(this.tokenService.currentUser.gender.toString(), []),
-            password: new FormControl('', []),
-            password_confirmation: new FormControl('', [])
-        }, {
-            validator: this.MatchPassword
-        });
-       this.translate.get('image_drag_message').subscribe((res: string) => {
+      this.updateForm = this.formBuilder.group({
+        full_name: new FormControl('', [Validators.required]),
+        email: new FormControl('', []),
+        birthday: new FormControl('', [Validators.required]),
+        address: new FormControl('', [Validators.required]),
+        phone_number: new FormControl('', []),
+        gender: new FormControl('', []),
+        password: new FormControl('', []),
+        password_confirmation: new FormControl('', [])
+      }, {
+        validator: this.MatchPassword
+      });
+        this.translate.get('image_drag_message').subscribe((res: string) => {
            this.imageDragMessage = res;
         });
+        this.ordersHistory = {data: []};
+        this.loadOrdersHistory(1);
     }
 
     ngOnInit() {
@@ -66,6 +69,9 @@ export class UserProfileComponent implements OnInit {
                 this.emit('complete', mockFile);
             }
         };
+      setTimeout(() =>  {
+          this.reset();
+      }, 1000);
     }
 
     /** Registered system */
@@ -79,7 +85,7 @@ export class UserProfileComponent implements OnInit {
             'password': model.password,
             'password_confirmation': model.password_confirmation,
             'image': this.imageName
-    };
+        };
 
         this.tokenService.requestWithToken(`${environment.hostname}/api/users/me`, 'PUT', this.data).subscribe((resJson: any) => {
             this.responseData = resJson;
@@ -104,7 +110,6 @@ export class UserProfileComponent implements OnInit {
             localStorage.removeItem('imageName');
         }
         this.tokenService.getInfo();
-        this.reset();
     }
 
     reset() {
@@ -142,9 +147,21 @@ export class UserProfileComponent implements OnInit {
     }
 
     onRemoveFile(event: any) {
-        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image?file_name=${this.imageName}`, 'GET')
-        .subscribe((data: any) => {});
+        const data = {
+            'file_name': this.imageName
+        };
+
+        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image`, 'DELETE', data)
+        .subscribe((res: any) => {});
         localStorage.removeItem('imageName');
         this.imageName = null;
+    }
+    pageChanged(event) {
+        this.loadOrdersHistory(event);
+    }
+    loadOrdersHistory(page) {
+      this.tokenService.requestWithToken(`${environment.hostname}/api/orders?page=${page}`, 'GET').subscribe((res: any) => {
+        this.ordersHistory = res;
+      });
     }
 }

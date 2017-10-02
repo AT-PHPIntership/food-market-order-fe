@@ -35,8 +35,13 @@ import { ShoppingCartComponent } from './component/cart/index';
 import { CheckoutComponent } from './component/order/index';
 import { OrderService } from './service/order.service';
 import { OnFocusDirective } from './directive/focus-class.directive';
+import { OrderDetailComponent } from './component/account/orderDetail/orderDetail.component';
 import { ProductService } from './service/product.service';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutComponent } from './component/about/about.component';
+import { SearchComponent } from './component/search/index';
+import { FacebookModule } from 'ngx-facebook';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
     method: 'POST',
@@ -74,7 +79,10 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         CheckoutComponent,
         OnFocusDirective,
         DetailMaterialComponent,
-        MaterialPrimaryBlockComponent
+        MaterialPrimaryBlockComponent,
+        OrderDetailComponent,
+        AboutComponent,
+        SearchComponent
     ],
     imports: [
         routing,
@@ -82,13 +90,16 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         BrowserModule,
         SharedModule.forRoot(),
         DropzoneModule.forRoot(DROPZONE_CONFIG),
+        FacebookModule.forRoot(),
+        NgxPaginationModule
     ],
     providers: [
         TokenService,
         APIService,
         PaginationService,
         OrderService,
-        ProductService
+        ProductService,
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
     ],
     bootstrap: [AppComponent]
 })

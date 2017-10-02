@@ -8,6 +8,7 @@ import { Http } from '@angular/http';
 export class ProductService {
     public productType: any;
     constructor(private http: Http, private translate: TranslateService) {
+        this.productType = 'foods';
     }
 
     getProductType() {

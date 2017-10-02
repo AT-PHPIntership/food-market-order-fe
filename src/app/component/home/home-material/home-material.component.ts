@@ -22,9 +22,13 @@ export class HomeMaterialComponent implements OnInit {
       let url;
       url = `${environment.hostname}/api/materials?OrderBy=created_at:desc`;
       this.apiService.apiGet(url).subscribe(data => {
-        this.data = data.data;
+        data.data.forEach(item => {
+          let material;
+          material = Object.assign({}, item);
+          material.type = 'App\\Material';
+          this.data.push(material);
+        });
       });
     });
   }
-
 }

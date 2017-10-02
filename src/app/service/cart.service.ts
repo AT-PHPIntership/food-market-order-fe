@@ -21,26 +21,28 @@ export class CartService {
     this.updateCart();
   }
 
-  addItem(product: any) {
+  addItem(data) {
+    let product;
+    product = data.item;
     let existItem: any;
     this.cartFoods.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantityOrder++;
+        item.quantityOrder += data.quantity;
         return false;
       }
     });
     this.cartMaterials.forEach(function (item) {
       if (item.id === product.id && item.type === product.type) {
         existItem = item;
-        item.quantityOrder++;
+        item.quantityOrder += data.quantity;
         return false;
       }
     });
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantityOrder = 1;
+      cartItem.quantityOrder = data.quantity;
       if (cartItem.type === 'App\\Food') {
         this.cartFoods.push(cartItem);
       }
@@ -48,14 +50,15 @@ export class CartService {
         this.cartMaterials.push(cartItem);
       }
     }
+    this.translate.reloadLang('vi');
     this.translate.get('success_add_cart').subscribe((res: string) => {
       this.notify = res;
     });
     this.translate.get('success_add_cart.message', {name: product.name}).subscribe((res: string) => {
       this.notify.message = res;
+      swal(this.notify.title, this.notify.message, 'success');
+      this.saveCartToLocalStorage();
     });
-    swal(this.notify.title, this.notify.message, 'success');
-    this.saveCartToLocalStorage();
   }
 
   saveCartToLocalStorage() {
@@ -94,8 +97,11 @@ export class CartService {
     this.saveCartToLocalStorage();
   }
 
-  removeCart() {
+  removeCartFood() {
     this.cartFoods = [];
+    this.saveCartToLocalStorage();
+  }
+  removeCartMaterial() {
     this.cartMaterials = [];
     this.saveCartToLocalStorage();
   }

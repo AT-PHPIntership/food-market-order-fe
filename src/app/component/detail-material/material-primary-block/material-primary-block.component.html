@@ -33,7 +33,7 @@
     </div>
     <div class="product-right-column float-right col-xs-12 col-sm-12 col-md-7">
       <div>
-        <form action="" method="post" enctype="multipart/form-data" id="add-to-cart-form">
+        <form (ngSubmit)="addCart()" enctype="multipart/form-data" id="add-to-cart-form">
           <div class="product_price_content">
             <span id="ProductPrice" class="price on-sale">
               {{ item.price.toLocaleString('vi') }} ₫
@@ -43,7 +43,7 @@
             <label for="quantity" class="quantity-selector">{{ 'quantity' | translate }}</label>
             <div class="pull-left">
               <div class="custom pull-left">
-                <input type="number" id="Quantity" name="quantity" value="1" min="1"
+                <input type="number" id="Quantity" name="quantity" [(ngModel)]="quantity" min="1"
                        class="form-group col-xs-5">
               </div>
             </div>
@@ -62,7 +62,7 @@
             </a>
           </li>
           <li>
-            <a class="btn social-sharing btn-facebook">
+            <a class="btn social-sharing btn-facebook" data-type="facebook" (click)="share()">
               <i class="fa fa-facebook"></i> {{ 'facebook' | translate }}
             </a>
           </li>
@@ -89,6 +89,7 @@
         {{ item.description }}
       </section>
       <section id="tabComment" class="tab-pane page-product-box">
+        <fb-comments numposts="5" width="100%"></fb-comments>
       </section>
     </div>
   </div>
