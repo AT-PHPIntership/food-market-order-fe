@@ -11,6 +11,7 @@ import { ProductsDailyMenuComponent } from './list-products/list-products.compon
 })
 export class DailyMenuComponent implements OnInit, OnDestroy {
   page: number;
+  sort: any;
   sub: any;
   @ViewChild(ProductsDailyMenuComponent) listProductsComponent: ProductsDailyMenuComponent;
   constructor(private pagination: PaginationService,
@@ -25,6 +26,10 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
         if (!this.page) {
             this.page = 1;
         }
+        this.sort = params['sort'];
+        if (this.sort === undefined) {
+          this.sort = '';
+        }
         let today, dd, mm, yyyy, current_date;
         today = new Date();
         dd = today.getDate().toString();
@@ -32,8 +37,9 @@ export class DailyMenuComponent implements OnInit, OnDestroy {
         yyyy = today.getFullYear().toString();
         current_date = yyyy + '-' + mm + '-' + dd;
         let url;
-        url = `${environment.hostname}/api/daily-menus/${current_date}?page=${this.page}`;
+        url = `${environment.hostname}/api/daily-menus/${current_date}?page=${this.page}&orderBy=${this.sort}`;
         this.apiService.apiGet(url).subscribe(data => {
+          this.listProductsComponent.data = [];
           data.data.forEach(item => {
             let daliyItem;
             daliyItem = Object.assign({}, item);

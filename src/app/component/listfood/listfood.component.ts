@@ -13,6 +13,7 @@ import { ProductService } from '../../service/product.service';
 })
 export class ListfoodComponent implements OnInit, OnDestroy {
   page: number;
+  sort: any;
   sub: any;
   @ViewChild(ItemFoodComponent) productListComponent: ItemFoodComponent;
   constructor(private pagination: PaginationService,
@@ -20,6 +21,7 @@ export class ListfoodComponent implements OnInit, OnDestroy {
               private apiService: APIService,
               private productService: ProductService) {
     this.page = 0;
+    this.sort = '';
   }
 
   ngOnInit() {
@@ -29,9 +31,14 @@ export class ListfoodComponent implements OnInit, OnDestroy {
       if (!this.page) {
         this.page = 1;
       }
+      this.sort = params['sort'];
+      if (this.sort === undefined) {
+        this.sort = '';
+      }
       let url;
-      url = `${environment.hostname}/api/${this.productService.getProductType()}?page=${this.page}`;
+      url = `${environment.hostname}/api/${this.productService.getProductType()}?page=${this.page}&orderBy=${this.sort}`;
       this.apiService.apiGet(url).subscribe(data => {
+        this.productListComponent.data = [];
         data.data.forEach(item => {
           let food;
           food = Object.assign({}, item);

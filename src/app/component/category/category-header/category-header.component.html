@@ -14,14 +14,13 @@
       <div class="form-horizontal">
         <label for="SortBy" class="hidden-xs">{{ 'filter' | translate }}</label>
         <select name="SortBy" id="SortBy" [ngModel] = "sort" (change)="changeSort($event.target.value)">
-          <option value="manual">{{ 'manual' | translate }}</option>
           <option value="best-selling">{{ 'best-selling' | translate }}</option>
-          <option value="name">{{ 'alpha-asc' | translate }}</option>
-          <option value="-name">{{ 'alpha-desc' | translate }}</option>
-          <option value="price">{{ 'price-asc' | translate }}</option>
-          <option value="-price">{{ 'price-desc' | translate }}</option>
-          <option value="-created_at">{{ 'created-desc' | translate }}</option>
-          <option value="created_at">{{ 'created-asc' | translate }}</option>
+          <option value="name:asc">{{ 'alpha-asc' | translate }}</option>
+          <option value="name:desc">{{ 'alpha-desc' | translate }}</option>
+          <option value="price:asc">{{ 'price-asc' | translate }}</option>
+          <option value="price:desc">{{ 'price-desc' | translate }}</option>
+          <option value="created_at:desc">{{ 'created-desc' | translate }}</option>
+          <option value="created_at:asc">{{ 'created-asc' | translate }}</option>
         </select>
       </div>
     </div>

@@ -41,15 +41,15 @@ export class ProductOfCategoryComponent implements OnInit, OnDestroy {
       this.category_id = +params['id'];
       this.sub = this.route.queryParams.subscribe(paramOthers => {
         this.page = +paramOthers['page'];
-        this.sort = +paramOthers['sort'];
+        this.sort = paramOthers['sort'];
         if (!this.page) {
           this.page = 1;
         }
-        if (!this.sort) {
+        if (this.sort === undefined) {
           this.sort = '';
         }
         let url;
-        url = `${environment.hostname}/api/${type}?search=|category_id:${this.category_id}&page=${this.page}`;
+        url = `${environment.hostname}/api/${type}?search=|category_id:${this.category_id}&page=${this.page}&orderBy=${this.sort}`;
         this.apiService.apiGet(url).subscribe(data => {
           if (type === 'foods') {
             this.foodListComponent.data = data.data;
