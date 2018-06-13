@@ -24,6 +24,7 @@ export class UserProfileComponent implements OnInit {
     imageDragMessage: any;
     imageName: string = null;
     i: number;
+    ordersHistory: any;
     constructor(public tokenService: TokenService,
                 private formBuilder: FormBuilder,
                 private http: Http,
@@ -48,8 +49,11 @@ export class UserProfileComponent implements OnInit {
         }, {
             validator: this.MatchPassword
         });
-       this.translate.get('image_drag_message').subscribe((res: string) => {
+        this.translate.get('image_drag_message').subscribe((res: string) => {
            this.imageDragMessage = res;
+        });
+        this.tokenService.requestWithToken(`${environment.hostname}/api/orders`, 'GET').subscribe((res: any) => {
+            this.ordersHistory = res.data;
         });
     }
 
@@ -142,8 +146,12 @@ export class UserProfileComponent implements OnInit {
     }
 
     onRemoveFile(event: any) {
-        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image?file_name=${this.imageName}`, 'GET')
-        .subscribe((data: any) => {});
+        const data = {
+            'file_name': this.imageName
+        };
+
+        this.tokenService.requestWithToken(`${environment.hostname}/api/users/remove-image`, 'DELETE', data)
+        .subscribe((res: any) => {});
         localStorage.removeItem('imageName');
         this.imageName = null;
     }
