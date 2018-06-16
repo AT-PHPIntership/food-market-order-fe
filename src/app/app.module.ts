@@ -36,6 +36,7 @@ import { CheckoutComponent } from './component/order/index';
 import { OrderService } from './service/order.service';
 import { OnFocusDirective } from './directive/focus-class.directive';
 import { ProductService } from './service/product.service';
+import { AboutComponent } from './component/about/about.component';
 
 
 const DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -74,7 +75,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
         CheckoutComponent,
         OnFocusDirective,
         DetailMaterialComponent,
-        MaterialPrimaryBlockComponent
+        MaterialPrimaryBlockComponent,
+        AboutComponent
     ],
     imports: [
         routing,

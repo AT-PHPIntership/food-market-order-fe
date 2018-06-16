@@ -1,0 +1,18 @@
+.static-headers {
+    font-size: 22px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    padding-bottom: 20px;
+}
+.text-form {
+    clear: both;
+    margin-top: 10px;
+    position: relative;
+    text-shadow: 0 1px 1px #fff;
+    white-space: normal;
+    border: 1px solid #eee;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #fff;
+}
